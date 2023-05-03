@@ -16,7 +16,7 @@
     display: block;
 }
 
-.index_page button {
+.index_page a {
     width: 100%;
     max-width: 200px;
     margin: 0 auto;
