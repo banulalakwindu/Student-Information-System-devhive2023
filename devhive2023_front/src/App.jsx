@@ -1,10 +1,10 @@
 import React from 'react'
-import Navbar from './components/Navbar'
+import Index from './pages/Index'
 
 const App = () => {
   return (
-    <div>
-      <Navbar />
+    <div className='vh-100 overflow-hidden'>
+      <Index />
     </div>
   )
 }
