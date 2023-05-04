@@ -2,7 +2,7 @@ import React from 'react'
 
 const Index = () => {
     return (
-        <div className='index_page vh-100 has-bg-img overflow-hidden d-flex flex-column mt-5'>
+        <div className='index_page vh-100 has-bg-img overflow-hidden d-flex flex-column pt-5'>
             <img className='bg-img' src="/home.jpg" />
             <img className='logo mt-5 pt-5' src="/Logo-Color.png" />
             <h1 className='mt-4 mx-auto text-white text-center'>Welcome to the Student Management System</h1>
