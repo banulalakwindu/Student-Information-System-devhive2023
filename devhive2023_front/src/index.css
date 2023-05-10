@@ -1,3 +1,9 @@
+:root {
+    --bg-color: #002541be;
+}
+
+/* Index Page */
+
 .index_page .bg-img {
     width: 100%;
     height: 100%;
@@ -19,6 +25,21 @@
 .index_page a {
     width: 100%;
     max-width: 200px;
+    margin: 0 auto;
+    display: block;
+    margin-top: 20px;
+}
+
+/* Login Page */
+
+.login-inner {
+    width: 400px;
+    background-color: var(--bg-color);
+}
+
+.login-inner img {
+    width: 100%;
+    max-width: 100px;
     margin: 0 auto;
     display: block;
     margin-top: 20px;
