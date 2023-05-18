@@ -1,13 +1,11 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
 
 const Index = () => {
     return (
         <div>
-            <Navbar />
             <div className='index_page vh-100 has-bg-img overflow-hidden d-flex flex-column pt-5'>
                 <img className='bg-img' src="/home.jpg" />
-                <img className='logo mt-5 pt-5' src="/Logo-Color.png" />
+                <img className='logo mt-5 pt-5' src="/SMS_Logo.png" />
                 <h1 className='mt-4 mx-auto text-white text-center'>Welcome to the Student Management System</h1>
                 <h2 className='mx-auto text-white text-center d-flex flex-column flex-md-row mb-5'><div>Faculty of Engineering</div><span className='d-none d-md-flex mx-2'>|</span><div> University of Jaffna</div></h2>
                 <h3 className='mx-auto text-white mt-4 text-center'>Click here to Login</h3>

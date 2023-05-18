@@ -12,51 +12,32 @@ a {
 }
 
 :root {
-    --bg-color: #1D5A6F;
+    --bg-color: #009687;
 }
 
-/* navbarMy */
-.navbarMy {
+.bg-green {
     background-color: var(--bg-color);
-    height: 60px;
 }
 
-.navbarMy .logo,
-.navbarMy .profile-img {
-    width: 100%;
-    height: 100%;
-    max-width: 40px;
-    max-height: 40px;
-    margin: 0 auto;
-    display: block;
-}
-
-.navbarMy .profile-img {
-    max-width: 33px !important;
-    max-height: 33px !important;
-}
-
-
-.navbarMy .logo-set p {
-    font: 0.9em sans-serif;
-}
-
-.nav-user h5 {
-    font: 1em sans-serif;
-}
-
-.nav-user h6 {
-    font: 0.8em sans-serif;
-}
-
-.topic-set a {
-    transition: all 0.5s ease-in-out;
-}
-
-.topic-set a:hover {
-    background-color: #ffffff;
+.text-green {
     color: var(--bg-color);
 }
+
+/* Navbar */
+nav .selected {
+    background-color: var(--bg-color) !important;
+    color: #fff !important;
+}
+
+nav .bg-white {
+    border-radius: 0 0 20px 20px;
+
+}
+
+.nav-center-div {
+    cursor: pointer;
+}
+
 
 /* Index Page */
 .index_page .bg-img {
@@ -98,4 +79,17 @@ a {
     margin: 0 auto;
     display: block;
     margin-top: 20px;
+}
+
+/* Home Page */
+.img-swiper {
+    width: 50vw;
+    height: 400px;
+}
+
+.img-swiper img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
 }

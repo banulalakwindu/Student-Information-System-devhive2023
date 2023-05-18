@@ -7,7 +7,7 @@ const Login = () => {
 
             <div className="login-inner m-auto rounded d-flex flex-column text-white text-center">
                 <div>
-                    <img src="/Logo-Color.png" />
+                    <img src="/SMS_Logo.png" />
                     <h4 className='mt-3 mb-1'>Student Management System</h4>
                     <p>Faculty of Engineering - University of Jaffna</p>
                 </div>
