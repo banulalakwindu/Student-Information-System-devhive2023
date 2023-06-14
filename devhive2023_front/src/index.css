@@ -93,3 +93,15 @@ nav .bg-white {
     object-fit: cover;
     object-position: center;
 }
+
+/* Semester Page */
+.SemesterBox {
+    height: 200px;
+    width: 200px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.SemesterBox:hover {
+    transform: scale(1.05);
+}

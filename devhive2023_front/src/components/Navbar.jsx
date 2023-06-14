@@ -4,11 +4,12 @@ import { faChevronDown, faBell } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
-    const [selectedItem, setSelectedItem] = useState('Home');
+    const path = console.log(window.location.pathname);
+    // const [selectedItem, setSelectedItem] = useState('Home');
 
-    const handleItemClick = (item) => {
-        setSelectedItem(item);
-    };
+    // const handleItemClick = (item) => {
+    //     setSelectedItem(item);
+    // };
 
     return (
         <div>
@@ -24,7 +25,12 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="nav-center d-flex my-auto text-green">
-                        <NavLink
+                        <CustomLink exact to="/home" label="Home" />
+                        <CustomLink exact to="/semesters" label="Semesters" />
+                        <CustomLink exact to="/courses" label="Courses" />
+                        <CustomLink exact to="/results" label="Results" />
+                        <CustomLink exact to="/medical" label="Medical" />
+                        {/* <NavLink
                             exact
                             to="/home"
                             className={`nav-center-div p-2 rounded ${selectedItem === 'Home' ? 'selected' : ''}`}
@@ -59,7 +65,7 @@ const Navbar = () => {
                             onClick={() => handleItemClick('Medical')}
                         >
                             <h6 className="my-0 mx-3">Medical</h6>
-                        </NavLink>
+                        </NavLink> */}
                     </div>
                     <div className="nav-right d-flex">
                         <FontAwesomeIcon className='my-auto me-4' size="xl" icon={faBell} style={{ color: "#009687", }} />
@@ -81,6 +87,19 @@ const Navbar = () => {
             </nav>
         </div>
     )
+}
+
+function CustomLink({ label, to, exact }) {
+    return (
+        <NavLink
+            exact={exact}
+            to={to}
+            activeClassName="selected" // Add the 'selected' class when active
+            className="nav-center-div p-2 rounded"
+        >
+            <h6 className="my-0 mx-3">{label}</h6>
+        </NavLink>
+    );
 }
 
 export default Navbar
