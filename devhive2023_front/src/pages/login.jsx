@@ -17,7 +17,7 @@ const Login = () => {
                     <div className="form-group px-4 py-4">
                         <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                         <input type="password" className="form-control mt-4" id="exampleInputPassword1" placeholder="Password" />
-                        <input type="submit" className="btn btn-primary mt-4" value="Login" />
+                        <input type="submit" formAction='/home' className="btn btn-primary mt-4" value="Login" />
                     </div>
                 </form>
             </div>

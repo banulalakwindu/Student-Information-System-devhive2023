@@ -78,9 +78,9 @@ const home = () => {
                     </div>
                 </div>
                 <div className='mb-5 d-flex'>
-                    <button type="button" class="btn btn-success btn-lg ms-auto">More News
+                    <a href='/notification' type="button" class="btn btn-green btn-lg ms-auto">More News
                         <FontAwesomeIcon className='ms-2' icon={faArrowRight} />
-                    </button>
+                    </a>
                 </div>
             </div>
         </div >

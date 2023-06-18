@@ -68,7 +68,7 @@ const Navbar = () => {
                         </NavLink> */}
                     </div>
                     <div className="nav-right d-flex">
-                        <FontAwesomeIcon className='my-auto me-4' size="xl" icon={faBell} style={{ color: "#009687", }} />
+                        <a className='my-auto me-4' href="/notification"><FontAwesomeIcon size="xl" icon={faBell} style={{ color: "#009687", }} /></a>
                         <div className='d-flex' type="button" data-bs-toggle="dropdown">
                             <div className="dp-div my-auto">
                                 <img src="/profile.jpg" className='rounded' width={35} height={35} alt="" />

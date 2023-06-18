@@ -13,6 +13,8 @@ a {
 
 :root {
     --bg-color: #009687;
+    --bg-light: #d8f5f2;
+    --disabled-color: #9ca4ac;
 }
 
 .bg-green {
@@ -21,6 +23,38 @@ a {
 
 .text-green {
     color: var(--bg-color);
+}
+
+.bg-disabled {
+    background-color: var(--disabled-color);
+    cursor: not-allowed;
+}
+
+.zoom {
+    transition: all 0.3s ease-in-out;
+}
+
+.zoom:hover {
+    transform: scale(1.05);
+}
+
+.btn-green {
+    background-color: var(--bg-color);
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-green:hover {
+    background-color: #007563;
+    color: #fff;
+}
+
+.bg-lightgreen {
+    background-color: var(--bg-light);
 }
 
 /* Navbar */
@@ -94,14 +128,35 @@ nav .bg-white {
     object-position: center;
 }
 
-/* Semester Page */
-.SemesterBox {
+.drop-container {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 200px;
-    width: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px dashed #555;
+    color: #444;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
 }
 
-.SemesterBox:hover {
-    transform: scale(1.05);
+.drop-container:hover {
+    background: #eee;
+    border-color: #111;
+}
+
+.drop-container:hover .drop-title {
+    color: #222;
+}
+
+.drop-title {
+    color: #444;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition: color .2s ease-in-out;
 }

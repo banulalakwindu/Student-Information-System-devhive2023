@@ -1,8 +1,8 @@
 import React from 'react'
 
-const RegColumn = ({ code }) => {
+const RegRow = ({ code }) => {
     return (
-        <tr>
+        <tr className='table-test'>
             <td>{code}</td>
             <td>Software Engineering</td>
             <td>3</td>
@@ -11,8 +11,8 @@ const RegColumn = ({ code }) => {
             <td><a data-bs-toggle="modal" data-bs-target="#exampleModal">
                 View
             </a></td>
-            <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" /></td>
-            <td><div className="bg-success rounded-circle m-auto" style={{ width: '10px', height: '10px' }}></div></td>
+            <td><input class="form-check-input mt-2" type="checkbox" value="" id="flexCheckDefault" /></td>
+            <td><div className="bg-green rounded-circle mx-auto mt-2" style={{ width: '10px', height: '10px' }}></div></td>
 
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -56,4 +56,4 @@ const RegColumn = ({ code }) => {
     )
 }
 
-export default RegColumn
+export default RegRow
