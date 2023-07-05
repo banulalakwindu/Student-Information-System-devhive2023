@@ -13,7 +13,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <nav className="navbarMy bg-green pt-4 pb-2 px-4">
+            <nav className="navbarMy fixed-top bg-green pt-4 pb-2 px-4 shadow rounded-bottom border-bottom">
                 <div className='bg-white d-flex justify-content-between p-2'>
                     <div className="nav-left d-flex">
                         <div className="nav-left-logo">

@@ -26,11 +26,14 @@ a {
 }
 
 .bg-disabled {
-    background-color: var(--disabled-color);
+    background-color: #d9d9d9;
+    color: #fff;
+    border: var(--disabled-color) solid 1px;
     cursor: not-allowed;
 }
 
 .zoom {
+    cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
 
@@ -55,6 +58,22 @@ a {
 
 .bg-lightgreen {
     background-color: var(--bg-light);
+}
+
+.btn-light-cus {
+    background-color: var(--bg-light);
+    color: var(--bg-color);
+    border: var(--bg-color) solid 1px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-light-cus:hover {
+    background-color: var(--bg-color);
+    color: #fff;
+    border: #fff solid 1px;
 }
 
 /* Navbar */

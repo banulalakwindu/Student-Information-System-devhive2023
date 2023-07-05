@@ -10,6 +10,7 @@ import Viewresults from './utils/viewresults'
 import Profile from './pages/profile'
 import Notification from './pages/notification'
 import Medical from './pages/medical'
+import Courses from './pages/courses'
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path='/profile' element={<Profile />}></Route>
         <Route path='/notification' element={<Notification />}></Route>
         <Route path='/medical' element={<Medical />}></Route>
+        <Route path='/courses' element={<Courses />}></Route>
       </Routes>
     </BrowserRouter>
   )
