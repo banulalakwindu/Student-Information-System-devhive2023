@@ -6,7 +6,7 @@ const courses = () => {
     return (
         <div>
             <Navbar />
-            <div className="py-5 semester-body text-center container">
+            <div className="py-5 semester-body text-center container mb-5">
                 <h2 className='text-green pt-5 mt-5'>Semesters</h2>
                 <h5 className='text-secondary'>Select the Semester for Registration</h5>
                 <div className="semester-inner-div d-flex flex-column mt-4">

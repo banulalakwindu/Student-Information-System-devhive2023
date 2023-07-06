@@ -31,7 +31,6 @@ const home = () => {
                             <SwiperSlide>
                                 <img src="https://www.eng.jfn.ac.lk/wp-content/uploads/2017/01/DSC_0873.jpg" alt="" />
                             </SwiperSlide>
-
                         </Swiper>
                     </div>
                     <div className="vision-mission w-100 d-flex flex-column align-items-start">
