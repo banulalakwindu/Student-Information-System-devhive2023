@@ -8,7 +8,7 @@ const RegRow = ({ code }) => {
             <td>3</td>
             <td>Dr. J. Jananie</td>
             <td><input type="text" className="form-control form-control-sm" /></td>
-            <td><a data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <td><a data-bs-toggle="modal" data-bs-target="#exampleModal" className='cursor'>
                 View
             </a></td>
             <td><input class="form-check-input mt-2" type="checkbox" value="" id="flexCheckDefault" /></td>

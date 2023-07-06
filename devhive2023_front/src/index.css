@@ -76,6 +76,10 @@ a {
     border: #fff solid 1px;
 }
 
+.cursor {
+    cursor: pointer;
+}
+
 /* Navbar */
 nav .selected {
     background-color: var(--bg-color) !important;
