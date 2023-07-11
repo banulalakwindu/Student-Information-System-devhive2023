@@ -16,11 +16,25 @@ const db = mysql.createConnection({
     database: 'project_database'
 });
 
- 
+db.connect((err) => {
+    if(err)throw err;
+    console.log('Connected to MySQL Server!');
+});
 
 app.get('/', (req, res) => {
-    return res.send('Received a GET HTTP method');
-});
+   const sql = 'SELECT * FROM course';
+    db.query (sql,(err, result) => {
+        if(err){
+            console.log(err);
+        }
+
+        else{
+            res.send(result);
+            return res.json(result);
+        }
+        
+    }
+    )});
 
  
 
