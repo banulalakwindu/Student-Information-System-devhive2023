@@ -7,8 +7,8 @@ const courses = () => {
         <div>
             <Navbar />
             <div className="py-5 semester-body text-center container mb-5">
-                <h2 className='text-green pt-5 mt-5'>Semesters</h2>
-                <h5 className='text-secondary'>Select the Semester for Registration</h5>
+                <h2 className='text-green pt-5 mt-5'>Courses</h2>
+                <h5 className='text-secondary'>Select to see more details about courses</h5>
                 <div className="semester-inner-div d-flex flex-column mt-4">
                     <div className="zoom my-2 d-flex justify-content-center btn-light-cus rounded" style={{ height: "180px" }}><h5 className='m-auto text-uppercase'>General Program of the Degree Program</h5></div>
                     <div className="d-flex my-2 justify-content-between">

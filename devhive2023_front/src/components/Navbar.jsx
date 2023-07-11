@@ -4,6 +4,7 @@ import { faChevronDown, faBell } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
+
     const path = console.log(window.location.pathname);
     // const [selectedItem, setSelectedItem] = useState('Home');
 
