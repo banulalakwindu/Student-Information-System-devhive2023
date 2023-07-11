@@ -4,7 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import Footer from '../components/Footer'
 
+
 const Profile = () => {
+
     return (
         <div>
             <Navbar />
