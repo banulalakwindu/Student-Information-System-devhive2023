@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2023 at 06:41 PM
+-- Generation Time: Jul 11, 2023 at 09:17 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -65,7 +65,7 @@ CREATE TABLE `courses` (
   `Course_Code` varchar(50) NOT NULL,
   `Course_Name` varchar(50) NOT NULL,
   `Credit` int(5) NOT NULL,
-  `Core/Technical` varchar(15) NOT NULL,
+  `Core_Technical` varchar(15) NOT NULL,
   `Coordinator_ID` varchar(15) NOT NULL,
   `Pre_Requisite_Course_Code` varchar(30) NOT NULL,
   `Offered_Semester` int(15) NOT NULL,
@@ -75,14 +75,14 @@ CREATE TABLE `courses` (
   `Registration_Close_Date` date NOT NULL,
   `Semester_Start_Date` date NOT NULL,
   `Semester_Close_Date` date NOT NULL,
-  `Open/Close` tinyint(1) NOT NULL
+  `Open_Close` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`Course_Code`, `Course_Name`, `Credit`, `Core/Technical`, `Coordinator_ID`, `Pre_Requisite_Course_Code`, `Offered_Semester`, `Offered_Department_ID`, `Academic_Year_Current`, `Registratipon_Open_Date`, `Registration_Close_Date`, `Semester_Start_Date`, `Semester_Close_Date`, `Open/Close`) VALUES
+INSERT INTO `courses` (`Course_Code`, `Course_Name`, `Credit`, `Core_Technical`, `Coordinator_ID`, `Pre_Requisite_Course_Code`, `Offered_Semester`, `Offered_Department_ID`, `Academic_Year_Current`, `Registratipon_Open_Date`, `Registration_Close_Date`, `Semester_Start_Date`, `Semester_Close_Date`, `Open_Close`) VALUES
 ('EC6010', 'Operating system', 3, 'Core', 'COM_kaneshwaran', 'NULL', 6, 'Computer', '2023', '2023-06-12', '2023-07-04', '2023-06-01', '2023-08-18', 0),
 ('EC6060', 'Software Engineering', 3, 'Core', 'COM_kaneshwaran', 'EC4060', 6, 'Computer', '2023', '2023-06-12', '2023-07-04', '2023-06-01', '2023-08-18', 0);
 
@@ -96,7 +96,7 @@ CREATE TABLE `course_history_offered` (
   `Course_Code` varchar(15) NOT NULL,
   `Course_Name` varchar(30) NOT NULL,
   `Credit` int(5) NOT NULL,
-  `Core/Technical` varchar(15) NOT NULL,
+  `Core_Technical` varchar(15) NOT NULL,
   `Coord_ID` varchar(15) NOT NULL,
   `Pre_Requisites_Course_Code` varchar(30) NOT NULL,
   `Offered_Semester` int(5) NOT NULL,
@@ -122,14 +122,14 @@ CREATE TABLE `course_registartion` (
   `Coord_Obervation` text NOT NULL,
   `Registration_Approved_Date` date NOT NULL,
   `Draft` text NOT NULL,
-  `Open/Close` tinyint(1) NOT NULL
+  `Open_Close` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `course_registartion`
 --
 
-INSERT INTO `course_registartion` (`Reg_Number`, `Course_Code`, `Attempt`, `Register_Date`, `Coord_Approved`, `Coord_Approved_Date`, `Coord_Obervation`, `Registration_Approved_Date`, `Draft`, `Open/Close`) VALUES
+INSERT INTO `course_registartion` (`Reg_Number`, `Course_Code`, `Attempt`, `Register_Date`, `Coord_Approved`, `Coord_Approved_Date`, `Coord_Obervation`, `Registration_Approved_Date`, `Draft`, `Open_Close`) VALUES
 ('2019/E/099', 'EC6010', 1, '2023-07-11', 1, '2023-07-20', 'approved', '2023-07-29', '', 0);
 
 -- --------------------------------------------------------
@@ -289,7 +289,7 @@ CREATE TABLE `student_registration` (
   `Temporary_Address` varchar(50) NOT NULL,
   `NIC` varchar(50) NOT NULL,
   `Registration_Date` date NOT NULL,
-  `A/L_Index_Number` varchar(50) NOT NULL,
+  `AL_Index_Number` varchar(50) NOT NULL,
   `Applied_Year` int(5) NOT NULL,
   `Medium` varchar(50) NOT NULL,
   `Z_Score` float NOT NULL,
@@ -313,7 +313,7 @@ CREATE TABLE `student_registration` (
 -- Dumping data for table `student_registration`
 --
 
-INSERT INTO `student_registration` (`Reg_Number`, `Personal_Email`, `Phone_Number`, `Home_Number`, `Permenant_Address`, `Temporary_Address`, `NIC`, `Registration_Date`, `A/L_Index_Number`, `Applied_Year`, `Medium`, `Z_Score`, `Gender`, `Race`, `Religion`, `Country`, `Nationality`, `Citizenship`, `Photo`, `Status`, `Emergency_Contact_Name`, `Emergency_Relationship_To_The_Student`, `Emergency_Phone_Number`, `Emergency_Address`, `Full_Name`, `Name_With_Initial`) VALUES
+INSERT INTO `student_registration` (`Reg_Number`, `Personal_Email`, `Phone_Number`, `Home_Number`, `Permenant_Address`, `Temporary_Address`, `NIC`, `Registration_Date`, `AL_Index_Number`, `Applied_Year`, `Medium`, `Z_Score`, `Gender`, `Race`, `Religion`, `Country`, `Nationality`, `Citizenship`, `Photo`, `Status`, `Emergency_Contact_Name`, `Emergency_Relationship_To_The_Student`, `Emergency_Phone_Number`, `Emergency_Address`, `Full_Name`, `Name_With_Initial`) VALUES
 ('2019/E/099', 'mihirie1@gmail.com', '0712769705', '0766392569', 'govt staff village', 'girls hostel kilinochchi', '978541186v', '2019-11-19', '1662356', 2018, 'sinhala', 1.48, 'Female', 'sinhala', 'buddhist', 'SriLanka', 'SriLankan', 'Srilankan', '', 'Single', 'Sarath Elapatha', 'Father', '0714966823', 'govt staff village ', 'Elapathage sarath jayweera', 'E.S Jayaweera');
 
 -- --------------------------------------------------------
