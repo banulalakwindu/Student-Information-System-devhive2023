@@ -42,7 +42,12 @@ WHERE p.Course_Code = 'EC6060' AND r.Reg_Number = '2019/E/099';
 Course_Code & Reg_Number need to take as cookie.
 
 
+After click on submit button
 
+INSERT course_registartion
+SET Course_Code = 'EC6070', attempt = '1', Reg_Number = '2019/E/099', Register_Date = '2023.07.12';
+
+Reg_Number is a cookie Register_Date need to classify.
 
 
 
