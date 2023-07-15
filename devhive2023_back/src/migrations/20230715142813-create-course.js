@@ -3,13 +3,9 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Courses', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
       Course_Code: {
+        allowNull: false,
+        primaryKey: true,
         type: Sequelize.STRING
       },
       Course_Name: {
@@ -22,7 +18,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       Coordinator_ID: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        references: {
+          model: 'AcademicStaffs', // name of the referenced table
+          key: 'Staff_ID' // primary key of the referenced table
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       Pre_Requisite_Course_Code: {
         type: Sequelize.STRING
@@ -60,8 +62,22 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
+
+    // Add the foreign key constraint
+    await queryInterface.addConstraint('Courses', {
+      fields: ['Coordinator_ID'],
+      type: 'foreign key',
+      name: 'fk_courses_coordinator_id',
+      references: {
+        table: 'AcademicStaffs',
+        field: 'Staff_ID'
+      },
+      onDelete: 'SET NULL',
+      onUpdate: 'CASCADE'
+    });
   },
   async down(queryInterface, Sequelize) {
+    await queryInterface.removeConstraint('Courses', 'fk_courses_coordinator_id');
     await queryInterface.dropTable('Courses');
   }
 };
