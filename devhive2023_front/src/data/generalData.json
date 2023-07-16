@@ -1,0 +1,122 @@
+[
+        {
+            "name": "Semester 01",
+            "courses": [
+                {
+                    "code": "MC1010",
+                    "course": "English Language Enhancement",
+                    "credits": 3,
+                    "pre": [
+                        { "code": "PR101", "name": "Prerequisite 1" },
+                        { "code": "PR102", "name": "Prerequisite 2" },
+                        { "code": "PR103", "name": "Prerequisite 3" }
+                    ]
+                },
+                {
+                    "code": "MC1020",
+                    "course": "Mathematics",
+                    "credits": 3
+                },
+                {
+                    "code": "ID1010",
+                    "course": "Engineering Drawing",
+                    "credits": 3
+                },
+                {
+                    "code": "EC1011",
+                    "course": "Computing",
+                    "credits": 3
+                },
+                {
+                    "code": "EC1020",
+                    "course": "Applied Electricity",
+                    "credits": 3
+                },
+                {
+                    "code": "ID1021",
+                    "course": "Engineering Metrology",
+                    "credits": 3
+                }
+            ]
+        },
+        {
+            "name": "Soft Skill Development Program",
+            "courses": [
+                {
+                    "code": "MC1030",
+                    "course": "Soft Skill Development Program - I",
+                    "credits": 3
+                }
+            ]
+        },
+        {
+            "name": "Semester 02",
+            "courses": [
+                {
+                    "code": "ID2010",
+                    "course": "Environmental Pollution and Control",
+                    "credits": 3
+                },
+                {
+                    "code": "ID2020",
+                    "course": "Materials Science for Engineering",
+                    "credits": 3
+                },
+                {
+                    "code": "MC2020",
+                    "course": "Linear Algebra",
+                    "credits": 3
+                },
+                {
+                    "code": "EC2010",
+                    "course": "Computer Programming",
+                    "credits": 3
+                },
+                {
+                    "code": "CE2020",
+                    "course": "Engineering Mechanics",
+                    "credits": 3
+                },
+                {
+                    "code": "MP2010",
+                    "course": "Thermodynamics",
+                    "credits": 3
+                }
+            ]
+        },
+        {
+            "name": "Semester 03",
+            "courses": [
+                {
+                    "code": "MP3010",
+                    "course": "Kinematics and Dynamics",
+                    "credits": 3
+                },
+                {
+                    "code": "MC3010",
+                    "course": "Differential Equations and Numerical Methods",
+                    "credits": 3
+                },
+                {
+                    "code": "CE3010",
+                    "course": "Linear Algebra",
+                    "credits": 3
+                },
+                {
+                    "code": "ID3020",
+                    "course": "Design and Prototyping",
+                    "credits": 3
+                },
+                {
+                    "code": "EC3011",
+                    "course": "Introduction to Electronics and Instrumentation",
+                    "credits": 3
+                },
+                {
+                    "code": "MC3020",
+                    "course": "Probability and Statistics",
+                    "credits": 3
+                }
+            ]
+        }
+    ]

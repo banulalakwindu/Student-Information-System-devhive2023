@@ -1,6 +1,13 @@
 import React from 'react'
 
 const Login = () => {
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault(); // Prevent the default form submission behavior
+        // Redirect to the /home URL
+        history.push('/home');
+    };
+
     return (
         <div className='index_page vh-100 has-bg-img overflow-hidden d-flex'>
             <img className='bg-img' src="/home.jpg" />
@@ -17,7 +24,8 @@ const Login = () => {
                     <div className="form-group px-4 py-4">
                         <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                         <input type="password" className="form-control mt-4" id="exampleInputPassword1" placeholder="Password" />
-                        <input type="submit" formAction='/home' className="btn btn-primary mt-4" value="Login" />
+                        <input type="submit" formAction="/home" className="btn btn-primary mt-4" value="Login" />
+                        <a className='btn btn-warning' href="/home">Dev Login</a>
                     </div>
                 </form>
             </div>

@@ -11,6 +11,12 @@ import Profile from './pages/profile'
 import Notification from './pages/notification'
 import Medical from './pages/medical'
 import Courses from './pages/courses'
+import General from './utils/courses/general'
+import Civil from './utils/courses/civil'
+import Com from './utils/courses/com'
+import Elec from './utils/courses/elec'
+import Mech from './utils/courses/mech'
+import Complementary from './utils/courses/complementary'
 
 const App = () => {
   return (
@@ -27,6 +33,12 @@ const App = () => {
         <Route path='/notification' element={<Notification />}></Route>
         <Route path='/medical' element={<Medical />}></Route>
         <Route path='/courses' element={<Courses />}></Route>
+        <Route path='/courses/general' element={<General />}></Route>
+        <Route path='/courses/civil' element={<Civil />}></Route>
+        <Route path='/courses/com' element={<Com />}></Route>
+        <Route path='/courses/elec' element={<Elec />}></Route>
+        <Route path='/courses/mech' element={<Mech />}></Route>
+        <Route path='/courses/complementary' element={<Complementary />}></Route>
       </Routes>
     </BrowserRouter>
   )

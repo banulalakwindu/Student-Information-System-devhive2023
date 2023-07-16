@@ -1,0 +1,42 @@
+[
+        {
+            "name": "Semester 04",
+            "courses": [
+                {
+                    "code": "MC1010",
+                    "course": "English Language Enhancement",
+                    "credits": 3,
+                    "pre": [
+                        { "code": "PR101", "name": "Prerequisite 1" },
+                        { "code": "PR102", "name": "Prerequisite 2" },
+                        { "code": "PR103", "name": "Prerequisite 3" }
+                    ]
+                },
+                {
+                    "code": "MC1020",
+                    "course": "Mathematics",
+                    "credits": 3
+                },
+                {
+                    "code": "ID1010",
+                    "course": "Engineering Drawing",
+                    "credits": 3
+                },
+                {
+                    "code": "EC1011",
+                    "course": "Computing",
+                    "credits": 3
+                },
+                {
+                    "code": "EC1020",
+                    "course": "Applied Electricity",
+                    "credits": 3
+                },
+                {
+                    "code": "ID1021",
+                    "course": "Engineering Metrology",
+                    "credits": 3
+                }
+            ]
+        }
+    ]
