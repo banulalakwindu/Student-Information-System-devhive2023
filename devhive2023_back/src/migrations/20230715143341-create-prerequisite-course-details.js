@@ -3,16 +3,14 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('PrerequisiteCourseDetails', {
-      id: {
+        Course_Code: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      Course_Code: {
         type: Sequelize.STRING
       },
       Prerequisite_Course_Code: {
+        allowNull: false,
+        primaryKey: true,
         type: Sequelize.STRING
       },
       createdAt: {
