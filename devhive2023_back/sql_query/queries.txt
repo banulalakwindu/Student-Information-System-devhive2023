@@ -1,0 +1,58 @@
+Results
+
+SELECT Re.Course_Code, Re.Attempt, Co.Course_name , Co.Credit, Re.Result from Results as Re, Courses as Co 
+WHERE (Co.Course_Code = Re.Course_Code) AND Co.Offered_Semester = '6' AND Re.Reg_Number = '2019/E/099';
+
+offered_semseter need a cookies for each select semester
+Reg_Number need a cookies
+
+
+
+Course Registration view after save
+
+SELECT c.course_code, c.course_name, c.credit, a.Full_Name AS coordinator, cr.attempt FROM courses c 
+INNER JOIN course_registartion cr ON c.course_code = cr.course_code 
+INNER JOIN academic_staff a ON c.coordinator_id = a.staff_id 
+WHERE c.offered_semester = '6' AND cr.Reg_Number = '2019/E/099';
+
+offered_semseter need a cookies for each select semester
+Reg_Number need a cookies
+
+
+
+Course Registration afer portol open.
+
+SELECT c.course_code, c.course_name, c.credit, a.Full_Name AS coordinator 
+FROM courses c INNER JOIN course_registartion cr ON c.course_code = cr.course_code 
+INNER JOIN academic_staff a ON c.coordinator_id = a.staff_id 
+WHERE c.offered_semester = '5' AND cr.OpenClose = '1';
+
+Offered_Semester semester need to take as cookie.
+
+
+
+Results of the pre request subject
+
+SELECT p.Prerequisite_Course_code AS prerequisite_course_details, c.Course_Name , r.Result
+FROM courses c
+INNER JOIN prerequisite_course_details p ON c.course_code = p.Prerequisite_Course_code
+INNER JOIN results r ON p.Prerequisite_Course_code = r.Course_Code
+WHERE p.Course_Code = 'EC6060' AND r.Reg_Number = '2019/E/099';
+
+Course_Code & Reg_Number need to take as cookie.
+
+
+After click on submit button
+
+INSERT course_registartion
+SET Course_Code = 'EC6070', attempt = '1', Reg_Number = '2019/E/099', Register_Date = '2023.07.12';
+
+Reg_Number is a cookie Register_Date need to classify.
+
+
+
+
+
+Database changes:
+
+course_registartion table Open/Close change to OpenClose

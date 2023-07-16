@@ -1,14 +1,15 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import ResultBar from '../components/ResultBar'
+import Footer from '../components/Footer'
 
 const Results = () => {
     return (
         <div>
             <div>
                 <Navbar />
-                <div className="semester-body text-center container">
-                    <h2 className='text-green mt-5'>Results</h2>
+                <div className="py-5 semester-body text-center container">
+                    <h2 className='mt-5 pt-5 text-green mt-5'>Results</h2>
                     <h5 className='text-secondary'>Select the Semester for view Results</h5>
                     <div className="semester-inner-div d-flex flex-column mt-4">
                         <ResultBar semester="01" completed="1" link="sem01" />
@@ -21,6 +22,7 @@ const Results = () => {
                         <ResultBar semester="08" completed="0" link="sem08" />
                     </div>
                 </div>
+                <Footer />
             </div>
         </div>
     )

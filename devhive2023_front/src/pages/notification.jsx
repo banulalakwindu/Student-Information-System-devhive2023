@@ -2,12 +2,13 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faNewspaper } from '@fortawesome/free-solid-svg-icons'
+import Footer from '../components/Footer'
 
 const Notification = () => {
     return (
         <div>
             <Navbar />
-            <div className='container d-flex flex-column'>
+            <div className='py-5 my-5 container d-flex flex-column'>
                 <h2 className='text-green mt-5 mx-auto'>News</h2>
                 <div className="news-set row g-3 text-start my-3">
                     <div className="news col-4">
@@ -106,6 +107,7 @@ const Notification = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar'
 import ResultRow from '../components/ResultRow';
+import Footer from '../components/Footer';
 
 const Viewresults = () => {
     const location = useLocation();
@@ -9,8 +10,8 @@ const Viewresults = () => {
     return (
         <div>
             <Navbar />
-            <div className="registration-body text-center container">
-                <h2 className='text-green mt-5'>Semester 01 - Results</h2>
+            <div className="pt-5 registration-body text-center container">
+                <h2 className='mt-5 pt-5 text-green mt-5'>Semester 01 - Results</h2>
                 <div className='registration-inner mt-4 container'>
                     <div className='d-flex'>
                         <div className='d-flex me-5'>
@@ -59,8 +60,8 @@ const Viewresults = () => {
                         <div></div>
                     </div>
                 </div>
-
             </div>
+            <Footer />
         </div>
     )
 }

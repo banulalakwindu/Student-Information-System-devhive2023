@@ -4,15 +4,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faNewspaper, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../components/Navbar'
-
+import Footer from '../components/Footer';
 import 'swiper/css/bundle';
 
 const home = () => {
     return (
         <div>
             <Navbar />
-            <div className="home-body text-center container">
-                <h2 className='text-green mt-5'>Welcome to the Student Management System</h2>
+            <div className="py-5 home-body text-center container">
+                <h2 className='mt-5 pt-5 text-green mt-5'>Welcome to the Student Management System</h2>
                 <h5 className='text-secondary'>Faculty of Engineering - University of Jaffna</h5>
                 <div className="home-inner-div d-flex mt-5">
                     <div className="img-swiper me-4">
@@ -23,7 +23,7 @@ const home = () => {
                             autoplay={{ delay: 3000 }}
                         >
                             <SwiperSlide>
-                                <img src="https://scontent.fcmb11-1.fna.fbcdn.net/v/t39.30808-6/331131566_759139812573644_2020131129966870736_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeENH-PUEM8UejrbvccAPHaUeWLaWFp-PU95YtpYWn49TzCtOWg_OUwOsE06cdoZhQYpuY8KufCfqmKz8n4qZYrv&_nc_ohc=irfrfYMupasAX_N7-0N&_nc_zt=23&_nc_ht=scontent.fcmb11-1.fna&oh=00_AfB7nkvEFSBllUYdKWIcgXRzEQu1a8hfMOiBGFwBaeisVQ&oe=646B02EA" alt="" />
+                                <img src="https://www.eng.jfn.ac.lk/wp-content/uploads/slider/s2.jpg" alt="" />
                             </SwiperSlide>
                             <SwiperSlide>
                                 <img src="https://www.eng.jfn.ac.lk/wp-content/uploads/slider/s3.jpg" alt="" />
@@ -31,7 +31,6 @@ const home = () => {
                             <SwiperSlide>
                                 <img src="https://www.eng.jfn.ac.lk/wp-content/uploads/2017/01/DSC_0873.jpg" alt="" />
                             </SwiperSlide>
-
                         </Swiper>
                     </div>
                     <div className="vision-mission w-100 d-flex flex-column align-items-start">
@@ -83,6 +82,7 @@ const home = () => {
                     </a>
                 </div>
             </div>
+            <Footer />
         </div >
     )
 }

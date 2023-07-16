@@ -2,13 +2,16 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+import Footer from '../components/Footer'
+
 
 const Profile = () => {
+
     return (
         <div>
             <Navbar />
-            <div className='profile-inner container px-5 mt-5'>
-                <div className='d-flex flex-column bg-lightgreen card'>
+            <div className='profile-inner container px-5 py-5 my-5'>
+                <div className='d-flex flex-column bg-lightgreen card my-5'>
                     <div className='d-flex flex-column p-3'>
                         <h3 className='text-center rounded py-2 bg-green text-white'>Banula Lakwindu's Profile</h3>
                         <div className='d-flex w-100 p-3'>
@@ -144,6 +147,7 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
