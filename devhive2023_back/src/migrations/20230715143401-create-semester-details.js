@@ -3,13 +3,9 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('SemesterDetails', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
       Semester: {
+        allowNull: false,
+        primaryKey: true,
         type: Sequelize.INTEGER
       },
       Semester_Start_Date: {
@@ -19,6 +15,8 @@ module.exports = {
         type: Sequelize.DATE
       },
       Year: {
+        allowNull: false,
+        primaryKey: true,
         type: Sequelize.DATE
       },
       createdAt: {
