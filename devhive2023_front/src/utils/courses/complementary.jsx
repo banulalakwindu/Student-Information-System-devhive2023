@@ -1,8 +1,8 @@
 import React from 'react'
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import CoursesRow from '../../components/CoursesRow';
 import ComplementaryData from '../../data/ComplementaryData';
+import CoursesRowComp from '../../components/CoursesRowComp';
 
 const Complementary = () => {
     const semesters = ComplementaryData;
@@ -26,11 +26,12 @@ const Complementary = () => {
                                                 <th scope="col">Course</th>
                                                 <th scope="col">Credits</th>
                                                 <th scope="col">Pre-Request</th>
+                                                <th scope="col">Category</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {semester.courses.map((course, index) => (
-                                                <CoursesRow key={index} {...course} />
+                                                <CoursesRowComp key={index} {...course} />
                                             ))}
                                         </tbody>
                                     </table>
