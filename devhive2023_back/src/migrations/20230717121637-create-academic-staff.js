@@ -3,13 +3,9 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('AcademicStaffs', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
       Staff_ID: {
+        allowNull: false,
+        primaryKey: true,
         type: Sequelize.STRING
       },
       Email: {
@@ -19,7 +15,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       Department_ID: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        references: {
+          model: 'Departments',
+          key: 'Department_ID'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       Full_Name: {
         type: Sequelize.STRING
@@ -33,7 +35,19 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
+    await queryInterface.addConstraint('AcademicStaffs', {
+      fields: ['Department_ID'],
+      type: 'foreign key',
+      name: 'fk_AcademicStaffs_Department_ID',
+      references: {
+        table: 'Departments',
+        field: 'Department_ID'
+      },
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
+    });
   },
+  
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('AcademicStaffs');
   }

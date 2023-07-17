@@ -3,16 +3,14 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('PrerequisiteCourseDetails', {
-      id: {
+        Course_Code: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      Course_Code: {
         type: Sequelize.STRING
       },
-      Prerequisite_Course_Code: {
+      Pre_Requisite_Course_Code: {
+        allowNull: false,
+        primaryKey: true,
         type: Sequelize.STRING
       },
       createdAt: {
@@ -23,6 +21,28 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
+    });
+    await queryInterface.addConstraint('Pre_Requisite_Course_Details', {
+      fields: ['Pre_Requisite_Course_Code'],
+      type: 'foreign key',
+      name: 'fk_preRequisiteCourseDetails_preRequisiteCourseCode',
+      references: {
+        table: 'courses',
+        field: 'Course_Code'
+      },
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
+    });
+    await queryInterface.addConstraint('Course_registration', {
+      fields: ['Course_Code'],
+      type: 'foreign key',
+      name: 'fk_preRequisiteCourseDetails_courseCode',
+      references: {
+        table: 'courses',
+        field: 'Course_Code'
+      },
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
     });
   },
   async down(queryInterface, Sequelize) {
