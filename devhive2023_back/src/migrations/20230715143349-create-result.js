@@ -3,19 +3,19 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Results', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
       Reg_Number: {
+        allowNull: false,
+        primaryKey: true,
         type: Sequelize.STRING
       },
       Course_Code: {
+        allowNull: false,
+        primaryKey: true,
         type: Sequelize.STRING
       },
       Attempt: {
+        allowNull: false,
+        primaryKey: true,
         type: Sequelize.INTEGER
       },
       Result: {
@@ -29,6 +29,28 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
+    });
+    await queryInterface.addConstraint('Result', {
+      fields: ['Reg_Number'],
+      type: 'foreign key',
+      name: 'fk_Results_reg_number',
+      references: {
+        table: 'studentuniversitydetails',
+        field: 'Reg_Number'
+      },
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
+    });
+    await queryInterface.addConstraint('Result', {
+      fields: ['Course_Code'],
+      type: 'foreign key',
+      name: 'fk_Results_course_code',
+      references: {
+        table: 'courses',
+        field: 'Course_Code'
+      },
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
     });
   },
   async down(queryInterface, Sequelize) {

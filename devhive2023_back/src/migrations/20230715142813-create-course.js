@@ -24,16 +24,21 @@ module.exports = {
           key: 'Staff_ID' // primary key of the referenced table
         },
         onUpdate: 'CASCADE',
-        onDelete: 'SET NULL'
+        onDelete: 'CASCADE'
       },
-      Pre_Requisite_Course_Code: {
-        type: Sequelize.STRING
-      },
+     
       Offered_Semester: {
         type: Sequelize.INTEGER
       },
       Offered_Department_ID: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        references: {
+          model: 'AcademicStaffs', // name of the referenced table
+          key: 'Staff_ID' // primary key of the referenced table
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+
       },
       Academic_Year_Current: {
         type: Sequelize.STRING
@@ -71,6 +76,17 @@ module.exports = {
       references: {
         table: 'AcademicStaffs',
         field: 'Staff_ID'
+      },
+      onDelete: 'SET NULL',
+      onUpdate: 'CASCADE'
+    });
+    await queryInterface.addConstraint('Courses', {
+      fields: ['Offered_Department_ID'],
+      type: 'foreign key',
+      name: 'fk_courses_offered_department_id',
+      references: {
+        table: 'Department',
+        field: 'Department_ID'
       },
       onDelete: 'SET NULL',
       onUpdate: 'CASCADE'
