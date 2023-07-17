@@ -45,7 +45,7 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
-    await queryInterface.addConstraint('Student_Academic', {
+    await queryInterface.addConstraint('StudentAcademics', {
       fields: ['Reg_Number'],
       type: 'foreign key',
       name: 'fk_Student_Academic_reg_number',
@@ -56,7 +56,7 @@ module.exports = {
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });
-    await queryInterface.addConstraint('Student_Academic', {
+    await queryInterface.addConstraint('StudentAcademics', {
       fields: ['Course_Code'],
       type: 'foreign key',
       name: 'fk_Student_Academic_course_code',

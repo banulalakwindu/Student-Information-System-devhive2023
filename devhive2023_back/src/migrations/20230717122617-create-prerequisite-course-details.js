@@ -22,7 +22,7 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
-    await queryInterface.addConstraint('Pre_Requisite_Course_Details', {
+    await queryInterface.addConstraint('PrerequisiteCourseDetails', {
       fields: ['Pre_Requisite_Course_Code'],
       type: 'foreign key',
       name: 'fk_preRequisiteCourseDetails_preRequisiteCourseCode',
@@ -33,7 +33,7 @@ module.exports = {
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });
-    await queryInterface.addConstraint('Course_registration', {
+    await queryInterface.addConstraint('PrerequisiteCourseDetails', {
       fields: ['Course_Code'],
       type: 'foreign key',
       name: 'fk_preRequisiteCourseDetails_courseCode',

@@ -20,7 +20,7 @@ module.exports = {
       Coord_ID: {
         type: Sequelize.STRING,
         references: {
-          model: 'academic_staffs', // name of the referenced table
+          model: 'AcademicStaffs', // name of the referenced table
           key: 'Staff_ID' // primary key of the referenced table
         },
         onUpdate: 'CASCADE',
@@ -31,9 +31,9 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       Offered_Department_ID: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         references: {
-          model: 'Department', // name of the referenced table
+          model: 'Departments', // name of the referenced table
           key: 'Department_ID' // primary key of the referenced table
         },
         onUpdate: 'CASCADE',
@@ -57,10 +57,10 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
-    await queryInterface.addConstraint('Courses', {
-      fields: ['Coordinator_ID'],
+    await queryInterface.addConstraint('CourseHistoryOffereds', {
+      fields: ['Coord_ID'],
       type: 'foreign key',
-      name: 'fk_courses_coordinator_id',
+      name: 'fk_courseHistoryOffereds_Coord_ID',
       references: {
         table: 'AcademicStaffs',
         field: 'Staff_ID'
@@ -68,12 +68,12 @@ module.exports = {
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });
-    await queryInterface.addConstraint('Courses', {
+    await queryInterface.addConstraint('CourseHistoryOffereds', {
       fields: ['Offered_Department_ID'],
       type: 'foreign key',
-      name: 'fk_courses_offered_department_id',
+      name: 'fk_courseHistoryOffereds_offered_department_id',
       references: {
-        table: 'Department',
+        table: 'Departments',
         field: 'Department_ID'
       },
       onDelete: 'CASCADE',

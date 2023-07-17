@@ -85,7 +85,7 @@ module.exports = {
       type: 'foreign key',
       name: 'fk_courses_offered_department_id',
       references: {
-        table: 'Department',
+        table: 'Departments',
         field: 'Department_ID'
       },
       onDelete: 'SET NULL',

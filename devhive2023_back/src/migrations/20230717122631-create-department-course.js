@@ -5,12 +5,10 @@ module.exports = {
     await queryInterface.createTable('DepartmentCourses', {
       Offered_To_Which_Department_ID: {
         allowNull: false,
-        primaryKey: true,
         type: Sequelize.STRING
       },
       Course_Code: {
         allowNull: false,
-        primaryKey: true,
         type: Sequelize.STRING
       },
       createdAt: {
@@ -22,7 +20,8 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
-    await queryInterface.addConstraint('department_courses', {
+
+    await queryInterface.addConstraint('DepartmentCourses', {
       fields: ['Offered_To_Which_Department_ID'],
       type: 'foreign key',
       name: 'fk_departmentCourses_department_id',
@@ -33,10 +32,11 @@ module.exports = {
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });
-    await queryInterface.addConstraint('Course_registration', {
+
+    await queryInterface.addConstraint('DepartmentCourses', {
       fields: ['Course_Code'],
       type: 'foreign key',
-      name: 'fk_coursesRegistration_course_code',
+      name: 'fk_departmentCourses_course_code',
       references: {
         table: 'courses',
         field: 'Course_Code'

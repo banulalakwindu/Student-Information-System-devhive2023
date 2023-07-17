@@ -30,7 +30,7 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
-    await queryInterface.addConstraint('advisor_history', {
+    await queryInterface.addConstraint('AdvisorHistories', {
       fields: ['Advisor_ID'],
       type: 'foreign key',
       name: 'fk_advisor_histories_advisor_id',
@@ -42,7 +42,7 @@ module.exports = {
       onUpdate: 'CASCADE'
     });
     
-    await queryInterface.addConstraint('advisor_history', {
+    await queryInterface.addConstraint('AdvisorHistories', {
       fields: ['Reg_Number'],
       type: 'foreign key',
       name: 'fk_advisor_histories_reg_number',

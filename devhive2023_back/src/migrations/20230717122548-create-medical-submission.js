@@ -8,27 +8,14 @@ module.exports = {
         allowNull: false,
         primaryKey: true
       },
-      Course_Code: {
-        allowNull: false,
-        primaryKey: true,
-        type: Sequelize.STRING
-      },
       Medical_ID: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      Type: {
-        type: Sequelize.STRING
-      },
-      Description: {
-        type: Sequelize.TEXT
+        //autoIncrement: true,
+        primaryKey: true
       },
       Medical_Report: {
         type: Sequelize.TEXT
-      },
-      Approved: {
-        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
@@ -39,10 +26,11 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
-    await queryInterface.addConstraint('Course_registration', {
+
+    await queryInterface.addConstraint('MedicalSubmissions', {
       fields: ['Reg_Number'],
       type: 'foreign key',
-      name: 'fk_coursesRegistration_reg_number',
+      name: 'fk_medicalsubmissions_studentuniversitydetails',
       references: {
         table: 'studentuniversitydetails',
         field: 'Reg_Number'
@@ -50,18 +38,20 @@ module.exports = {
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });
-    await queryInterface.addConstraint('Course_registration', {
-      fields: ['Course_Code'],
-      type: 'foreign key',
-      name: 'fk_coursesRegistration_course_code',
-      references: {
-        table: 'courses',
-        field: 'Course_Code'
-      },
-      onDelete: 'CASCADE',
-      onUpdate: 'CASCADE'
-    });
+
+    // await queryInterface.addConstraint('MedicalSubmissions', {
+    //   fields: ['Course_Code'],
+    //   type: 'foreign key',
+    //   name: 'fk_medicalsubmissions_courses',
+    //   references: {
+    //     table: 'courses',
+    //     field: 'Course_Code'
+    //   },
+    //   onDelete: 'CASCADE',
+    //   onUpdate: 'CASCADE'
+    // });
   },
+
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('MedicalSubmissions');
   }

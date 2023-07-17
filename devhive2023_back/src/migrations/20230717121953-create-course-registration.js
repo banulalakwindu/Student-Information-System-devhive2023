@@ -48,18 +48,18 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
-    await queryInterface.addConstraint('Course_registration', {
+    await queryInterface.addConstraint('CourseRegistrations', {
       fields: ['Reg_Number'],
       type: 'foreign key',
       name: 'fk_coursesRegistration_reg_number',
       references: {
         table: 'studentuniversitydetails',
-        field: 'Staff_ID'
+        field: 'Reg_Number'
       },
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });
-    await queryInterface.addConstraint('Course_registration', {
+    await queryInterface.addConstraint('CourseRegistrations', {
       fields: ['Course_Code'],
       type: 'foreign key',
       name: 'fk_coursesRegistration_course_code',

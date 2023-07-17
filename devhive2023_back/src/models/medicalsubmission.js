@@ -15,12 +15,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   MedicalSubmission.init({
     Reg_Number: DataTypes.STRING,
-    Course_Code: DataTypes.STRING,
+    //Course_Code: DataTypes.STRING,
     Medical_ID: DataTypes.INTEGER,
-    Type: DataTypes.STRING,
-    Description: DataTypes.TEXT,
+    //Type: DataTypes.STRING,
+    //Description: DataTypes.TEXT,
     Medical_Report: DataTypes.TEXT,
-    Approved: DataTypes.BOOLEAN
+    //Approved: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'MedicalSubmission',

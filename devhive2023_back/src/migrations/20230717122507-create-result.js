@@ -30,7 +30,7 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
-    await queryInterface.addConstraint('Result', {
+    await queryInterface.addConstraint('Results', {
       fields: ['Reg_Number'],
       type: 'foreign key',
       name: 'fk_Results_reg_number',
@@ -41,7 +41,7 @@ module.exports = {
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE'
     });
-    await queryInterface.addConstraint('Result', {
+    await queryInterface.addConstraint('Results', {
       fields: ['Course_Code'],
       type: 'foreign key',
       name: 'fk_Results_course_code',
