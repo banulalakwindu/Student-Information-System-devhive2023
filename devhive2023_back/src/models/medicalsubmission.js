@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     //Type: DataTypes.STRING,
     //Description: DataTypes.TEXT,
     Medical_Report: DataTypes.TEXT,
-    //Approved: DataTypes.BOOLEAN
+    Approved: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'MedicalSubmission',

@@ -5,7 +5,7 @@ const App_DB = process.env.APP_DB || 'devhive2023';
 const APP_USER = process.env.APP_USER || 'root';
 const APP_PASS = process.env.APP_PASS || null;
 
-const mysql = require('mysql2');
+const mysql2 = require('mysql2');
 
 const academicstaff = require('./academicstaff');
 const advisorhistory = require('./advisorhistory');
@@ -15,12 +15,12 @@ const courseregistration = require('./courseregistration');
 const department = require('./department');
 const departmentcourse = require('./departmentcourse');
 const medicalsubmission = require('./medicalsubmission');
-const prerequestcoursedetails = require('./prerequestcoursedetails');
+const prerequestcoursedetails = require('./prerequisitecoursedetails');
 const result = require('./result');
 const semesterdetails = require('./semesterdetails');
 const studentacademic = require('./studentacademic');
 const studentregistration = require('./studentregistration');
-const studentunivasitydetails = require('./studentunivasitydetails');
+const studentunivasitydetails = require('./studentuniversitydetails');
 
 const db = {};
 const sequelize = new Sequelize(App_DB, APP_USER, APP_PASS, {
@@ -29,24 +29,23 @@ const sequelize = new Sequelize(App_DB, APP_USER, APP_PASS, {
   dialectModule: mysql2,
 });
 
-db.academicstaff = academicstaff(sequelize, Sequelize.DataTypes);
-db.advisorhistory = advisorhistory(sequelize, Sequelize.DataTypes);
-db.course = course(sequelize, Sequelize.DataTypes);
-db.coursehistoryoffered = coursehistoryoffered(sequelize, Sequelize.DataTypes);
-db.courseregistration = courseregistration(sequelize, Sequelize.DataTypes);
-db.department = department(sequelize, Sequelize.DataTypes);
-db.departmentcourse = departmentcourse(sequelize, Sequelize.DataTypes);
-db.medicalsubmission = medicalsubmission(sequelize, Sequelize.DataTypes);
-db.prerequestcoursedetails = prerequestcoursedetails(sequelize, Sequelize.DataTypes);
-db.result = result(sequelize, Sequelize.DataTypes);
-db.semesterdetails = semesterdetails(sequelize, Sequelize.DataTypes);
-db.studentacademic = studentacademic(sequelize, Sequelize.DataTypes);
-db.studentregistration = studentregistration(sequelize, Sequelize.DataTypes);
-db.studentunivasitydetails = studentunivasitydetails(sequelize, Sequelize.DataTypes);
+db.Academicstaff = academicstaff(sequelize, Sequelize.DataTypes);
+db.Advisorhistory = advisorhistory(sequelize, Sequelize.DataTypes);
+db.Course = course(sequelize, Sequelize.DataTypes); 
+db.Coursehistoryoffered = coursehistoryoffered(sequelize, Sequelize.DataTypes);
+db.Courseregistration = courseregistration(sequelize, Sequelize.DataTypes);
+db.Department = department(sequelize, Sequelize.DataTypes);
+db.Departmentcourse = departmentcourse(sequelize, Sequelize.DataTypes);
+db.Medicalsubmission = medicalsubmission(sequelize, Sequelize.DataTypes);
+db.Prerequestcoursedetails = prerequestcoursedetails(sequelize, Sequelize.DataTypes);
+db.Result = result(sequelize, Sequelize.DataTypes);
+db.Semesterdetails = semesterdetails(sequelize, Sequelize.DataTypes);
+db.Studentacademic = studentacademic(sequelize, Sequelize.DataTypes);
+db.Studentregistration = studentregistration(sequelize, Sequelize.DataTypes);
+db.Studentunivasitydetails = studentunivasitydetails(sequelize, Sequelize.DataTypes);
 
-const { academicstaff, advisorhistory, course, coursehistoryoffered, courseregistration, department, departmentcourse, medicalsubmission, prerequestcoursedetails, result, semesterdetails, studentacademic, studentregistration, studentunivasitydetails } = db;
+const {Academicstaff,Advisorhistory,Course,Coursehistoryoffered,Courseregistration,Department,Departmentcourse,Medicalsubmission,Prerequestcoursedetails,Result,Semesterdetails,Studentacademic,Studentregistration,Studentunivasitydetails} = db;
 //associations
-academicstaff.hasMany(advisorhistory, { as: 'advisorhistory', foreignKey: 'advisorid' });
 
 Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
