@@ -5,7 +5,7 @@ const App_DB = process.env.APP_DB || 'devhive2023';
 const APP_USER = process.env.APP_USER || 'root';
 const APP_PASS = process.env.APP_PASS || null;
 
-const mysql = require('mysql2');
+const mysql2 = require('mysql2');
 
 const academicstaff = require('./academicstaff');
 const advisorhistory = require('./advisorhistory');
