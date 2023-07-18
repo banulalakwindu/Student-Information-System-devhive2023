@@ -33,8 +33,8 @@ module.exports = {
       Offered_Department_ID: {
         type: Sequelize.STRING,
         references: {
-          model: 'AcademicStaffs', // name of the referenced table
-          key: 'Staff_ID' // primary key of the referenced table
+          model: 'Departments', // name of the referenced table
+          key: 'Department_ID' // primary key of the referenced table
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
@@ -94,6 +94,8 @@ module.exports = {
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.removeConstraint('Courses', 'fk_courses_coordinator_id');
+    await queryInterface.removeConstraint('Courses', 'fk_courses_offered_department_id');
     await queryInterface.dropTable('Courses');
+    await queryInterface.dropTable('AcademicStaffs');
   }
 };

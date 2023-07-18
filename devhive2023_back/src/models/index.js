@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const process = require('process');
 
-const App_DB = process.env.APP_DB || 'devhive2023';
+const App_DB = process.env.APP_DB || 'devhive';
 const APP_USER = process.env.APP_USER || 'root';
 const APP_PASS = process.env.APP_PASS || null;
 
