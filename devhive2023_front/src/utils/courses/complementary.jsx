@@ -12,11 +12,10 @@ const Complementary = () => {
             <Navbar />
             <div className="mb-5 p-5 registration-body text-center container">
                 <h2 className='mt-5 pt-5 text-green'>Complementary Studies</h2>
-                <h5 className='text-secondary'>Non - Technical Elective Syllabus</h5>
+                <h5 className='text-secondary mb-5'>Non - Technical Elective Syllabus</h5>
                 <div>
                     {semesters.map((semester, index) => (
                         <div key={index}>
-                            <h3 className='mt-5 text-green'>{semester.name}</h3>
                             <div className='registration-inner mt-4 container'>
                                 <div className='card'>
                                     <table className="table table-hover m-0">

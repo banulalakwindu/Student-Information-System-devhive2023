@@ -20,7 +20,14 @@
                         "name": "Prerequisite 3"
                     }
                 ],
-                "category": "General Education"
+                "category": [
+                    {
+                        "name": "Category 1"
+                    },
+                    {
+                        "name": "Category 2"
+                    }
+                ]
             },
             {
                 "code": "MC1020",

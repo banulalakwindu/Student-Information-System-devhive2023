@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CoursesRowComp = ({ code, course, credits, pre, cat }) => {
+const CoursesRowComp = ({ code, course, credits, pre, category }) => {
     const hasPrerequisites = pre && pre.length > 0;
 
     return (
@@ -20,10 +20,16 @@ const CoursesRowComp = ({ code, course, credits, pre, cat }) => {
                 ) : "-"}
             </td>
             <td>
-                {cat.map((category, index) => () => {
-                    { category }
-                })}
+                {category && category.length > 0 ? (
+                    category.map((cat, index) => (
+                        <div key={index}>{cat.name}</div>
+                    ))
+                ) : (
+                    <span>-</span>
+                )}
             </td>
+
+
 
             {hasPrerequisites && (
                 <div
