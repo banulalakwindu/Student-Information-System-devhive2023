@@ -72,3 +72,17 @@ Reg_Number is a cookie Register_Date need to classify.
 Database changes:
 
 course_registartion table Open/Close change to OpenClose
+
+
+npx sequelize-cli model:generate --name Department --attributes Department_ID:string,Department_Name:string
+npx sequelize-cli model:generate --name AcademicStaff --attributes Staff_ID:string,Email:string,Password:string,Department_ID:string,Full_Name:string
+npx sequelize-cli model:generate --name StudentUniversityDetails --attributes Reg_Number:string,Department_ID:string,Academic_Year_Current:string,Semester_Current:integer,University_Email:string,Batch_Misses:integer,Advisor_ID:string,Advisor_Start_Date:date,Password:text
+npx sequelize-cli model:generate --name StudentRegistration --attributes Reg_Number:string,Personal_Email:string,Phone_Number:string,Home_Number:string,Permenant_Address:string,Temporary_Address:string,NIC:string,Registration_Date:date,AL_Index_Number:string,Applied_Year:integer,Medium:string,Z_Score:float,Gender:string,Race:string,Religion:string,Country:string,Nationality:string,Citizenship:string,Photo:text,Status:string,Emergency_Contact_Name:string,Emergency_Relationship_To_The_Student:string,Emergency_Phone_Number:string,Emergency_Address:string,Full_Name:string,Name_With_Initial:string
+npx sequelize-cli model:generate --name SemesterDetails --attributes Semester:integer,Semester_Start_Date:date,Semester_End_Date:date,Year:date
+npx sequelize-cli model:generate --name Course --attributes Course_Code:string,Course_Name:string,Credit:integer,Core_Technical:string,Coordinator_ID:string,Offered_Semester:integer,Offered_Department_ID:string,Academic_Year_Current:string,Registratipon_Open_Date:date,Registration_Close_Date:date,Semester_Start_Date:date,Semester_Close_Date:date,Open_Close:boolean
+npx sequelize-cli model:generate --name StudentAcademic --attributes Reg_Number:string,Course_Code:string,Attempt:integer,Register_Date:date,Coord_Approved:boolean,Coord_Approved_Date:date,Coord_Observation:text,Registration_Approved_Date:date,Results:string
+npx sequelize-cli model:generate --name CourseRegistration --attributes Reg_Number:string,Course_Code:string,Attempt:integer,Register_Date:date,Coord_Approved:boolean,Coord_Approved_Date:date,Coord_Obervation:text,Registration_Approved_Date:date,Draft:text,Open_Close:boolean
+
+npx sequelize-cli model:generate --name MedicalSubmission --attributes Reg_Number:string,Course_Code:string,Medical_ID:integer,Type:string,Description:text,Medical_Report:text,Approved:boolean
+npx sequelize-cli model:generate --name PrerequisiteCourseDetails --attributes Course_Code:string,Prerequisite_Course_Code:string
+npx sequelize-cli model:generate --name DepartmentCourse --attributes Offered_To_Which_Department_ID:string,Course_Code:string
