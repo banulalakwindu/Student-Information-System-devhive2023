@@ -10,17 +10,17 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      CourseRegistration.belongsTo(models.StudentUniversityDetails, {
-        foreignKey: 'Reg_Number',
-        targetKey: 'Reg_Number',
-        as: 'student',
-      });
+      // CourseRegistration.belongsTo(models.StudentUniversityDetails, {
+      //   foreignKey: 'Reg_Number',
+      //   targetKey: 'Reg_Number',
+      //   as: 'student',
+      // });
     
-      CourseRegistration.hasMany(models.Course, {
-        foreignKey: 'Course_Code',
-        targetKey: 'Course_Code',
-        as: 'course',
-      });
+      // CourseRegistration.hasMany(models.Course, {
+      //   foreignKey: 'Course_Code',
+      //   targetKey: 'Course_Code',
+      //   as: 'course',
+      // });
     }
     
   }

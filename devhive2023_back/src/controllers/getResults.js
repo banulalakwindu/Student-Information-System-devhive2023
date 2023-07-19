@@ -21,33 +21,31 @@ module.exports = {
 // FROM Course c
 // JOIN StudentAcademic sa ON c.Course_Code = sa.Course_Code
 // WHERE c.Course_Code = 'ec6010' AND sa.Reg_Number = '2019/e/099';
-
-const { Studentacademic, Course } = require('../models');
+const{Course,Studentacademic} = require('../models');
 
 module.exports = {
   async getResults(req, res) {
     try {
-      const results = await Course.findOne({
-        attributes: { exclude: ['id','Pre_Requisite_Course_Code'] }, // Exclude the 'id' field
-        include: [
-          {
-            model: Studentacademic,
-            attributes: ['Attempt', 'Results'],
-            where: { Reg_Number: '2019/e/099' },
+      const { code, reg } = req.params;
+      const results = await Course.findAll({
+        attributes: ['Course_Code', 'Course_Name', 'Credit'],
+        include: [{
+          model: Studentacademic,
+          as: 'studentacademic',
+          attributes: ['Attempt', 'Results'],
+          where: {
+            Reg_Number: '2019/e/099',
           },
-        ],
-        where: { Course_Code: 'ec6010' },
-        raw: true, // Ensures plain JSON objects as query results
-        nest: true, // Enables nested associations
+        }],
+        where: {
+          Course_Code: 'EC6010',
+        },
       });
-
-      if (results) {
-        res.status(200).json(results);
-      } else {
-        res.status(404).json({ message: 'No matching records found.' });
-      }
+      res.status(200).json(results);
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      res.status(500).json(error);
     }
-  },
+  }
 };
+
+

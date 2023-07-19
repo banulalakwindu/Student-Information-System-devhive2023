@@ -11,20 +11,21 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      AdvisorHistory.hasMany(models.StudentUniversityDetails, {
-        foreignKey: 'Advisor_ID',
-        sourceKey: 'Advisor_ID',
-        as: 'students',
-      });
-      AdvisorHistory.belongsTo(models.AcademicStaff, {
-        foreignKey: 'Advisor_ID',
-        targetKey: 'Staff_ID',
-        as: 'advisor',
-      });
+      // AdvisorHistory.hasMany(models.StudentUniversityDetails, {
+      //   foreignKey: 'Advisor_ID',
+      //   sourceKey: 'Advisor_ID',
+      //   as: 'students',
+      // });
+      // AdvisorHistory.belongsTo(models.AcademicStaff, {
+      //   foreignKey: 'Advisor_ID',
+      //   targetKey: 'Staff_ID',
+      //   as: 'advisor',
+      // });
+        
     }
   }
   AdvisorHistory.init({
-    Advisor_ID: {
+    Staff_ID: {
       type: DataTypes.STRING,
       primaryKey: true,
       allowNull: false

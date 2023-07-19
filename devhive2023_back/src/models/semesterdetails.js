@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   SemesterDetails.init({
-    Semester:{
+    Semester_Current:{
       type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false

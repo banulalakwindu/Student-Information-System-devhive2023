@@ -10,42 +10,42 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Course.belongsTo(models.AcademicStaff, {
-        foreignKey: 'Coordinator_ID',
-        targetKey: 'Staff_ID',
-        as: 'coordinator',
-      });
+      // Course.belongsTo(models.AcademicStaff, {
+      //   foreignKey: 'Coordinator_ID',
+      //   targetKey: 'Staff_ID',
+      //   as: 'coordinator',
+      // });
     
-      Course.hasMany(models.CourseRegistration, {
-        foreignKey: 'Course_Code',
-        sourceKey: 'Course_Code',
-        as: 'registrations',
-      });
-      Course.belongsTo(models.Department, {
-        foreignKey: 'Offered_Department_ID',
-        targetKey: 'Department_ID',
-        as: 'department',
-      });
-      Course.hasMany(models.DepartmentCourse, {
-        foreignKey: 'Course_Code',
-        sourceKey: 'Course_Code',
-        as: 'departmentcourses',
-      });
-      Course.hasMany(models.CourseHistoryOffered, {
-        foreignKey: 'Course_Code',
-        sourceKey: 'Course_Code',
-        as: 'coursehistoryoffereds',
-      });
-      Course.hasMany(models.PrerequisiteCourseDetails, {
-        foreignKey: 'Course_Code',
-        sourceKey: 'Course_Code',
-        as: 'prerequisitecoursedetails',
-      });
-      Course.hasMany(models.PrerequisiteCourseDetails, {
-        foreignKey: 'Prerequisite_Course_Code',
-        sourceKey: 'Course_Code',
-        as: 'prerequisitecoursedetails2',
-      });
+      // Course.hasMany(models.CourseRegistration, {
+      //   foreignKey: 'Course_Code',
+      //   sourceKey: 'Course_Code',
+      //   as: 'registrations',
+      // });
+      // Course.belongsTo(models.Department, {
+      //   foreignKey: 'Offered_Department_ID',
+      //   targetKey: 'Department_ID',
+      //   as: 'department',
+      // });
+      // Course.hasMany(models.DepartmentCourse, {
+      //   foreignKey: 'Course_Code',
+      //   sourceKey: 'Course_Code',
+      //   as: 'departmentcourses',
+      // });
+      // Course.hasMany(models.CourseHistoryOffered, {
+      //   foreignKey: 'Course_Code',
+      //   sourceKey: 'Course_Code',
+      //   as: 'coursehistoryoffereds',
+      // });
+      // Course.hasMany(models.PrerequisiteCourseDetails, {
+      //   foreignKey: 'Course_Code',
+      //   sourceKey: 'Course_Code',
+      //   as: 'prerequisitecoursedetails',
+      // });
+      // Course.hasMany(models.PrerequisiteCourseDetails, {
+      //   foreignKey: 'Prerequisite_Course_Code',
+      //   sourceKey: 'Course_Code',
+      //   as: 'prerequisitecoursedetails2',
+      // });
     }
     
   }
