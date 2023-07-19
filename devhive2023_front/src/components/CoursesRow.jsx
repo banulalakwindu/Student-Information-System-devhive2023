@@ -1,7 +1,9 @@
 import React from 'react'
 
+
 const CoursesRow = ({ code, course, credits, pre }) => {
     const hasPrerequisites = pre && pre.length > 0;
+    const modalId = `MyModal${code}`;
 
     return (
         <tr className='table-test'>
@@ -12,8 +14,8 @@ const CoursesRow = ({ code, course, credits, pre }) => {
                 {hasPrerequisites ? (
                     <a
                         data-bs-toggle='modal'
-                        data-bs-target='#exampleModal'
-                        className='cursor'
+                        data-bs-target={`#${modalId}`}
+                        className={`${modalId} cursor`}
                     >
                         View
                     </a>
@@ -21,9 +23,9 @@ const CoursesRow = ({ code, course, credits, pre }) => {
             </td>
 
             {hasPrerequisites && (
-                <div
+                <td
                     className='modal fade'
-                    id='exampleModal'
+                    id={modalId}
                     tabIndex='-1'
                     aria-labelledby='exampleModalLabel'
                     aria-hidden='true'
@@ -55,8 +57,8 @@ const CoursesRow = ({ code, course, credits, pre }) => {
                                     <tbody>
                                         {pre.map((prerequisite, index) => (
                                             <tr key={index}>
-                                                <th>{prerequisite.code}</th>
-                                                <td>{prerequisite.name}</td>
+                                                <td className='text-start'>{prerequisite.code}</td>
+                                                <td className='text-start'>{prerequisite.name}</td>
                                             </tr>
                                         ))}
                                     </tbody>
@@ -73,7 +75,7 @@ const CoursesRow = ({ code, course, credits, pre }) => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </td>
             )}
         </tr>
     )

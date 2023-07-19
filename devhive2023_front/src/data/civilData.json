@@ -1,42 +1,418 @@
 [
-        {
-            "name": "Semester 04",
-            "courses": [
-                {
-                    "code": "MC1010",
-                    "course": "English Language Enhancement",
-                    "credits": 3,
-                    "pre": [
-                        { "code": "PR101", "name": "Prerequisite 1" },
-                        { "code": "PR102", "name": "Prerequisite 2" },
-                        { "code": "PR103", "name": "Prerequisite 3" }
-                    ]
-                },
-                {
-                    "code": "MC1020",
-                    "course": "Mathematics",
-                    "credits": 3
-                },
-                {
-                    "code": "ID1010",
-                    "course": "Engineering Drawing",
-                    "credits": 3
-                },
-                {
-                    "code": "EC1011",
-                    "course": "Computing",
-                    "credits": 3
-                },
-                {
-                    "code": "EC1020",
-                    "course": "Applied Electricity",
-                    "credits": 3
-                },
-                {
-                    "code": "ID1021",
-                    "course": "Engineering Metrology",
-                    "credits": 3
-                }
-            ]
-        }
-    ]
+    {
+        "name": "Semester 04",
+        "courses": [
+            {
+                "code": "CE4010",
+                "course": "Surveying and Fieldwork",
+                "credits": 3
+            },
+            {
+                "code": "CE4020",
+                "course": "Civil Engineering Construction",
+                "credits": 3
+            },
+            {
+                "code": "CE4030",
+                "course": "Engineering Hydrology",
+                "credits": 3
+            },
+            {
+                "code": "CE4050",
+                "course": "Fluid Mechanics",
+                "credits": 3
+            },
+            {
+                "code": "CE4060",
+                "course": "Structural Analysis I",
+                "credits": 2
+            },
+            {
+                "code": "CE4070",
+                "course": "Concrete Technology",
+                "credits": 2
+            },
+            {
+                "code": "CE4080",
+                "course": "Geology for Civil Engineering",
+                "credits": 2
+            }
+        ]
+    },
+    {
+        "name": "Semester 05",
+        "courses": [
+            {
+                "code": "CE5021",
+                "course": "Geomechanics",
+                "credits": 2
+            },
+            {
+                "code": "CE5031",
+                "course": "Water and Wastewater Engineering",
+                "credits": 3
+            },
+            {
+                "code": "CE5040",
+                "course": "Hydraulic Engineering and Design",
+                "credits": 3
+            },
+            {
+                "code": "CE5060",
+                "course": "Contaminated Land and Groundwater and Remediation",
+                "credits": 3
+            },
+            {
+                "code": "CE5070",
+                "course": "Transportation Engineering",
+                "credits": 3
+            },
+            {
+                "code": "CE5080",
+                "course": "Design of Concrete Structures",
+                "credits": 4,
+                "pre": [
+                    {
+                        "code": "CE4050",
+                        "name": "Structural Analysis"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Semester 06",
+        "courses": [
+            {
+                "code": "CE6010",
+                "course": "Geotechnical Engineering and Design",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "CE5021",
+                        "name": "Geomechanics"
+                    }
+                ]
+            },
+            {
+                "code": "CE6030",
+                "course": "Solid Waste Management",
+                "credits": 3
+            },
+            {
+                "code": "CE6090",
+                "course": "Structural Analysis II",
+                "credits": 2
+            },
+            {
+                "code": "CE6070",
+                "course": "Continuum Mechanics",
+                "credits": 2
+            },
+            {
+                "code": "CE6080",
+                "course": "Design of Steel Structures",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "CE5050",
+                        "name": "Structural Analysis"
+                    }
+                ]
+            },
+            {
+                "code": "CE6050",
+                "course": "Civil Engineering Research Project I",
+                "credits": 3
+            }
+        ]
+    },
+    {
+        "name": "Semester 07",
+        "courses": [
+            {
+                "code": "ID7010",
+                "course": "Project Management and Engineering Industry",
+                "credits": 3
+            },
+            {
+                "code": "CE7050",
+                "course": "Civil Engineering Research Project II",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "CE6050",
+                        "name": "Civil Engineering Research Project I"
+                    }
+                ]
+            },
+            {
+                "code": "CE7030",
+                "course": "Civil Engineering Fieldwork",
+                "credits": 1
+            },
+            {
+                "code": "CE7040",
+                "course": "Multidisciplinary Design Project I",
+                "credits": 2
+            }
+        ]
+    },
+    {
+        "name": "Semester 08",
+        "courses": [
+            {
+                "code": "CE8040",
+                "course": "Multi-Disciplinary Design Project II",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "CE7040",
+                        "name": "Multidisciplinary Design Project I"
+                    }
+                ]
+            },
+            {
+                "code": "CE8051",
+                "course": "Civil Engineering Research Project III",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "CE7050",
+                        "name": "Civil Engineering Research Project II"
+                    }
+                ]
+            },
+            {
+                "code": "CE8020",
+                "course": "Computational Methods in Civil Engineering",
+                "credits": 2
+            }
+        ]
+    },
+    {
+        "name": "Technical Electives",
+        "courses": [
+            {
+                "code": "CE9010",
+                "course": "Advanced Structural Design",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "CE6080",
+                        "name": "Design of Concrete Structures"
+                    }
+                ]
+            },
+            {
+                "code": "CE9020",
+                "course": "Applied Finite Element Methods",
+                "credits": 2
+            },
+            {
+                "code": "CE9030",
+                "course": "Structural Dynamics and Vibrations",
+                "credits": 2
+            },
+            {
+                "code": "CE9040",
+                "course": "Earth Slopes and Retaining Structures",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "CE5021",
+                        "name": "Geomechanics"
+                    }
+                ]
+            },
+            {
+                "code": "CE9051",
+                "course": "Highway Engineering",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "CE5021",
+                        "name": "Geomechanics"
+                    },
+                    {
+                        "code": "CE5070",
+                        "name": "Transportation Engineering"
+                    }
+                ]
+            },
+            {
+                "code": "CE9060",
+                "course": "Environmental Microbiology and Biotechnology",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "CE5031",
+                        "name": "Water and Wastewater Engineering"
+                    }
+                ]
+            },
+            {
+                "code": "CE9070",
+                "course": "Advanced Water Treatment Systems",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "CE5031",
+                        "name": "Water and Wastewater Engineering"
+                    }
+                ]
+            },
+            {
+                "code": "CE9080",
+                "course": "Air Quality Engineering",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "CE5031",
+                        "name": "Water and Wastewater Engineering"
+                    }
+                ]
+            },
+            {
+                "code": "CE9090",
+                "course": "Integrated Water Resource Management",
+                "credits": 2
+            },
+            {
+                "code": "CE9100",
+                "course": "Advanced Irrigation Engineering",
+                "credits": 2
+            },
+            {
+                "code": "CE9110",
+                "course": "Wave Theory and Coastal Engineering",
+                "credits": 3
+            },
+            {
+                "code": "CE9120",
+                "course": "GIS and Remote Sensing",
+                "credits": 3
+            },
+            {
+                "code": "CE9130",
+                "course": "Design of Masonry and Timber Structures",
+                "credits": 3
+            },
+            {
+                "code": "CE9140",
+                "course": "Advanced Wastewater Treatment",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "CE5031",
+                        "name": "Water and Wastewater Engineering"
+                    }
+                ]
+            },
+            {
+                "code": "CE9160",
+                "course": "Bridge Engineering",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "CE6080",
+                        "name": "Design of Concrete Structures"
+                    },
+                    {
+                        "code": "CE6080",
+                        "name": "Design of Steel Structures"
+                    }
+                ]
+            },
+            {
+                "code": "CE9170",
+                "course": "Foundation Engineering",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "CE6010",
+                        "name": "Geotechnical Engineering and Design"
+                    }
+                ]
+            },
+            {
+                "code": "CE9180",
+                "course": "Constitutive Modelling of Geomaterials",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "CE5021",
+                        "name": "Geomechanics"
+                    }
+                ]
+            },
+            {
+                "code": "ID9020",
+                "course": "Composite Materials",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "ID4020",
+                        "name": "Composite Materials"
+                    }
+                ]
+            },
+            {
+                "code": "MC9510",
+                "course": "Modelling in Operations Research",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "MC1010",
+                        "name": "English Language Enhancement"
+                    },
+                    {
+                        "code": "MC2020",
+                        "name": "Linear Algebra"
+                    },
+                    {
+                        "code": "MC3010",
+                        "name": "Differential Equations and Numerical Method"
+                    },
+                    {
+                        "code": "MC3020",
+                        "name": "Probability and Statistics"
+                    }
+                ]
+            },
+            {
+                "code": "MC9210",
+                "course": "Traffic Engineering and Planning",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "CE5070",
+                        "name": "Transportation Engineering"
+                    }
+                ]
+            },
+            {
+                "code": "MC9200",
+                "course": "Traffic and Transportation Analysis",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "CE5070",
+                        "name": "Transportation Engineering"
+                    }
+                ]
+            },
+            {
+                "code": "MC9190",
+                "course": "Data analysis for civil and Environmental Engineers",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "MC3020",
+                        "name": "Probability and Statistics"
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -2,6 +2,7 @@ import React from 'react'
 
 const CoursesRowComp = ({ code, course, credits, pre, category }) => {
     const hasPrerequisites = pre && pre.length > 0;
+    const modalId = `MyModal${code}`;
 
     return (
         <tr className='table-test'>
@@ -12,8 +13,8 @@ const CoursesRowComp = ({ code, course, credits, pre, category }) => {
                 {hasPrerequisites ? (
                     <a
                         data-bs-toggle='modal'
-                        data-bs-target='#exampleModal'
-                        className='cursor'
+                        data-bs-target={`#${modalId}`}
+                        className={`${modalId} cursor`}
                     >
                         View
                     </a>
@@ -34,7 +35,7 @@ const CoursesRowComp = ({ code, course, credits, pre, category }) => {
             {hasPrerequisites && (
                 <div
                     className='modal fade'
-                    id='exampleModal'
+                    id={modalId}
                     tabIndex='-1'
                     aria-labelledby='exampleModalLabel'
                     aria-hidden='true'
@@ -66,7 +67,7 @@ const CoursesRowComp = ({ code, course, credits, pre, category }) => {
                                     <tbody>
                                         {pre.map((prerequisite, index) => (
                                             <tr key={index}>
-                                                <th>{prerequisite.code}</th>
+                                                <td>{prerequisite.code}</td>
                                                 <td>{prerequisite.name}</td>
                                             </tr>
                                         ))}

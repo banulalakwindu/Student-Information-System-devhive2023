@@ -93,9 +93,9 @@ const Navbar = () => {
 function CustomLink({ label, to, exact }) {
     return (
         <NavLink
-            exact={exact}
+
             to={to}
-            activeClassName="selected" // Add the 'selected' class when active
+
             className="nav-center-div p-2 rounded"
         >
             <h6 className="my-0 mx-3">{label}</h6>
