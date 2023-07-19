@@ -11,14 +11,23 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      MedicalSubmission.belongsTo(models.StudentUniversityDetails, {
+        foreignKey: 'Reg_Number',
+        targetKey: 'Reg_Number',
+        as: 'student',
+      });
     }
   }
   MedicalSubmission.init({
-    Reg_Number: DataTypes.STRING,
-    //Course_Code: DataTypes.STRING,
+    Reg_Number:{
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false
+    },
+    Course_Code: DataTypes.STRING,
     Medical_ID: DataTypes.INTEGER,
-    //Type: DataTypes.STRING,
-    //Description: DataTypes.TEXT,
+    Type: DataTypes.STRING,
+    Description: DataTypes.TEXT,
     Medical_Report: DataTypes.TEXT,
     Approved: DataTypes.BOOLEAN
   }, {

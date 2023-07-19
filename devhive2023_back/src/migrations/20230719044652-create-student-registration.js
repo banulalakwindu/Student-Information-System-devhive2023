@@ -3,9 +3,13 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('StudentRegistrations', {
-      Reg_Number: {
+      id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      Reg_Number: {
         type: Sequelize.STRING
       },
       Personal_Email: {
@@ -24,8 +28,6 @@ module.exports = {
         type: Sequelize.STRING
       },
       NIC: {
-        allowNull: false,
-        primaryKey: true,
         type: Sequelize.STRING
       },
       Registration_Date: {
@@ -94,15 +96,6 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
-    await queryInterface.addConstraint('StudentRegistrations', {
-      fields: ['Reg_Number'],
-      type: 'foreign key',
-      name: 'fk_studentRegistrations_reg_number',
-      references: {
-        table: 'studentuniversitydetails',
-        field: 'Reg_Number'
-      },
-      });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('StudentRegistrations');

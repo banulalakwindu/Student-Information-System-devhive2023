@@ -11,13 +11,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      
     }
   }
   SemesterDetails.init({
-    Semester: DataTypes.INTEGER,
+    Semester:{
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      allowNull: false
+    },
     Semester_Start_Date: DataTypes.DATE,
     Semester_End_Date: DataTypes.DATE,
-    Year: DataTypes.DATE
+    Year:{
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false
+    } 
   }, {
     sequelize,
     modelName: 'SemesterDetails',

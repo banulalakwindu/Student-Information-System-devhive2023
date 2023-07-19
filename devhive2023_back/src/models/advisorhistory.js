@@ -11,12 +11,34 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      AdvisorHistory.hasMany(models.StudentUniversityDetails, {
+        foreignKey: 'Advisor_ID',
+        sourceKey: 'Advisor_ID',
+        as: 'students',
+      });
+      AdvisorHistory.belongsTo(models.AcademicStaff, {
+        foreignKey: 'Advisor_ID',
+        targetKey: 'Staff_ID',
+        as: 'advisor',
+      });
     }
   }
   AdvisorHistory.init({
-    Advisor_ID: DataTypes.STRING,
-    Student_ID: DataTypes.STRING,
-    Start_Date: DataTypes.DATE,
+    Advisor_ID: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false
+    },
+    Student_ID:{
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false
+    },
+    Start_Date:{
+      type: DataTypes.DATE,
+      primaryKey: true,
+      allowNull: false
+    },
     End_Date: DataTypes.DATE
   }, {
     sequelize,

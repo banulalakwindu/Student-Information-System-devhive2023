@@ -11,15 +11,30 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      CourseHistoryOffered.belongsTo(models.Department, {
+        foreignKey: 'Offered_Department_ID',
+        targetKey: 'Department_ID',
+        as: 'department',
+      });
+      CourseHistoryOffered.belongsTo(models.AcedamicStaff, {
+        foreignKey: 'Coord_ID',
+        targetKey: 'Staff_ID',
+        as: 'coordinator',
+      });
+      
     }
   }
   CourseHistoryOffered.init({
-    Course_Code: DataTypes.STRING,
+    Course_Code:{
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false
+    },
     Course_Name: DataTypes.STRING,
     Credit: DataTypes.INTEGER,
     Core_Technical: DataTypes.STRING,
     Coord_ID: DataTypes.STRING,
-    Pre_Requisites_Course_Code: DataTypes.STRING,
+    //Pre_Requisites_Course_Code: DataTypes.STRING,
     Offered_Semester: DataTypes.INTEGER,
     Offered_Department_ID: DataTypes.INTEGER,
     Academic_Year: DataTypes.STRING,

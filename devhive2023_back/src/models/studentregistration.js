@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      StudentRegistration.belongsTo(models.StudentUniversityDetails, {
+        foreignKey: 'Reg_Number',
+        targetKey: 'Reg_Number',
+        as: 'student',
+      });
     }
   }
   StudentRegistration.init({
@@ -20,7 +25,11 @@ module.exports = (sequelize, DataTypes) => {
     Home_Number: DataTypes.STRING,
     Permenant_Address: DataTypes.STRING,
     Temporary_Address: DataTypes.STRING,
-    NIC: DataTypes.STRING,
+    NIC:{
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false
+    },
     Registration_Date: DataTypes.DATE,
     AL_Index_Number: DataTypes.STRING,
     Applied_Year: DataTypes.INTEGER,
