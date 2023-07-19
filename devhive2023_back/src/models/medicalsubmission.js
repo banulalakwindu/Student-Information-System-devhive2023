@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      MedicalSubmission.belongsTo(models.StudentUniversityDetails, {
-        foreignKey: 'Reg_Number',
-        targetKey: 'Reg_Number',
-        as: 'student',
-      });
+      // MedicalSubmission.belongsTo(models.StudentUniversityDetails, {
+      //   foreignKey: 'Reg_Number',
+      //   targetKey: 'Reg_Number',
+      //   as: 'student',
+      // });
     }
   }
   MedicalSubmission.init({

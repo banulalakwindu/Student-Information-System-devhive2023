@@ -11,20 +11,20 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      DepartmentCourse.belongsTo(models.Department, {
-        foreignKey: 'Offered_To_Which_Department_ID',
-        targetKey: 'Department_ID',
-        as: 'department',
-      });
-      DepartmentCourse.belongsTo(models.Course, {
-        foreignKey: 'Course_Code',
-        targetKey: 'Course_Code',
-        as: 'course',
-      });
+      // DepartmentCourse.belongsTo(models.Department, {
+      //   foreignKey: 'Offered_To_Which_Department_ID',
+      //   targetKey: 'Department_ID',
+      //   as: 'department',
+      // });
+      // DepartmentCourse.belongsTo(models.Course, {
+      //   foreignKey: 'Course_Code',
+      //   targetKey: 'Course_Code',
+      //   as: 'course',
+      // });
     }
   }
   DepartmentCourse.init({
-    Offered_To_Which_Department_ID:{
+    Department_ID:{
       type: DataTypes.STRING,
       primaryKey: true,
       allowNull: false

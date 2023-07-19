@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      Offered_To_Which_Department_ID: {
+      Department_ID: {
         type: Sequelize.STRING
       },
       Course_Code: {

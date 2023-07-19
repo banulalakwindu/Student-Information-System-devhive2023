@@ -11,26 +11,26 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Department.hasMany(models.AcademicStaff, {
-        foreignKey: 'Department_ID',
-        sourceKey: 'Department_ID',
-        as: 'staffs',
-      });
-      Department.hasMany(models.CourseHistoryOffered, {
-        foreignKey: 'Offered_Department_ID',
-        sourceKey: 'Department_ID',
-        as: 'courses',
-      });
-      Department.hasMany(models.StudentUniversityDetails, {
-        foreignKey: 'Department_ID',
-        sourceKey: 'Department_ID',
-        as: 'students',
-      });
-      Department.hasMany(models.DepartmentCourse, {
-        foreignKey: 'Offered_To_Which_Department_ID',
-        sourceKey: 'Department_ID',
-        as: 'departmentcourses',
-      });
+      // Department.hasMany(models.AcademicStaff, {
+      //   foreignKey: 'Department_ID',
+      //   sourceKey: 'Department_ID',
+      //   as: 'staffs',
+      // });
+      // Department.hasMany(models.CourseHistoryOffered, {
+      //   foreignKey: 'Offered_Department_ID',
+      //   sourceKey: 'Department_ID',
+      //   as: 'courses',
+      // });
+      // Department.hasMany(models.StudentUniversityDetails, {
+      //   foreignKey: 'Department_ID',
+      //   sourceKey: 'Department_ID',
+      //   as: 'students',
+      // });
+      // Department.hasMany(models.DepartmentCourse, {
+      //   foreignKey: 'Offered_To_Which_Department_ID',
+      //   sourceKey: 'Department_ID',
+      //   as: 'departmentcourses',
+      // });
       
     }
   }

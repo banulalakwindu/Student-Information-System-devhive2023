@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      Semester: {
+      Semester_Current: {
         type: Sequelize.INTEGER
       },
       Semester_Start_Date: {

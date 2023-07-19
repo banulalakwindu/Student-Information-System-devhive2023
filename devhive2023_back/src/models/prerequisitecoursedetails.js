@@ -11,16 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      PrerequisiteCourseDetails.belongsTo(models.Course, {
-        foreignKey: 'Course_Code',
-        targetKey: 'Course_Code',
-        as: 'course',
-      });
-      PrerequisiteCourseDetails.belongsTo(models.Course, {
-        foreignKey: 'Prerequisite_Course_Code',
-        targetKey: 'Course_Code',
-        as: 'prerequisite_course',
-      });
+      // PrerequisiteCourseDetails.belongsTo(models.Course, {
+      //   foreignKey: 'Course_Code',
+      //   targetKey: 'Course_Code',
+      //   as: 'course',
+      // });
+      // PrerequisiteCourseDetails.belongsTo(models.Course, {
+      //   foreignKey: 'Prerequisite_Course_Code',
+      //   targetKey: 'Course_Code',
+      //   as: 'prerequisite_course',
+      // });
     }
   }
   PrerequisiteCourseDetails.init({

@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      Advisor_ID: {
+      Staff_ID: {
         type: Sequelize.STRING
       },
       Student_ID: {

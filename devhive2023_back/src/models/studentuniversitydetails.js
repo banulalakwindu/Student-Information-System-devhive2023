@@ -16,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
         targetKey: 'Department_ID',
         as: 'department',
       });
+      // StudentUniversityDetails.belongsTo(models.AdvisorHistory, {
+      //   foreignKey: 'Advisor_ID',
+      //   targetKey: 'Advisor_ID',
+      //   as: 'advisor',
+      // });
     }
   }
   StudentUniversityDetails.init({

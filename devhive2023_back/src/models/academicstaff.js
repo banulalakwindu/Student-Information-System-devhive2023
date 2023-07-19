@@ -10,11 +10,11 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      AcademicStaff.belongsTo(models.Department, {
-        foreignKey: 'Department_ID',
-        targetKey: 'Department_ID',
-        as: 'department',
-      });
+      // AcademicStaff.belongsTo(models.Department, {
+      //   foreignKey: 'Department_ID',
+      //   targetKey: 'Department_ID',
+      //   as: 'department',
+      // });
     }
     
   }
