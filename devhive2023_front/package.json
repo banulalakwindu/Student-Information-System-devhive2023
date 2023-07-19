@@ -2,6 +2,7 @@
   "name": "devhive2023_front",
   "private": true,
   "version": "0.1.0",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "dev": "vite",
@@ -34,11 +35,6 @@
   },
   "jest": {
     "testEnvironment": "jest-environment-jsdom"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   }
+
 }
