@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 Results
+=======
+Results()
+>>>>>>> Stashed changes
 
 SELECT Re.Course_Code, Re.Attempt, Co.Course_name , Co.Credit, Re.Result from Results as Re, Courses as Co 
 WHERE (Co.Course_Code = Re.Course_Code) AND Co.Offered_Semester = '6' AND Re.Reg_Number = '2019/E/099';
@@ -8,7 +12,11 @@ Reg_Number need a cookies
 
 
 
+<<<<<<< Updated upstream
 Course Registration view after save
+=======
+Course Registration view after save()
+>>>>>>> Stashed changes
 
 SELECT c.course_code, c.course_name, c.credit, a.Full_Name AS coordinator, cr.attempt FROM courses c 
 INNER JOIN course_registartion cr ON c.course_code = cr.course_code 
@@ -20,7 +28,11 @@ Reg_Number need a cookies
 
 
 
+<<<<<<< Updated upstream
 Course Registration afer portol open.
+=======
+Course Registration afer portol open.()
+>>>>>>> Stashed changes
 
 SELECT c.course_code, c.course_name, c.credit, a.Full_Name AS coordinator 
 FROM courses c INNER JOIN course_registartion cr ON c.course_code = cr.course_code 
@@ -31,7 +43,11 @@ Offered_Semester semester need to take as cookie.
 
 
 
+<<<<<<< Updated upstream
 Results of the pre request subject
+=======
+Results of the pre request subject()
+>>>>>>> Stashed changes
 
 SELECT p.Prerequisite_Course_code AS prerequisite_course_details, c.Course_Name , r.Result
 FROM courses c
