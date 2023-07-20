@@ -1,8 +1,8 @@
 import React from 'react'
 
-const ResultRow = ({ code }) => {
+const ResultRow = ({ code, color }) => {
     return (
-        <tr className='table-test'>
+        <tr className={`table-${color} table-test`}>
             <td>{code}</td>
             <td>Software Engineering</td>
             <td>3</td>

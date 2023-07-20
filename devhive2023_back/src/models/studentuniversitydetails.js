@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      StudentUniversityDetails.belongsTo(models.Department, {
-        foreignKey: 'Department_ID',
-        targetKey: 'Department_ID',
-        as: 'department',
-      });
+      // StudentUniversityDetails.belongsTo(models.Department, {
+      //   foreignKey: 'Department_ID',
+      //   targetKey: 'Department_ID',
+      //   as: 'department',
+      // });
       // StudentUniversityDetails.belongsTo(models.AdvisorHistory, {
       //   foreignKey: 'Advisor_ID',
       //   targetKey: 'Advisor_ID',
@@ -24,19 +24,19 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   StudentUniversityDetails.init({
-    Reg_Number:{
+    Reg_Number: {
       type: DataTypes.STRING,
       primaryKey: true,
-      allowNull: false
+      allowNull: false,
     },
+    University_Email: DataTypes.STRING,
+    Password: DataTypes.STRING,
     Department_ID: DataTypes.STRING,
     Academic_Year_Current: DataTypes.STRING,
     Semester_Current: DataTypes.INTEGER,
-    University_Email: DataTypes.STRING,
     Batch_Misses: DataTypes.INTEGER,
     Advisor_ID: DataTypes.STRING,
     Advisor_Start_Date: DataTypes.DATE,
-    Password: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'StudentUniversityDetails',
