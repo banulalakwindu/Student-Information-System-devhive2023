@@ -17,6 +17,7 @@ import Com from './utils/courses/com'
 import Elec from './utils/courses/elec'
 import Mech from './utils/courses/mech'
 import Complementary from './utils/courses/complementary'
+import Change_password from './pages/change_password'
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/" element={<Index className='vh-100 overflow-hidden' />} ></Route>
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path='change_password' element={<Change_password />}></Route>
         <Route path='/semesters' element={<Semesters />}></Route>
         <Route path='/semesters/registration' element={<Registration />}></Route>
         <Route path='/results' element={<Results />}></Route>
