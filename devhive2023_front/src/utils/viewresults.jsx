@@ -39,12 +39,12 @@ const Viewresults = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                <ResultRow code="EC6060" />
-                                <ResultRow code="EC6060" />
-                                <ResultRow code="EC6060" />
-                                <ResultRow code="EC6060" />
-                                <ResultRow code="EC6060" />
-                                <ResultRow code="EC6060" />
+                                <ResultRow code="EC6060" color = "light"/>
+                                <ResultRow code="EC6060" color = "light"/>
+                                <ResultRow code="EC6060" color = "warning"/>
+                                <ResultRow code="EC6060" color = "light"/>
+                                <ResultRow code="EC6060" color = "light"/>
+                                <ResultRow code="EC6060" color = "info"/>
                             </tbody>
                         </table>
                     </div>
