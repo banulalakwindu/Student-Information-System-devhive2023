@@ -29,8 +29,9 @@ const login = async (req, res) => {
             httpOnly:true,
             maxAge:expiresIn*1000
           });
-  
+          const defaultPassword = email.split('@')[0]; 
           return res.status(200).json({ message: 'Login success', token,student});
+          
         }
         return res.status(400).json({ message: 'Invalid email or password' });
       });
@@ -171,6 +172,38 @@ const register = async (req, res) => {
       return res.status(500).json({ message: 'An error occurred. Please try again later.' });
     }
   };
+
+  const regCourseInSemester = async (req, res) => {
+    const token = req.cookies.token;
+    const secretKey = 'devhive';
+    const {semester} = req.params;
+    try {
+      // Find the student's registration number based on the given email
+      const decoded = jwt.verify(token, secretKey);
+      const email = decoded.email;
+      const studentRegistration = await Studentunivasitydetails.findOne({
+        attributes: ['Reg_Number'],
+        where: { University_Email: email },
+      });
+
+      if (!studentRegistration) {
+        return res.status(404).json({ message: 'Student not found' });
+      }
+
+      const studentRegNumber = studentRegistration.Reg_Number;
+
+      //fetch courses for the given semester
+      const courses = await Course.findAll({
+        attributes: ['Course_Code', 'Course_Name', 'Credit'],
+        where: { Offered_Semester: semester },
+      });
+
+      return res.status(200).json({ courses });
+    } catch (error) {
+      console.error('Error fetching courses for the given semester:', error);
+      return res.status(500).json({ message: 'An error occurred. Please try again later.' });
+    }
+  };
   
 
 
@@ -179,4 +212,5 @@ const register = async (req, res) => {
     register,
     getResults,
     getSemestersWithResults,
+    regCourseInSemester,
   };
