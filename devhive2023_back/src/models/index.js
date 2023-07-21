@@ -142,17 +142,29 @@ db.Studentacademic.belongsTo(db.Studentunivasitydetails, {
   targetKey: 'Reg_Number',
   as: 'studentuniversitydetails',
 });
-
-db.Course.hasMany(db.Studentacademic, {
+//studentacademic to coursehistoryoffered
+db.Coursehistoryoffered.hasMany(db.Studentacademic, {
   foreignKey: 'Course_Code',
   targetKey: 'Course_Code',
   as: 'studentacademic',
 });
 
-db.Studentacademic.belongsTo(db.Course, {
+db.Studentacademic.belongsTo(db.Coursehistoryoffered, {
   foreignKey: 'Course_Code',
   targetKey: 'Course_Code',
   as: 'course',
+});
+//Coursehistoryoffered to Department 
+db.Department.hasMany(db.Coursehistoryoffered, {
+  foreignKey: 'Offered_Department_ID',
+  targetKey: 'Department_ID',
+  as: 'coursehistoryoffered',
+});
+
+db.Coursehistoryoffered.belongsTo(db.Department, {
+  foreignKey: 'Offered_Department_ID',
+  targetKey: 'Department_ID',
+  as: 'department',
 });
 
 db.Department.hasMany(db.Academicstaff, {
