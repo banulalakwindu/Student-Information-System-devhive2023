@@ -14,7 +14,7 @@ router.get('/results/:code',cookieJwtAuth.cookieJwtAuth, user.getResults);
 router.post('/register', user.register);
 router.get('/results',cookieJwtAuth.cookieJwtAuth, user.getSemestersWithResults);
 router.get('/results/viwe/:semester',cookieJwtAuth.cookieJwtAuth, user.regCourseInSemester);
-
+router.post('/logout',cookieJwtAuth.cookieJwtAuth, user.logout);
 
 module.exports = router;
 

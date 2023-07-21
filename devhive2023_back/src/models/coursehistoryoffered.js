@@ -37,7 +37,11 @@ module.exports = (sequelize, DataTypes) => {
     //Pre_Requisites_Course_Code: DataTypes.STRING,
     Offered_Semester: DataTypes.INTEGER,
     Offered_Department_ID: DataTypes.INTEGER,
-    Academic_Year: DataTypes.STRING,
+    Academic_Year:{
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false
+    },
     Semester_Start_Date: DataTypes.DATE,
     Semester_End_Date: DataTypes.DATE
   }, {

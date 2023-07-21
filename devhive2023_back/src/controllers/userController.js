@@ -104,7 +104,7 @@ const register = async (req, res) => {
         if (!student) {
           return res.status(400).json({ message: 'Student not found for the given email.' });
         }
-        const results = await Course.findAll({
+        const results = await Coursehistoryoffered.findAll({
             attributes: ['Course_Code', 'Course_Name', 'Credit'],
             include: [{
               model: Studentacademic,
@@ -152,7 +152,7 @@ const register = async (req, res) => {
       const studentRegNumber = studentRegistration.Reg_Number;
   
       // Fetch semesters with results for the given student registration number
-      const semestersWithResults = await Course.findAll({
+      const semestersWithResults = await Coursehistoryoffered.findAll({
         attributes: ['Offered_Semester'],
         include: [
           {
@@ -193,7 +193,7 @@ const register = async (req, res) => {
       const studentRegNumber = studentRegistration.Reg_Number;
 
       //fetch courses for the given semester
-      const courses = await Course.findAll({
+      const courses = await Coursehistoryoffered.findAll({
         attributes: ['Course_Code', 'Course_Name', 'Credit'],
         where: { Offered_Semester: semester },
       });
@@ -204,6 +204,15 @@ const register = async (req, res) => {
       return res.status(500).json({ message: 'An error occurred. Please try again later.' });
     }
   };
+
+  const logout = async (req, res) => {
+    res.cookie('token','',{
+      httpOnly:true,
+      expires:new Date(0)
+    });
+    res.status(200).json({message:'Logout success'});
+  };
+
   
 
 
@@ -213,4 +222,5 @@ const register = async (req, res) => {
     getResults,
     getSemestersWithResults,
     regCourseInSemester,
+    logout,
   };
