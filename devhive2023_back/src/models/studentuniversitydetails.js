@@ -37,6 +37,10 @@ module.exports = (sequelize, DataTypes) => {
     Batch_Misses: DataTypes.INTEGER,
     Advisor_ID: DataTypes.STRING,
     Advisor_Start_Date: DataTypes.DATE,
+    flag: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    },
   }, {
     sequelize,
     modelName: 'StudentUniversityDetails',

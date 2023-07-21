@@ -29,8 +29,8 @@ const login = async (req, res) => {
             httpOnly:true,
             maxAge:expiresIn*1000
           });
-          const defaultPassword = email.split('@')[0]; 
-          return res.status(200).json({ message: 'Login success', token,student});
+          const PasswordStatus = student.flag; 
+          return res.status(200).json({ message: 'Login success', token,student,passwordStatus:PasswordStatus});
           
         }
         return res.status(400).json({ message: 'Invalid email or password' });
@@ -182,7 +182,7 @@ const register = async (req, res) => {
       const decoded = jwt.verify(token, secretKey);
       const email = decoded.email;
       const studentRegistration = await Studentunivasitydetails.findOne({
-        attributes: ['Reg_Number'],
+        attributes: ['Reg_Number'],       
         where: { University_Email: email },
       });
 
@@ -194,7 +194,13 @@ const register = async (req, res) => {
 
       //fetch courses for the given semester
       const courses = await Coursehistoryoffered.findAll({
-        attributes: ['Course_Code', 'Course_Name', 'Credit'],
+        attributes: ['Course_Code', 'Course_Name', 'Credit',"Core_Technical"],
+        include: [{
+          model: Studentacademic,
+          as: 'studentacademic',
+          attributes: [],
+          where: { Reg_Number: studentRegNumber },
+        }],
         where: { Offered_Semester: semester },
       });
 
@@ -213,6 +219,66 @@ const register = async (req, res) => {
     res.status(200).json({message:'Logout success'});
   };
 
+  const updatePassword = async (req, res) => {
+    const { oldPassword, Password } = req.body;
+    const token = req.cookies.token;
+  
+    if (!token) {
+      return res.status(401).json({ message: 'Authorization token not provided.' });
+    }
+  
+    // Provide a valid secret key used to sign the JWT (same key used during login)
+    const secretKey = 'devhive';
+    try {
+      // Verify the JWT
+      const decoded = jwt.verify(token, secretKey);
+      const email = decoded.email;
+      const studentRegistration = await Studentunivasitydetails.findOne({
+        where: { University_Email: email },
+      });
+  
+      if (!studentRegistration) {
+        return res.status(404).json({ message: 'Student not found' });
+      }
+  
+      const studentRegNumber = studentRegistration.Reg_Number;
+  
+      // Wrap bcrypt.compare in a Promise and use await
+      const result = await new Promise((resolve, reject) => {
+        bcrypt.compare(oldPassword, studentRegistration.Password, (err, result) => {
+          if (err) {
+            reject(err);
+          }
+          resolve(result);
+        });
+      });
+  
+      if (result) {
+        // Hash the new password using bcrypt
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(Password, saltRounds);
+  
+        // Update the password in the database
+        await Studentunivasitydetails.update(
+          { Password: hashedPassword },
+          { where: { Reg_Number: studentRegNumber } }
+        );
+  
+        return res.status(200).json({ message: 'Password updated successfully.' });
+      } else {
+        return res.status(400).json({ message: 'Invalid email or password' });
+      }
+    } catch (error) {
+      return res.status(401).json({ message: 'Authorization token invalid. e1', error });
+    }
+  };
+  
+  
+
+
+
+    
+
   
 
 
@@ -223,4 +289,5 @@ const register = async (req, res) => {
     getSemestersWithResults,
     regCourseInSemester,
     logout,
+    updatePassword
   };

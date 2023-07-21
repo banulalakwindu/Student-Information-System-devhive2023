@@ -1,4 +1,7 @@
 'use strict';
+
+//const { toDefaultValue } = require('sequelize/types/utils');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -35,6 +38,11 @@ module.exports = {
       },
       Password: {
         type: Sequelize.STRING
+      },
+      flag: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0       
+        //defaultValue: 0
       },
       createdAt: {
         allowNull: false,
