@@ -1,6 +1,6 @@
 import React from 'react'
 import Index from './pages/Index'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Login from './pages/login'
 import Home from './pages/home'
 import Semesters from './pages/semesters'
@@ -44,6 +44,7 @@ const App = () => {
         <Route path='/courses/elec' element={<Elec />} />
         <Route path='/courses/mech' element={<Mech />} />
         <Route path='/courses/complementary' element={<Complementary />} />
+        <Route path="*" element={<Navigate to="/404" />} />
       </Routes>
     </BrowserRouter>
   )
