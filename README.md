@@ -6,15 +6,15 @@ Welcome to DEVHIVE's Student Information System web app! Our web app aims to cha
 
 ## Features
 
-- **Secure Login:** Students can securely log in to their accounts.
-- **University Profile:** View university profile details and change the in-app name and password from within the app.
-- **Academic Notifications:** Receive notifications about newly added or updated academic information from the AR and academic staff.
-- **Semester Registration:** Register for a semester and view full details about each course, including prerequisite completeness. The app also facilitates advisor approval via an automated system. If rejected, students can view the reasons for rejection.
-- **View Results:** Access detailed results for each semester and individual courses.
-- **View Current GPA:** See the current Grade Point Average (GPA).
-- **Medical Submissions:** Submit medical documents and information through the app.
-- **Syllabus Access:** Access all syllabi for each semester in all departments.
-- **Quick Links:** Quick links available in the footer for easy navigation.
+- **Secure Login:** Students can securely log in to their accounts. 🔒👩‍💻
+- **University Profile:** View university profile details and change the in-app name and password from within the app. 🏫👤🔐
+- **Academic Notifications:** Receive notifications about newly added or updated academic information from the AR and academic staff. 📩📢
+- **Semester Registration:** Register for a semester and view full details about each course, including prerequisite completeness. The app also facilitates advisor approval via an automated system. If rejected, students can view the reasons for rejection. 📝✅🚫
+- **View Results:** Access detailed results for each semester and individual courses. 📊🎯
+- **View Current GPA:** See the current Grade Point Average (GPA). 🎓📈
+- **Medical Submissions:** Submit medical documents and information through the app. 💉📋
+- **Syllabus Access:** Access all syllabi for each semester in all departments. 📚🗂️
+- **Quick Links:** Quick links available in the footer for easy navigation. 🚀🔗
 
 ## Technologies Used
 
