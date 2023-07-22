@@ -24,33 +24,31 @@ Feel free to explore the code and make any necessary modifications to suit your 
 
 Happy coding! ✨
 
-# Faculty of Engineering, University of Jaffna Student Information System - Student App
-
-🐝 Welcome to DEVHIVE's Student Information System web app! 🐝
+# Student Information System - Student App
 
 ## Description
 
-Our web app aims to change the current physical paper filling system into an automated web system, facilitating collaboration between students, lecturers, and the AR office. The app provides an easy, efficient, and automated experience for managing student information and academic processes.
+Welcome to DEVHIVE's Student Information System web app! Our web app aims to change the current physical paper filling system into an automated web system, facilitating collaboration between students, lecturers, and the AR office at the Faculty of Engineering, University of Jaffna. The app provides an easy, efficient, and automated experience for managing student information and academic processes.
 
 ## Features
 
-🔒 **Secure Login:** Students can securely log in to their accounts.
+- **Secure Login:** Students can securely log in to their accounts.
 
-🏫 **University Profile:** View university profile details and change the login name and password from within the app.
+- **University Profile:** View university profile details and change the login name and password from within the app.
 
-📚 **Academic Notifications:** Receive notifications about newly added or updated academic information from the AR and academic staff.
+- **Academic Notifications:** Receive notifications about newly added or updated academic information from the AR and academic staff.
 
-📝 **Semester Registration:** Register for a semester and view full details about each course, including prerequisite completeness. The app also facilitates advisor approval via an automated system. If rejected, students can view the reasons for rejection.
+- **Semester Registration:** Register for a semester and view full details about each course, including prerequisite completeness. The app also facilitates advisor approval via an automated system. If rejected, students can view the reasons for rejection.
 
-🎓 **View Results:** Access detailed results for each semester and individual courses.
+- **View Results:** Access detailed results for each semester and individual courses.
 
-🔄 **View Current GPA:** See the current Grade Point Average (GPA).
+- **View Current GPA:** See the current Grade Point Average (GPA).
 
-💊 **Medical Submissions:** Submit medical documents and information through the app.
+- **Medical Submissions:** Submit medical documents and information through the app.
 
-📚 **Syllabus Access:** Access all syllabi for each semester in all departments.
+- **Syllabus Access:** Access all syllabi for each semester in all departments.
 
-🔗 **Quick Links:** Quick links available in the footer for easy navigation.
+- **Quick Links:** Quick links available in the footer for easy navigation.
 
 ## Technologies Used
 
@@ -79,5 +77,6 @@ Our web app aims to change the current physical paper filling system into an aut
 ## Installation Guide
 
 To install and run the web app locally, please follow the instructions in the [Installation Guide](./installation-guide.md).
+
 
 
