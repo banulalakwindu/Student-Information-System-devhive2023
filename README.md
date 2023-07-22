@@ -24,8 +24,8 @@ Welcome to DEVHIVE's Student Information System web app! Our web app aims to cha
 
 👥 Meet the DEVHIVE Team 👥
 
-- [Banula Lakwindu](https://github.com/banulakw)
 - [Lahiru Randima](https://github.com/lahirurandima)
+- [Banula Lakwindu](https://github.com/banulakw)
 - [Mihiri Elapatha](https://github.com/mihirielapatha)
 - [Nipuna Vishwajith](https://github.com/nipunavishwajith)
 - [Hirusha Adithya](https://github.com/hirushaadithya)
