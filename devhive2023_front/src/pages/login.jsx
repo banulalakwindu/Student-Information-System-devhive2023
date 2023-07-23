@@ -7,6 +7,7 @@ const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
 
     const handleFormSubmit = async (event) => {
@@ -23,11 +24,11 @@ const Login = () => {
                 window.location.reload(); // Reloading the page might not be necessary here
             } else {
                 // Handle login failure if needed
-                console.log('Login failed:', response);
+                setErrorMessage('Invalid email or password');
                 // Display an error message or take other appropriate actions
             }
         } catch (error) {
-            console.log(error);
+            setErrorMessage('Login failed. Please try again later.');
             // Handle login error if needed
             // Display an error message or take other appropriate actions
         }
@@ -50,7 +51,7 @@ const Login = () => {
                     <div className="form-group px-4 py-4">
                         <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <div className='d-flex flex-column'><input type="password" className="form-control mt-4" id="exampleInputPassword1" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                            <small className='text-start text-danger'>Test</small>
+                            {errorMessage && <small className="text-start text-danger">{errorMessage}</small>}
                         </div>
                         <input type="submit" className="btn btn-primary mt-2" value="Login" />
                         <a className='btn btn-warning' href="/home">Dev Login</a>
