@@ -21,7 +21,6 @@ const Login = () => {
             if (response && response.token) {
                 // Navigate to the /home URL upon successful login
                 navigate('/home');
-                // Reloading the page might not be necessary here
             } else {
                 // Handle login failure if needed
                 setErrorMessage('Invalid email or password');
