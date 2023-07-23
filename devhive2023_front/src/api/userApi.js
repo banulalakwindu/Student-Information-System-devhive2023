@@ -5,7 +5,7 @@ export const login = async (email,password) => {
         const response = await api.post('user/login', {email, password});
         if (response.data.token) {
             // Store the token directly without stringifying it
-            localStorage.setItem('token', JSON.stringify(response.data));
+            localStorage.setItem('token', JSON.stringify(response.data.token));
 
         }
         return response.data;
@@ -15,6 +15,14 @@ export const login = async (email,password) => {
     }
 };
 
+export const user = async () => {
+    try {
+        const response = await api.get('user');
+        return response.data;
+    }catch (error) {
+        console.log(error);
+    }
+};
 // export const getResults = async (code) => {
 //     try {
 //         const response = await api.get(`/user/results/${code}`);

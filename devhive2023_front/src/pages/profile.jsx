@@ -3,31 +3,54 @@ import Navbar from '../components/Navbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import Footer from '../components/Footer'
+import {user} from '../api/userApi';
+import { useState, useEffect } from 'react';
 
 
 const Profile = () => {
+    const [student, setStudent] = useState(null);
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const userData = await user();
+                setStudent(userData);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchUserData();
+    }, []);
+
+    if (!student) {
+        // You can render a loading state while the data is being fetched
+        return <div>Loading...</div>;
+    }
 
     return (
+
         <div>
             <Navbar />
+
             <div className='profile-inner container px-5 py-5 my-5'>
                 <div className='d-flex flex-column bg-lightgreen card my-5'>
                     <div className='d-flex flex-column p-3'>
-                        <h3 className='text-center rounded py-2 bg-green text-white'>Banula Lakwindu's Profile</h3>
+                    
+                        <h3 className='text-center rounded py-2 bg-green text-white'>{`${student.user.studentregistration.Name_With_Initial}'s Profile`}</h3>
+                        
                         <div className='d-flex w-100 p-3'>
                             <div className='prof-img me-5'>
-                                <img className='rounded-5' src='/public/profile.jpg' width={250} height={250} alt='profile' />
+                                <img className='rounded-5' src={`https://avatars.githubusercontent.com/u/${student.user.studentregistration.Photo}`} width={250} height={250} alt='profile' />
                             </div>
                             <div className='d-flex flex-column w-100'>
                                 <div className='d-flex justify-content-between'>
-                                    <p className='bg-white rounded p-2 fw-semibold' style={{ width: "400px" }}>Registration Number :- <span className='fw-normal fst-italic'>2019/E/023</span></p>
-                                    <p className='bg-white rounded p-2 fw-semibold' style={{ width: "400px" }}>NIC :- <span className='fw-normal fst-italic'>200000504670</span></p>
+                                    <p className='bg-white rounded p-2 fw-semibold' style={{ width: "400px" }}>Registration Number :- <span className='fw-normal fst-italic'>{student.user.Reg_Number}</span></p>
+                                    <p className='bg-white rounded p-2 fw-semibold' style={{ width: "400px" }}>NIC :- <span className='fw-normal fst-italic'>{student.user.studentregistration.NIC}</span></p>
                                 </div>
                                 <div className='d-flex justify-content-between'>
-                                    <p className='bg-white rounded p-2 fw-semibold' style={{ width: "400px" }}>Email (University) :- <span className='fw-normal fst-italic'>2019e023@eng.jfn.ac.lk</span></p>
+                                    <p className='bg-white rounded p-2 fw-semibold' style={{ width: "400px" }}>Email (University) :- <span className='fw-normal fst-italic'>{student.user.University_Email}</span></p>
                                     <p className='bg-white rounded p-2 fw-semibold' style={{ width: "400px" }}>Degree :- <span className='fw-normal fst-italic'>Bsc. Engineering</span></p>
                                 </div>
-                                <p className='bg-white rounded p-2 fw-semibold w-100'>Name with Initials :- <span className='fw-normal fst-italic'>CHANDRASIRIR H.V.B.L.</span></p>
+                                <p className='bg-white rounded p-2 fw-semibold w-100'>Name with Initials :- <span className='fw-normal fst-italic'>{student.user.studentregistration.Name_With_Initial}</span></p>
                                 <p className='bg-white rounded p-2 fw-semibold w-100'>Full Name :- <span className='fw-normal fst-italic'>HIRILIYEDDA VIDANALAGE BANULA LAKWINDU CHANDRASIRI</span></p>
                                 <div className='d-flex justify-content-between'>
                                     <p className='bg-white rounded p-2 fw-semibold' style={{ width: "200px" }}>Gender :- <span className='fw-normal fst-italic'>Male</span></p>

@@ -275,6 +275,37 @@ const register = async (req, res) => {
       return res.status(401).json({ message: 'Authorization token invalid. e1', error });
     }
   };
+  const getUser = async (req, res) => {
+    const token = req.headers.authorization?.split(' ')[1];
+
+    if (!token) {
+      return res.status(401).json({ message: 'Authorization token not provided.' });
+    }
+
+    // Provide a valid secret key used to sign the JWT (same key used during login)
+    const secretKey = 'devhive';
+    try {
+      // Verify the JWT
+      const decoded = jwt.verify(token, secretKey);
+      const email = decoded.email;
+
+      const user = await Studentunivasitydetails.findOne({
+        include: [{
+          model: Studentregistration,
+          as: 'studentregistration',          
+        }],
+        where: { University_Email: email },
+      });
+
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+
+      return res.status(200).json({ user });
+    } catch (error) {
+      return res.status(401).json({ message: 'Authorization token invalid. e1', error });
+    }
+  };
   
   
 
@@ -292,5 +323,6 @@ const register = async (req, res) => {
     getSemestersWithResults,
     regCourseInSemester,
     logout,
-    updatePassword
+    updatePassword,
+    getUser
   };

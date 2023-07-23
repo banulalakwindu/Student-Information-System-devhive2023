@@ -1,9 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faBell } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
+import {user} from '../api/userApi';
 
 const Navbar = () => {
+    // const [student, setUser] = useState({});
+    const [student, setStudent] = useState("");
+    const [photo, setPhoto] = useState("");
+
+    useEffect(() => {
+        const getUser = async () => {
+            const student = await user();
+            console.log(student);
+            // setUser(user);
+            setStudent(student.user.studentregistration.Name_With_Initial);
+            setPhoto(student.user.studentregistration.Photo);
+        };
+        getUser();
+    }, []);
+        
 
     const path = console.log(window.location.pathname);
     // const [selectedItem, setSelectedItem] = useState('Home');
@@ -72,10 +88,10 @@ const Navbar = () => {
                         <a className='my-auto me-4' href="/notification"><FontAwesomeIcon size="xl" icon={faBell} style={{ color: "#009687", }} /></a>
                         <div className='d-flex' type="button" data-bs-toggle="dropdown">
                             <div className="dp-div my-auto">
-                                <img src="/profile.jpg" className='rounded' width={35} height={35} alt="" />
+                                <img src={`https://avatars.githubusercontent.com/u/${photo}`} className='rounded' width={35} height={35} alt="" />
                             </div>
                             <div className="user-name text-green my-auto mx-2">
-                                <h6 className='mb-0'>Chandrasiri H.V.B.L.</h6>
+                                <h6 className='mb-0'>{student}</h6>
                             </div>
                             <FontAwesomeIcon className='my-auto me-2' icon={faChevronDown} style={{ color: "#009687", }} />
                         </div>
