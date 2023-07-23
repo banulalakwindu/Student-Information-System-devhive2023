@@ -25,12 +25,16 @@ const login = async (req, res) => {
   
           // Sign the JWT
           const token = jwt.sign({email:student.University_Email }, secretKey, { expiresIn });
-          res.cookie('token',token,{
-            httpOnly:true,
-            maxAge:expiresIn*1000
-          });
+          const refreshToken = jwt.sign({email:student.University_Email }, secretKey, { expiresIn: 60 * 60 * 24 * 3 });
+
+          //session
+          req.session.student = student;
+          
+          // Store the refresh token in the database
+          refreshTokens.push(refreshToken);
+          
           const PasswordStatus = student.flag; 
-          return res.status(200).json({ message: 'Login success', token,student,passwordStatus:PasswordStatus});
+          return res.status(200).json({ message: 'Login success', token,refreshToken,student,passwordStatus:PasswordStatus});
           
         }
         return res.status(400).json({ message: 'Invalid email or password' });
@@ -40,6 +44,8 @@ const login = async (req, res) => {
       return res.status(500).json({ message: 'Login failed. Please try again later.' });
     }
 };
+
+let refreshTokens = [];
 
 //register
 const register = async (req, res) => {
@@ -85,7 +91,7 @@ const register = async (req, res) => {
     try {
       const { code } = req.params;
       
-      const token = req.cookies.token;
+      const token = req.heders.authorization?.split(' ')[1];
 
       if (!token) {
         return res.status(401).json({ message: 'Authorization token not provided.' });
@@ -134,7 +140,7 @@ const register = async (req, res) => {
 
 
   const getSemestersWithResults = async (req, res) => {
-    const token = req.cookies.token;
+    const token = req.heders.authorization?.split(' ')[1];
     const secretKey = 'devhive';
     try {
       // Find the student's registration number based on the given email
@@ -164,9 +170,9 @@ const register = async (req, res) => {
         ],
       });
   
-      const semesters = semestersWithResults.map((semester) => semester.Offered_Semester);
+      //const semesters = semestersWithResults.map((semester) => semester.Offered_Semester);
   
-      return res.status(200).json({ semesters });
+      return res.status(200).json({ semestersWithResults });
     } catch (error) {
       console.error('Error fetching semesters with results:', error);
       return res.status(500).json({ message: 'An error occurred. Please try again later.' });
@@ -174,7 +180,7 @@ const register = async (req, res) => {
   };
 
   const regCourseInSemester = async (req, res) => {
-    const token = req.cookies.token;
+    const token = req.heders.authorization?.split(' ')[1];
     const secretKey = 'devhive';
     const {semester} = req.params;
     try {
@@ -212,16 +218,13 @@ const register = async (req, res) => {
   };
 
   const logout = async (req, res) => {
-    res.cookie('token','',{
-      httpOnly:true,
-      expires:new Date(0)
-    });
+    req.session.destroy();
     res.status(200).json({message:'Logout success'});
   };
 
   const updatePassword = async (req, res) => {
     const { oldPassword, Password } = req.body;
-    const token = req.cookies.token;
+    const token = req.heders.authorization?.split(' ')[1];
   
     if (!token) {
       return res.status(401).json({ message: 'Authorization token not provided.' });
