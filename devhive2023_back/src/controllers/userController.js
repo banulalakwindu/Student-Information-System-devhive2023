@@ -21,7 +21,7 @@ const login = async (req, res) => {
         if (result) {
           // Provide a valid secret key for signing the JWT
           const secretKey = 'devhive'; // Replace this with your actual secret key
-          const expiresIn = 60 * 60 ;
+          const expiresIn = 60 * 60 ;                   
   
           // Sign the JWT
           const token = jwt.sign({email:student.University_Email }, secretKey, { expiresIn });
