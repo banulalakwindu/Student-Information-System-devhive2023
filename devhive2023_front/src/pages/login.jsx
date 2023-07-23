@@ -53,8 +53,7 @@ const Login = () => {
                         <div className='d-flex flex-column'><input type="password" className="form-control mt-4" id="exampleInputPassword1" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                             {errorMessage && <small className="text-start text-danger">{errorMessage}</small>}
                         </div>
-                        <input type="submit" className="btn btn-primary mt-2" value="Login" />
-                        <a className='btn btn-warning' href="/home">Dev Login</a>
+                        <input type="submit" className="btn btn-primary mt-4" value="Login" />
                     </div>
                 </form>
             </div>
