@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faBell } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
-import {user} from '../api/userApi';
+import {user,logout} from '../api/userApi';
 
 const Navbar = () => {
     // const [student, setUser] = useState({});
@@ -19,6 +19,12 @@ const Navbar = () => {
         };
         getUser();
     }, []);
+
+    const logoutHear = () => {
+        logout();
+        localStorage.clear();
+        window.location.href = '/login';
+    }
         
 
     const path = console.log(window.location.pathname);
@@ -97,7 +103,7 @@ const Navbar = () => {
                         </div>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="/profile">My Profile</a></li>
-                            <li><a class="dropdown-item" href="/login">Logout</a></li>
+                            <li><a class="dropdown-item" href="/login" onClick={logoutHear}>Logout</a></li>
                         </ul>
                     </div>
                 </div>

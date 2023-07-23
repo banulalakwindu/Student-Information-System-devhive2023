@@ -3,12 +3,50 @@ import Navbar from '../components/Navbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import Footer from '../components/Footer'
-import {user} from '../api/userApi';
+import {updatePassword, user} from '../api/userApi';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const Profile = () => {
     const [student, setStudent] = useState(null);
+    const [oldPassword, setOldPassword] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();
+
+    const updatepassword = async (event) => {
+        event.preventDefault(); // Prevent the default form submission behavior
+        if (password !== confirmPassword) {
+            setErrorMessage('Password and Confirm Password are not matching');
+            return;
+        }
+        const passwordData = {
+            oldPassword: oldPassword,
+            Password: password,
+        };
+
+        try {
+            
+            const response = await updatePassword(passwordData);
+            if (response) {
+                // Navigate to the /home URL upon successful login
+                // console.log(response);
+                alert("Password Updated Successfully");
+                navigate('/profile');
+            }else{
+                alert("Password Update Failed");
+            }
+            
+        } catch (error) {
+            console.log(error);
+            // Handle error (e.g., display an error message to the user)
+        }
+        
+    };
+
+
     useEffect(() => {
         const fetchUserData = async () => {
             try {
@@ -153,19 +191,19 @@ const Profile = () => {
                         <div class="modal-body">
                             <div class="mb-3 d-flex flex-column">
                                 <label for="name" class="form-label text-center">Enter Old Password</label>
-                                <input type="text" class="form-control" id="name" />
+                                <input type="text" class="form-control" id="name" value={oldPassword} onChange={(e) =>setOldPassword(e.target.value)} />
                             </div>
                             <div class="mb-3 d-flex flex-column">
                                 <label for="password1" class="form-label text-center">Enter New Password</label>
-                                <input type="text" class="form-control" id="password1" />
+                                <input type="text" class="form-control" id="password1" value={password} onChange={(e) =>setPassword(e.target.value)}/>
                             </div>
                             <div class="mb-3 d-flex flex-column">
                                 <label for="password2" class="form-label text-center">Confirm New Password</label>
-                                <input type="text" class="form-control" id="password2" />
+                                <input type="text" class="form-control" id="password2" value={confirmPassword} onChange={(e) =>setConfirmPassword(e.target.value)}/>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-green mx-auto" data-bs-dismiss="modal">Change Password</button>
+                            <button type="button" class="btn btn-green mx-auto" data-bs-dismiss="modal" onClick={updatepassword}>Change Password</button>
                         </div>
                     </div>
                 </div>

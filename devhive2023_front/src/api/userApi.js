@@ -50,14 +50,15 @@ export const getSemestersWithResults = async () => {
 //     }
 // }; 
 
-// export const logout = async () => {
-//     try {
-//         const response = await api.post('/logout');
-//         return response.data;
-//     } catch (error) {
-//         console.log(error);
-//     }
-// };
+export const logout = async () => {
+    try {
+        const response = await api.post('/user/logout');
+        localStorage.removeItem('token');
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 export const updatePassword = async (passwordData) => {
     try {
