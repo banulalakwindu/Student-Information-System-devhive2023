@@ -19,8 +19,15 @@ const Login = () => {
 
             // Check if the login was successful based on the response (you may need to update this condition based on your API response)
             if (response && response.token) {
+                console.log(response);
                 // Navigate to the /home URL upon successful login
-                navigate('/home');
+                if(response.passwordStatus===0){
+                    navigate('/change_password');
+                }
+                else{
+                    navigate('/home');
+                }
+                
             } else {
                 // Handle login failure if needed
                 setErrorMessage('Invalid email or password');

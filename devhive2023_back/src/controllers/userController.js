@@ -91,7 +91,7 @@ const register = async (req, res) => {
     try {
       const { code } = req.params;
       
-      const token = req.heders.authorization?.split(' ')[1];
+      const token = req.headers.authorization?.split(' ')[1];
 
       if (!token) {
         return res.status(401).json({ message: 'Authorization token not provided.' });
@@ -140,7 +140,7 @@ const register = async (req, res) => {
 
 
   const getSemestersWithResults = async (req, res) => {
-    const token = req.heders.authorization?.split(' ')[1];
+    const token = req.headers.authorization?.split(' ')[1];
     const secretKey = 'devhive';
     try {
       // Find the student's registration number based on the given email
@@ -164,13 +164,13 @@ const register = async (req, res) => {
           {
             model: Studentacademic,
             as: 'studentacademic',
-            attributes: [],
+            attributes: ['Attempt', 'Results'],
             where: { Reg_Number: studentRegNumber },
           },
         ],
       });
   
-      //const semesters = semestersWithResults.map((semester) => semester.Offered_Semester);
+      const semesters = semestersWithResults.map((semester) => semester.Offered_Semester);
   
       return res.status(200).json({ semestersWithResults });
     } catch (error) {
@@ -180,7 +180,7 @@ const register = async (req, res) => {
   };
 
   const regCourseInSemester = async (req, res) => {
-    const token = req.heders.authorization?.split(' ')[1];
+    const token = req.headers.authorization?.split(' ')[1];
     const secretKey = 'devhive';
     const {semester} = req.params;
     try {
@@ -224,7 +224,7 @@ const register = async (req, res) => {
 
   const updatePassword = async (req, res) => {
     const { oldPassword, Password } = req.body;
-    const token = req.heders.authorization?.split(' ')[1];
+    const token = req.headers.authorization?.split(' ')[1];
   
     if (!token) {
       return res.status(401).json({ message: 'Authorization token not provided.' });
@@ -263,7 +263,7 @@ const register = async (req, res) => {
   
         // Update the password in the database
         await Studentunivasitydetails.update(
-          { Password: hashedPassword },
+          { Password: hashedPassword,flag:1 },
           { where: { Reg_Number: studentRegNumber } }
         );
   

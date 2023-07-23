@@ -4,7 +4,7 @@ import ResultBar from '../components/ResultBar'
 import Footer from '../components/Footer'
 //import {getSemestersWithResults } from '../api/userApi';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import {getSemestersWithResults} from '../api/userApi';
 const Results = () => {
     const [semestersWithResults, setSemestersWithResults] = useState([]);
 
@@ -14,8 +14,9 @@ const Results = () => {
 
   const fetchSemestersWithResults = async () => {
     try {
-      const response = await axios.get('/user/results');
-       setSemestersWithResults(response.data.semestersWithResults); 
+      const response = await getSemestersWithResults();
+      console.log(response);
+    //    setSemestersWithResults(response.semesters); 
     } catch (error) {
         console.log(error);
     }
@@ -32,7 +33,7 @@ const Results = () => {
                     <h2 className='mt-5 pt-5 text-green mt-5'>Results</h2>
                     <h5 className='text-secondary'>Select the Semester for view Results</h5>
                     <div className="semester-inner-div d-flex flex-column mt-4">
-                        {semestersWithResults.map((semester) => (
+                        {semestersWithResults.map(() => (
                             <ResultBar key={semestersWithResults} semester={semestersWithResults.Offered_Semester} completed="1" link={`sem${semestersWithResults.Offered_Semester}`} />
                         ))}
                         {/* <ResultBar semester="01" completed="1" link="sem01" />
