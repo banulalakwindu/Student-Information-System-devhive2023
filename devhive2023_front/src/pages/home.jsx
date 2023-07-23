@@ -8,8 +8,6 @@ import Footer from '../components/Footer';
 import 'swiper/css/bundle';
 
 const home = () => {
-    // const user = localStorage.getItem('token');
-    // const email = user.student.University_Email;
     return (
         <div>
             <Navbar />

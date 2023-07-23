@@ -11,8 +11,6 @@ const Navbar = () => {
     // const handleItemClick = (item) => {
     //     setSelectedItem(item);
     // };
-    const studentData = JSON.parse(localStorage.getItem('token'));
-    const student = studentData.student.University_Email;
 
     return (
         <div>
@@ -77,7 +75,7 @@ const Navbar = () => {
                                 <img src="/profile.jpg" className='rounded' width={35} height={35} alt="" />
                             </div>
                             <div className="user-name text-green my-auto mx-2">
-                                <h6 className='mb-0'>{student}</h6>
+                                <h6 className='mb-0'>Chandrasiri H.V.B.L.</h6>
                             </div>
                             <FontAwesomeIcon className='my-auto me-2' icon={faChevronDown} style={{ color: "#009687", }} />
                         </div>
