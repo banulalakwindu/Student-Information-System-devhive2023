@@ -1,11 +1,11 @@
 import React from 'react'
-import { Autoplay } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+//import { Autoplay } from 'swiper';
+//import { Swiper, SwiperSlide } from 'swiper/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faNewspaper, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer';
-import 'swiper/css/bundle';
+//import 'swiper/css/bundle';
 
 const Home = () => {
     return (
@@ -16,7 +16,7 @@ const Home = () => {
                 <h5 className='text-secondary'>Faculty of Engineering - University of Jaffna</h5>
                 <div className="home-inner-div d-flex mt-5">
                     <div className="img-swiper me-4">
-                        <Swiper
+                        {/* <Swiper
                             modules={[Autoplay]}
                             spaceBetween={50}
                             slidesPerView={1}
@@ -31,7 +31,7 @@ const Home = () => {
                             <SwiperSlide>
                                 <img src="https://www.eng.jfn.ac.lk/wp-content/uploads/2017/01/DSC_0873.jpg" alt="" />
                             </SwiperSlide>
-                        </Swiper>
+                        </Swiper> */}
                     </div>
                     <div className="vision-mission w-100 d-flex flex-column align-items-start">
                         <div className="vision mb-auto shadow">

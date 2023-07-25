@@ -1,19 +1,92 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent} from '@testing-library/react';
+import { Route, Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
 import '@testing-library/jest-dom/extend-expect'
 import Login from '../pages/login';
 
 
-describe('Login', () => {
-  it('renders the login form with all of the required elements', () => {
+describe('Test Login Page', () => {
+  test("hedings", () =>{
+    render(<Login />)
+
+    expect(screen.getByRole("heading",{name:"Student Management System"})).toBeInTheDocument();
+    expect(screen.getByRole("heading",{name:"Login"})).toBeInTheDocument();
+  })
+
+
+  test('renders the login form with all of the required elements', () => {
     render(<Login />);
-    const form = screen.getByTestId('login-form'); // Use 'screen.getByTestId' to get the element
-    expect(form).toBeVisible();
-    expect(form.querySelector('input[type="email"]')).toBeVisible();
-    expect(form.querySelector('input[type="password"]')).toBeVisible();
-    expect(form.querySelector('input[type="submit"]')).toBeVisible();
+    
+    const email = screen.getByPlaceholderText(form,"Enter email")
+    const password = screen.getByPlaceholderText(form, "Password")
+    const login =screen.getByDisplayValue(form, "Login")
+    //const devLogin = screen.getByDisplayValue("dev login")
+
+    expect(email).toBeInTheDocument()
+    expect(password).toBeInTheDocument()
+    expect(login).toBeInTheDocument()
+    expect(devLogin).toBeInTheDocument()
+
   });
 
+  test("input field's placeholder text", () =>{
+    render(<Login />)
+
+    expect(screen.getByPlaceholderText("Enter email")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Password")).toBeInTheDocument();
+  });
+
+  
+
+  
+
+
+  // test("validate user inputs", () =>{
+  //   render(<Login />)
+
+  //   expect(screen.getByRole("link",{ name:"Dev Login"})).toBeInTheDocument();
+  // });
+
+// test("check button working", () => {
+//     render(<Login />);
+
+//     // Find the initial text before clicking the button
+//     const initialText = screen.getByText('Please Click!');
+//     expect(initialText).toBeInTheDocument();
+  
+//     // Find the button element by its text content
+//     const button = screen.getByRole('button',{name: "Login"});
+  
+//     // Click the button to trigger the onClick event and update the state
+//     fireEvent.click(button);
+  
+//     // Find the updated text after clicking the button
+//     const updatedText = screen.getByText('Clicked!');
+//     expect(updatedText).toBeInTheDocument();
+// });
+
+// test('clicking on Login button should redirect to home page', () => {
+//   const history = createMemoryHistory();
+//   history.push = jest.fn(); // Mock the push function of history
+
+//   render(
+//     <Router history={history}>
+//       <Login />
+//       <Route path="/home">Home Page</Route>
+//     </Router>
+//   );
+
+//   const loginButton = screen.getByDisplayValue('Login Button', { type: 'submit' });
+
+//   // Click on the Login button
+//   fireEvent.click(loginButton);
+
+//   // Check if history.push was called with the correct path
+//   expect(history.push).toHaveBeenCalledWith('/home');
+// });
+
+});
   // test('validates the user input', () => {
   //   render(<Login />);
   //   const form = screen.getByTestId('login-form');
@@ -38,10 +111,6 @@ describe('Login', () => {
   //   expect(screen.queryByText('Please enter your email address.')).toBeNull();
   //   expect(screen.queryByText('Please enter your password.')).toBeNull();
   // });
-
-  // Your other test cases...
-});
-  //
 
   // test('validates the user input', () => {
   //   const form = render(<Login />);

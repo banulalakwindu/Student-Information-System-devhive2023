@@ -1,6 +1,8 @@
-import React from 'react'
+//import React from 'react'
+import React, { useState } from 'react';
 
 const Login = () => {
+    const [state, setState] = useState(false);
 
     const handleFormSubmit = (event) => {
         event.preventDefault(); // Prevent the default form submission behavior
@@ -20,11 +22,16 @@ const Login = () => {
                 </div>
 
                 <h1 className="mt-2">Login</h1>
-                <form className="mt-2" method='post' data-testid="login-form">
+
+                <form className="mt-2" method='post' data-testid="loginForm">
                     <div className="form-group px-4 py-4">
                         <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                         <input type="password" className="form-control mt-4" id="exampleInputPassword1" placeholder="Password" />
-                        <input type="submit" formAction="/home" className="btn btn-primary mt-4" value="Login" />
+                        
+                        <p>{state ? "Clicked!" : "Please Click"}</p>
+
+                        <input type="submit" formAction="/home" className="btn btn-primary mt-4" value="Login" onClick={() => setState(true)} />
+                        
                         <a className='btn btn-warning' href="/home">Dev Login</a>
                     </div>
                 </form>
