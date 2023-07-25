@@ -6,24 +6,30 @@ import Footer from '../components/Footer'
 import { useState, useEffect } from 'react';
 import {getSemestersWithResults} from '../api/userApi';
 const Results = () => {
-    const [semestersWithResults, setSemestersWithResults] = useState([]);
+    
+    const [currentSemester, setCurrentSemester] = useState(0);
 
-  useEffect(() => {
-    fetchSemestersWithResults();
-  }, []);
-
-  const fetchSemestersWithResults = async () => {
-    try {
-      const response = await getSemestersWithResults();
-      console.log(response);
-    //    setSemestersWithResults(response.semesters); 
-    } catch (error) {
+    useEffect(() => {
+      fetchSemestersWithResults();
+    }, []);
+  
+    const fetchSemestersWithResults = async () => {
+      try {
+        const response = await getSemestersWithResults();
+        console.log(response.currentSemester);
+        setCurrentSemester(response.currentSemester);
+      } catch (error) {
         console.log(error);
-    }
+      }
+    };
+  
+    const isSemesterCompleted = (semester) => {
+      if (semester === 'gess') {
+        return currentSemester >= 6 ? '1' : '0';
+      }
+      return semester < currentSemester ? '1' : '0';
+    };
 
-      //setSemestersWithResults(response.semesters);
-      //console.log(response.message);
-  };
 
     return (
         <div>
@@ -33,10 +39,16 @@ const Results = () => {
                     <h2 className='mt-5 pt-5 text-green mt-5'>Results</h2>
                     <h5 className='text-secondary'>Select the Semester for view Results</h5>
                     <div className="semester-inner-div d-flex flex-column mt-4">
-                        {semestersWithResults.map(() => (
-                            <ResultBar key={semestersWithResults} semester={semestersWithResults.Offered_Semester} completed="1" link={`sem${semestersWithResults.Offered_Semester}`} />
-                        ))}
+                    {[1, 2, 3, 4, 5, 'gess', 6, 7, 8].map((semester) => (
+              <ResultBar
+                key={semester}
+                semester={semester === 'gess' ? '(Soft_Skill 1)' : semester < 10 ? `0${semester}` : `${semester}`}
+                completed={isSemesterCompleted(semester)}
+                link={`${semester === 'gess' ? '9' : semester < 10 ? `${semester}` : `${semester}`}`}
+              />
+            ))}
                         {/* <ResultBar semester="01" completed="1" link="sem01" />
+                        <ResultBar semester="(Soft_Skill 1)" completed="1" link="Soft_Skill_1" />
                         <ResultBar semester="02" completed="1" link="sem02" />
                         <ResultBar semester="03" completed="1" link="sem03" />
                         <ResultBar semester="04" completed="1" link="sem04" />

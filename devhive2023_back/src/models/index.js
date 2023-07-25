@@ -138,7 +138,7 @@ db.Studentunivasitydetails.hasMany(db.Studentacademic, {
 });
 
 db.Studentacademic.belongsTo(db.Studentunivasitydetails, {
-  foreignKey: 'Reg_Number',
+  foreignKey: 'StudentUniversityDetail_ID',
   targetKey: 'Reg_Number',
   as: 'studentuniversitydetails',
 });
@@ -150,10 +150,11 @@ db.Coursehistoryoffered.hasMany(db.Studentacademic, {
 });
 
 db.Studentacademic.belongsTo(db.Coursehistoryoffered, {
-  foreignKey: 'Course_Code',
+  foreignKey: 'CourseHistoryOffered_ID',
   targetKey: 'Course_Code',
   as: 'course',
 });
+
 //Coursehistoryoffered to Department 
 db.Department.hasMany(db.Coursehistoryoffered, {
   foreignKey: 'Offered_Department_ID',
