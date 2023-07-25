@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer';
 import 'swiper/css/bundle';
 
-const home = () => {
+const Home = () => {
     return (
         <div>
             <Navbar />
@@ -87,4 +87,4 @@ const home = () => {
     )
 }
 
-export default home
+export default Home

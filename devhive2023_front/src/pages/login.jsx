@@ -20,7 +20,7 @@ const Login = () => {
                 </div>
 
                 <h1 className="mt-2">Login</h1>
-                <form className="mt-2" method='post'>
+                <form className="mt-2" method='post' data-testid="login-form">
                     <div className="form-group px-4 py-4">
                         <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                         <input type="password" className="form-control mt-4" id="exampleInputPassword1" placeholder="Password" />
