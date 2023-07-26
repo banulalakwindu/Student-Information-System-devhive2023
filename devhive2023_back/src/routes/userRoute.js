@@ -5,6 +5,7 @@ const login = require('../controllers/loginController');
 const register = require('../controllers/registerController');
 const user = require('../controllers/userController');
 const cookieJwtAuth = require('../middleware/cookieJwtAuth');
+//const medical = require('../controllers/medicalSub');
 
 const validation = require('../validation');
 const {loginValidation} = require('../validation/loginValidation')
@@ -22,5 +23,7 @@ router.get('/register/semester',cookieJwtAuth.cookieJwtAuth, user.getRegOpenSeme
 router.get('/register/semester/:semester',cookieJwtAuth.cookieJwtAuth, user.aligibleCourses);
 router.get('/register/course/:courseCode',cookieJwtAuth.cookieJwtAuth, user.courseDetails);
 router.post('/register/preReqCourse/:code',cookieJwtAuth.cookieJwtAuth, user.preRequest);
+//router.post('/medical',cookieJwtAuth.cookieJwtAuth,medical.medical);
+
 module.exports = router;
 
