@@ -19,6 +19,7 @@ import Mech from './utils/courses/mech'
 import Complementary from './utils/courses/complementary'
 import Change_password from './pages/change_password'
 import ErrorPage from './pages/ErrorPage'
+import Newsdetails from './utils/newsdetails'
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path='change_password' element={<Change_password />} />
+        <Route path='/news' element={<Newsdetails />} />
         <Route path='/semesters' element={<Semesters />} />
         <Route path='/semesters/registration' element={<Registration />} />
         <Route path='/results' element={<Results />} />
