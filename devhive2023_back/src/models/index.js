@@ -21,6 +21,7 @@ const semesterdetails = require('./semesterdetails');
 const studentacademic = require('./studentacademic');
 const studentregistration = require('./studentregistration');
 const studentunivasitydetails = require('./studentuniversitydetails');
+const allcourses = require('./allcourse');
 
 const db = {};
 const sequelize = new Sequelize(App_DB, APP_USER, APP_PASS, {
@@ -43,8 +44,9 @@ db.Semesterdetails = semesterdetails(sequelize, Sequelize.DataTypes);
 db.Studentacademic = studentacademic(sequelize, Sequelize.DataTypes);
 db.Studentregistration = studentregistration(sequelize, Sequelize.DataTypes);
 db.Studentunivasitydetails = studentunivasitydetails(sequelize, Sequelize.DataTypes);
+db.Allcourses = allcourses(sequelize, Sequelize.DataTypes);
 
-const {Academicstaff,Advisorhistory,Course,Coursehistoryoffered,Courseregistration,Department,Departmentcourse,Medicalsubmission,Prerequestcoursedetails,Semesterdetails,Studentacademic,Studentregistration,Studentunivasitydetails} = db;
+const {Academicstaff,Advisorhistory,Course,Coursehistoryoffered,Courseregistration,Department,Departmentcourse,Medicalsubmission,Prerequestcoursedetails,Semesterdetails,Studentacademic,Studentregistration,Studentunivasitydetails,Allcourses} = db;
 
 //associations
 db.Studentregistration.belongsTo(db.Studentunivasitydetails, {
@@ -95,28 +97,28 @@ db.Course.belongsTo(db.Courseregistration, {
   as: 'courseregistration',
 });
 
-db.Course.hasMany(db.Prerequestcoursedetails, {
+db.Allcourses.hasMany(db.Prerequestcoursedetails, {
   foreignKey: 'Course_Code',
   targetKey: 'Course_Code',
   as: 'prerequestcoursedetails',
 });
 
-db.Prerequestcoursedetails.belongsTo(db.Course, {
+db.Prerequestcoursedetails.belongsTo(db.Allcourses, {
   foreignKey: 'Course_Code',
   targetKey: 'Course_Code',
   as: 'course',
 });
 
-db.Course.belongsTo(db.Departmentcourse, {
+db.Course.hasMany(db.Departmentcourse, {
   foreignKey: 'Course_Code',
   targetKey: 'Course_Code',
-  as: 'departmentcourse',
+  // as: 'departmentcourse',
 });
 
-db.Departmentcourse.hasMany(db.Course, {
+db.Departmentcourse.belongsTo(db.Course, {
   foreignKey: 'Course_Code',
   targetKey: 'Course_Code',
-  as: 'course',
+  // as: 'course',
 });
 
 db.Departmentcourse.hasMany(db.Department, {
@@ -138,7 +140,7 @@ db.Studentunivasitydetails.hasMany(db.Studentacademic, {
 });
 
 db.Studentacademic.belongsTo(db.Studentunivasitydetails, {
-  foreignKey: 'Reg_Number',
+  foreignKey: 'StudentUniversityDetail_ID',
   targetKey: 'Reg_Number',
   as: 'studentuniversitydetails',
 });
@@ -150,10 +152,11 @@ db.Coursehistoryoffered.hasMany(db.Studentacademic, {
 });
 
 db.Studentacademic.belongsTo(db.Coursehistoryoffered, {
-  foreignKey: 'Course_Code',
+  foreignKey: 'CourseHistoryOffered_ID',
   targetKey: 'Course_Code',
   as: 'course',
 });
+
 //Coursehistoryoffered to Department 
 db.Department.hasMany(db.Coursehistoryoffered, {
   foreignKey: 'Offered_Department_ID',
@@ -214,6 +217,28 @@ db.Studentunivasitydetails.belongsTo(db.Semesterdetails, {
   targetKey: 'Semester_Current',
   as: 'semesterdetails',
 });
+db.Course.belongsTo(db.Allcourses, {
+  foreignKey: 'Course_Code',
+  targetKey: 'Course_Code',
+  as: 'allcourses',
+});
+
+db.Academicstaff.hasMany(db.Course, {
+  foreignKey: 'Coordinator_ID',
+  targetKey: 'Staff_ID',
+  as: 'course',
+});
+
+db.Course.belongsTo(db.Academicstaff, {
+  foreignKey: 'Coordinator_ID',
+  targetKey: 'Staff_ID',
+  as: 'academicstaff',
+});
+
+
+
+
+
 
 
 

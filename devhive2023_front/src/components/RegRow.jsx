@@ -1,12 +1,32 @@
 import React from 'react'
+import {courseDetails,preRequest} from '../api/userApi';
+import { useState,useEffect } from 'react';
 
 const RegRow = ({ code }) => {
+    const [course, setCourse] = useState([]);
+    const [preReq, setPreReq] = useState([]);
+
+    useEffect(() => {
+        courseDetails(code).then((res) => {
+            console.log(res.course);
+            setCourse(res.course);
+        });
+        preRequest(code).then((res) => {
+            console.log(res);
+            // setPreReq(res.preReq);
+        });
+
+    }, []);
+
+    if(!course){
+        return <div>Loading...</div>
+    }
     return (
         <tr className='table-test'>
             <td>{code}</td>
-            <td>Software Engineering</td>
-            <td>3</td>
-            <td>Dr. J. Jananie</td>
+            <td>{course[0]?.Course_Name}</td>
+            <td>{course[0]?.Credit}</td>
+            <td>{course[0]?.academicstaff?.Full_Name}</td>
             <td><input type="text" className="form-control form-control-sm" /></td>
             <td><a data-bs-toggle="modal" data-bs-target="#exampleModal" className='cursor'>
                 View

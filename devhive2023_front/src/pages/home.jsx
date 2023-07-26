@@ -6,8 +6,11 @@ import { faNewspaper, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer';
 import 'swiper/css/bundle';
+import NewsComp from '../components/NewsComp';
+import newsData from '../data/newsData.json'
 
 const home = () => {
+    const news = newsData;
     return (
         <div>
             <Navbar />
@@ -45,36 +48,9 @@ const home = () => {
                     </div>
                 </div>
                 <div className="news-set row g-3 text-start my-5">
-                    <div className="news col-4">
-                        <div className='border shadow rounded p-4'>
-                            <div className='d-flex justify-content-between' >
-                                <FontAwesomeIcon icon={faNewspaper} size="xl" style={{ color: "#009687", }} />
-                                <button className='btn btn-outline-secondary'>See more</button>
-                            </div>
-                            <h4 className='text-green mt-1'>Exam Results</h4>
-                            <p className='mt-3 m-0'>Semester 3 results has been released. Check result sheets.</p>
-                        </div>
-                    </div>
-                    <div className="news col-4">
-                        <div className='border shadow rounded p-4'>
-                            <div className='d-flex justify-content-between' >
-                                <FontAwesomeIcon icon={faNewspaper} size="xl" style={{ color: "#009687", }} />
-                                <button className='btn btn-outline-secondary'>See more</button>
-                            </div>
-                            <h4 className='text-green mt-1'>Exam Results</h4>
-                            <p className='mt-3 m-0'>Semester 3 results has been released. Check result sheets.</p>
-                        </div>
-                    </div>
-                    <div className="news col-4">
-                        <div className='border shadow rounded p-4'>
-                            <div className='d-flex justify-content-between' >
-                                <FontAwesomeIcon icon={faNewspaper} size="xl" style={{ color: "#009687", }} />
-                                <button className='btn btn-outline-secondary'>See more</button>
-                            </div>
-                            <h4 className='text-green mt-1'>Exam Results</h4>
-                            <p className='mt-3 m-0'>Semester 3 results has been released. Check result sheets.</p>
-                        </div>
-                    </div>
+                    {news.map((news1, index) => (
+                        <NewsComp key={index} {...news1} />
+                    ))}
                 </div>
                 <div className='mb-5 d-flex'>
                     <a href='/notification' type="button" class="btn btn-green btn-lg ms-auto">More News

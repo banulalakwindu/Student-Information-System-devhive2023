@@ -17,6 +17,10 @@ router.get('/results/viwe/:semester',cookieJwtAuth.cookieJwtAuth, user.regCourse
 router.post('/logout',cookieJwtAuth.cookieJwtAuth, user.logout);
 router.post('/updatePassword',cookieJwtAuth.cookieJwtAuth, user.updatePassword);
 router.get('/',cookieJwtAuth.cookieJwtAuth, user.getUser);
-
+// router.get('/gpa',cookieJwtAuth.cookieJwtAuth, user.getGPA);
+router.get('/register/semester',cookieJwtAuth.cookieJwtAuth, user.getRegOpenSemesters);
+router.get('/register/semester/:semester',cookieJwtAuth.cookieJwtAuth, user.aligibleCourses);
+router.get('/register/course/:courseCode',cookieJwtAuth.cookieJwtAuth, user.courseDetails);
+router.post('/register/preReqCourse/:code',cookieJwtAuth.cookieJwtAuth, user.preRequest);
 module.exports = router;
 
