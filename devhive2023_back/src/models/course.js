@@ -61,8 +61,14 @@ module.exports = (sequelize, DataTypes) => {
     Coordinator_ID: DataTypes.STRING,
     Offered_Semester: DataTypes.INTEGER,
     Offered_Department_ID: DataTypes.STRING,
-    Academic_Year_Current: DataTypes.STRING,
-    Registratipon_Open_Date: DataTypes.DATE,
+    Academic_Year_Current:{
+      type: DataTypes.STRING,
+      primaryKey: true
+
+    },
+    Registratipon_Open_Date:{
+      type: DataTypes.DATE
+    } ,
     Registration_Close_Date: DataTypes.DATE,
     Semester_Start_Date: DataTypes.DATE,
     Semester_Close_Date: DataTypes.DATE,

@@ -86,3 +86,4 @@ npx sequelize-cli model:generate --name CourseRegistration --attributes Reg_Numb
 npx sequelize-cli model:generate --name MedicalSubmission --attributes Reg_Number:string,Course_Code:string,Medical_ID:integer,Type:string,Description:text,Medical_Report:text,Approved:boolean
 npx sequelize-cli model:generate --name PrerequisiteCourseDetails --attributes Course_Code:string,Prerequisite_Course_Code:string
 npx sequelize-cli model:generate --name DepartmentCourse --attributes Offered_To_Which_Department_ID:string,Course_Code:string
+npx sequelize-cli model:generate --name AllCourse --attributes Course_Code:string,Course_Name:string,Credit:integer,Core_Technical:string,Offered_Semester:integer,Offered_Department_ID:string,Open_Close:boolean

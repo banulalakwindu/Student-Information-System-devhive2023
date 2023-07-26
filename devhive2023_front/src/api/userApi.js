@@ -69,3 +69,38 @@ export const updatePassword = async (passwordData) => {
     }
 };
 
+export const register = async (registerData) => {
+    try {
+        const response = await api.get('/user/register/semester');
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const courseSem = async (semester) => {
+    try {
+        const response = await api.get(`/user/register/semester/${semester}`);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const courseDetails = async (courseCode) => {
+    try {
+        const response = await api.get(`/user/register/course/${courseCode}`);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const preRequest = async (code) => {
+    try {
+        const response = await api.post(`/user/register/preReqCourse/${code}`);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
