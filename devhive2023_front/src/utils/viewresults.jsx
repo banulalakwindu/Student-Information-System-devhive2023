@@ -12,11 +12,9 @@ const Viewresults = () => {
     const semester = new URLSearchParams(location.search).get('sem');
 
     const [Course,setCourse] = useState([]);
-    const results = [];
 
     useEffect(() => {
         fetchCourses();
-        setResults();
     }, []);
 
     const fetchCourses = async () => {
@@ -28,13 +26,31 @@ const Viewresults = () => {
             console.log(error);
         }
     };
+
+    /*
+    const setResults = () =>{
+        Course.map((cours) => (
+            results.push(cours.studentacademic[0].Results)
+        ))
+    };
+    console.log(results);
     //create arry of result from Course.studentacademic.Results
     // const result = [];
     // Course.map((cours) => (
     //     result.push(cours.studentacademic.Results)
     // ))
- 
-
+ */
+//SetResults 
+    const setResults = () => {
+        const results = Course.map((cours) => cours.studentacademic[0].Results);
+        console.log(results); // This will log the created array of Results
+        const gpaResult = calculateGPA(results);
+        console.log('GPA:',gpaResult);
+        return gpaResult;
+      };
+      
+      const myResults = setResults(); // Call the function and store the results in a variable
+      
 
 
 
@@ -73,7 +89,7 @@ const Viewresults = () => {
                             </thead>
                             <tbody>
                             {Array.isArray(Course) ? (
-                                Course.map((cours) => (
+                                Course?.map((cours) => (
                                     <ResultRow key={cours.Course_Code} code={cours.Course_Code} color={cours.Core_Technical === 'Core' ? 'light' : 'info'} />
                                 ))
                                 ) : (
