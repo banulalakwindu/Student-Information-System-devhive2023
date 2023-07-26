@@ -46,12 +46,26 @@ const Viewresults = () => {
         console.log(results); // This will log the created array of Results
         const gpaResult = calculateGPA(results);
         console.log('GPA:',gpaResult);
-        return gpaResult;
+        return ((gpaResult)>0?gpaResult:0);
       };
       
       const myResults = setResults(); // Call the function and store the results in a variable
-      
-
+ //Calculate total credit.
+      const setTotalCredit = () => {
+       //const credit = Course.map((cours) => cours.studentacademic[0].Results);
+       const credit = Course.map((cours) => cours.Credit);
+       //console.log(Course.map((cours) => cours.studentacademic[0]));
+       //const credit = Course.credit;
+        console.log(credit);
+        let totalCredits = 0.0;
+        for(let i=0; i<credit.length; i++)
+        {
+            totalCredits+=credit[i];
+        }
+        console.log('Credit:',totalCredits);
+        return totalCredits;
+    }
+    const creditTotal = setTotalCredit();
 
 
 
@@ -108,7 +122,7 @@ const Viewresults = () => {
                     <div className='d-flex justify-content-between mt-4'>
                         <div className='d-flex'>
                             <h6 style={{ width: "370px" }} className='m-0 mt-1'>Total Credits Completed for this semester : </h6>
-                            <input style={{ maxWidth: "50px" }} type="text" className="form-control form-control-sm" value="24" readonly />
+                            <input style={{ maxWidth: "50px" }} type="text" className="form-control form-control-sm" value={creditTotal} readonly />
                         </div>
                         <div className='d-flex'>
                             <h6 style={{ width: "140px" }} className='m-0 mt-1'>GPA(Current) :</h6>
