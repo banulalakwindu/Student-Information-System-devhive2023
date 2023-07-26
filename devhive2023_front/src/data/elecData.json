@@ -1,42 +1,368 @@
 [
-        {
-            "name": "Semester 04",
-            "courses": [
-                {
-                    "code": "MC1010",
-                    "course": "English Language Enhancement",
-                    "credits": 3,
-                    "pre": [
-                        { "code": "PR101", "name": "Prerequisite 1" },
-                        { "code": "PR102", "name": "Prerequisite 2" },
-                        { "code": "PR103", "name": "Prerequisite 3" }
-                    ]
-                },
-                {
-                    "code": "MC1020",
-                    "course": "Mathematics",
-                    "credits": 3
-                },
-                {
-                    "code": "ID1010",
-                    "course": "Engineering Drawing",
-                    "credits": 3
-                },
-                {
-                    "code": "EC1011",
-                    "course": "Computing",
-                    "credits": 3
-                },
-                {
-                    "code": "EC1020",
-                    "course": "Applied Electricity",
-                    "credits": 3
-                },
-                {
-                    "code": "ID1021",
-                    "course": "Engineering Metrology",
-                    "credits": 3
-                }
-            ]
-        }
-    ]
+    {
+        "name": "Semester 04",
+        "courses": [
+            {
+                "code": "EC4010",
+                "course": "Digital Design",
+                "credits": 3
+            },
+            {
+                "code": "EC4040",
+                "course": "Signals and Systems",
+                "credits": 3
+            },
+            {
+                "code": "EC4050",
+                "course": "Electronic Circuits and Devices",
+                "credits": 3
+            },
+            {
+                "code": "EC4021",
+                "course": "Electromagnetic Engineering ",
+                "credits": 3
+            },
+            {
+                "code": "EC4030",
+                "course": "Electric Power",
+                "credits": 3
+            },
+            {
+                "code": "MC4010",
+                "course": "Discrete Mathematics",
+                "credits": 3
+            }
+        ]
+    },
+    {
+        "name": "Semester 05",
+        "courses": [
+            {
+                "code": "EC5011",
+                "course": "Digital Signal Processing",
+                "credits": 3
+            },
+            {
+                "code": "EC5020",
+                "course": "Analogue and Communication",
+                "credits": 3
+            },
+            {
+                "code": "EC5030",
+                "course": "Control Systems",
+                "credits": 3
+            },
+            {
+                "code": "EC5040",
+                "course": "Electric Machines",
+                "credits": 3
+            },
+            {
+                "code": "EC5051 ",
+                "course": "Power Electronics and Design",
+                "credits": 3
+            },
+            {
+                "code": "EC5110",
+                "course": "Computer Architecture and Organization",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC4010",
+                        "name": "Digital Design"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Semester 06",
+        "courses": [
+            {
+                "code": "EC6020",
+                "course": "Embedded Systems Design",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC2010",
+                        "name": "Computer Programming"
+                    }
+                ]
+            },
+            {
+                "code": "EC6030",
+                "course": "Power Systems",
+                "credits": 3
+            },
+            {
+                "code": "EC6080",
+                "course": "Electrical and Electronic Engineering Research Project I",
+                "credits": 3
+            },
+            {
+                "code": "EC6100 ",
+                "course": "Wireless and Mobile Communications",
+                "credits": 3
+            },
+            {
+                "code": "CE6080",
+                "course": "Robotics and Automation",
+                "credits": 3
+            }
+        ]
+    },
+    {
+        "name": "Semester 07",
+        "courses": [
+            {
+                "code": "ID7010",
+                "course": "Project Management and Engineering Industry",
+                "credits": 3
+            },
+            {
+                "code": "EC7080",
+                "course": "Electrical and Electronic Engineering Research Project II",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC6080",
+                        "name": "Electrical and Electronic Engineering Research Project I"
+                    }
+                ]
+            },
+            {
+                "code": "EC7091",
+                "course": "Communication Network Design ",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC5020",
+                        "name": "Analogue and Digital Communications"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Semester 08",
+        "courses": [
+            {
+                "code": "EC8010",
+                "course": "Electrical and Electronic Engineering Design Proficiency",
+                "credits": 3
+            },
+            {
+                "code": "EC8080",
+                "course": "Electrical and Electronic Engineering Research Project III",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC7080",
+                        "name": "Electrical and Electronic Engineering Research Project II"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Technical Electives",
+        "courses": [
+            {
+                "code": "EC9011",
+                "course": "High Voltage Engineering ",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC4030",
+                        "name": "Electric Power"
+                    },
+                    {
+                        "code": "EC5050",
+                        "name": " Power Electronics and Design"
+                    }
+                ]
+            },
+            {
+                "code": "EC9020",
+                "course": "Power System Control and Stability",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "EC6030",
+                        "name": "Power Systems"
+                    }
+                ]
+            },
+            {
+                "code": "EC9030",
+                "course": "Electricity Generation from Renewable Energy Sources ",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "EC4030",
+                        "name": "Electric Power "
+                    }
+                ]
+            },
+            {
+                "code": "EC9060",
+                "course": "Microwave Engineering",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "EC4020",
+                        "name": "Electromagnetic Engineering"
+                    }
+                ]
+            },
+            {
+                "code": "EC9080",
+                "course": "Electronic Product Design and Manufacture",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC4050",
+                        "name": "Electronic Circuits and Devices"
+                    }
+                ]
+            },
+            {
+                "code": "EC9090",
+                "course": "Introduction to Biomedical Engineering",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC4021",
+                        "name": "Electromagnetic Engineering"
+                    },
+                    {
+                        "code": "EC4040",
+                        "name": "Signals and Systems"
+                    }
+                ]
+            },
+            {
+                "code": "EC9100",
+                "course": "Optical Communications",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "EC4021",
+                        "name": "Electromagnetic Engineering"
+                    },
+                    {
+                        "code": "EC5020",
+                        "name": " Analogue and Digital Communications"
+                    }
+                ]
+            },
+            {
+                "code": "EC9110",
+                "course": "Modern Mobile Communication Architecture and Applications",
+                "credits": 2
+            },
+            {
+                "code": "EC9120",
+                "course": "Advanced Electric Machines and Drives",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC5050",
+                        "name": "Power Electronics and Design"
+                    },
+                    {
+                        "code": "EC5040",
+                        "name": "Electric Machines"
+                    }
+                ]
+            },
+            {
+                "code": "EC9130",
+                "course": "Distribution Automation and Smart Grid",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "EC4030",
+                        "name": " Electric power"
+                    }
+                ]
+            },
+            {
+                "code": "EC9141",
+                "course": "Advanced Digital Signal Processing",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "EC5011",
+                        "name": "Digital Signal Processing"
+                    }
+                ]
+            },
+            {
+                "code": "EC9150",
+                "course": "VLSI Design",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "EC4050",
+                        "name": "Electronic Circuits and Devices"
+                    }
+                ]
+            },
+            {
+                "code": "EC9160",
+                "course": "Advanced Power Electronics",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC5051",
+                        "name": "Power Electronics and Design"
+                    }
+                ]
+            },
+            {
+                "code": "EC9520",
+                "course": "Advanced Computer and Data Networks",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "EC4060",
+                        "name": "Computer and Data Networks"
+                    }
+                ]
+            },
+            {
+                "code": "EC9560",
+                "course": "Data Mining",
+                "credits": 2
+                
+            },
+            {
+                "code": "EC9570",
+                "course": "Digital Image Processing ",
+                "credits": 2
+            },
+            {
+                "code": "EC9580",
+                "course": "Computer Vision",
+                "credits": 2
+                
+            },
+            {
+                "code": "EC9630",
+                "course": "Machine Learning",
+                "credits": 2
+            },
+            {
+                "code": "EC9640",
+                "course": "Artificial Intelligence",
+                "credits": 2
+            },
+            {
+                "code": "MC9510",
+                "course": "Modelling in Operational Research",
+                "credits": 3
+            }
+        ]
+    }
+]

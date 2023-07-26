@@ -3,57 +3,186 @@
         "name": "Semester 04",
         "courses": [
             {
-                "code": "MC1010",
-                "course": "English Language Enhancement",
-                "credits": 3,
-                "pre": [
-                    {
-                        "code": "PR101",
-                        "name": "Prerequisite 1"
-                    },
-                    {
-                        "code": "PR102",
-                        "name": "Prerequisite 2"
-                    },
-                    {
-                        "code": "PR103",
-                        "name": "Prerequisite 3"
-                    }
-                ],
+                "code": "MC9010",
+                "course": "Management in Practice with Case studies",
+                "credits": 2,
                 "category": [
                     {
-                        "name": "Category 1"
-                    },
-                    {
-                        "name": "Category 2"
+                        "name": "Management"
                     }
                 ]
             },
             {
-                "code": "MC1020",
-                "course": "Mathematics",
-                "credits": 3
+                "code": "MC9020",
+                "course": "Business Law",
+                "credits": 2,
+                "category": [
+                    {
+                        "name": "Management"
+                    }
+                ]
+            },  
+            {
+                "code": "MC9030",
+                "course": "Marketing and Financial Management",
+                "credits": 2,
+                "category": [
+                    {
+                        "name": "Management"
+                    }
+                ]
             },
             {
-                "code": "ID1010",
-                "course": "Engineering Drawing",
-                "credits": 3
+                "code": "MC9040",
+                "course": "Industrial Safety and Resource Management",
+                "credits": 2,
+                "category": [
+                    {
+                        "name": "Management"
+                    }
+                ]
             },
             {
-                "code": "EC1011",
-                "course": "Computing",
-                "credits": 3
+                "code": "MC9050",
+                "course": "Technology and Economic Development",
+                "credits": 2,
+                "category": [
+                    {
+                        "name": "Engineering Economics"
+                    }
+                ]
             },
             {
-                "code": "EC1020",
-                "course": "Applied Electricity",
-                "credits": 3
+                "code": "MC9060",
+                "course": "Rural Economic Development and Technology",
+                "credits": 2,
+                "category": [
+                    {
+                        "name": "Engineering Economics"
+                    }
+                ]
             },
             {
-                "code": "ID1021",
-                "course": "Engineering Metrology",
-                "credits": 3
+                "code": "MC9070",
+                "course": "Engineer as an Entrepreneur",
+                "credits": 2,
+                "category": [
+                    {
+                        "name": "Engineering Economics"
+                    }
+                ]
+            },
+            {
+                "code": "MC9080",
+                "course": "Advanced English Communication",
+                "credits": 2,
+                "category": [
+                    {
+                        "name": "Communication"
+                    }
+                ]
+            },
+            {
+                "code": "MC9090",
+                "course": "Advanced Written Englis",
+                "credits": 2,
+                "category": [
+                    {
+                        "name": "Communication"
+                    }
+                ]
+            },
+            {
+                "code": "MC9100",
+                "course": "Society and the Enginee",
+                "credits": 2,
+                "category": [
+                    {
+                        "name": "Humanities, Social Sciences"
+                    },
+                    {
+                        "name": "Engineering Ethics"
+                    }
+                ]
+            }, 
+            {
+                "code": "MC9111",
+                "course": "Appreciating Music",
+                "credits": 2,
+                "category": [
+                    {
+                        "name": "Humanities, Social Sciences"
+                    }
+                ]
+            },
+            {
+                "code": "MC9120",
+                "course": "Cinema and Television ",
+                "credits": 2,
+                "category": [
+                    {
+                        "name": "Humanities, Social Sciences"
+                    }
+                ]
+            },
+            {
+                "code": "MC9130",
+                "course": "Graphic Design",
+                "credits": 2,
+                "category": [
+                    {
+                        "name": "Humanities, Social Sciences"
+                    }
+                ]
+            },
+            {
+                "code": "MC9150",
+                "course": "Sustainable Development",
+                "credits": 2,
+                "category": [
+                    {
+                        "name": "Engineering Ethics"
+                    }
+                ]
+            },
+            {
+                "code": "MC9160",
+                "course": "Active Citizenship ",
+                "credits": 2,
+                "category": [
+                    {
+                        "name": "Humanities, Social Sciences"
+                    }
+                ]
+            },
+            {
+                "code": "MC9170",
+                "course": "Community Work",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "MC9160",
+                        "name": "Active Citizenship"
+                    }
+                  
+                ],
+                "category": [
+                    {
+                        "name": "Humanities, Social Sciences"
+                    }
+                ]
+            },
+            {
+                "code": "MC9180",
+                "course": "Global Entrepreneurial Management",
+                "credits": 2,
+                "category": [
+                    {
+                        "name": "Management"
+                    }
+                ]
             }
+           
         ]
     }
 ]
