@@ -11,9 +11,11 @@ const Viewresults = () => {
     const semester = new URLSearchParams(location.search).get('sem');
 
     const [Course,setCourse] = useState([]);
+    const results = [];
 
     useEffect(() => {
         fetchCourses();
+        setResults();
     }, []);
 
     const fetchCourses = async () => {
@@ -25,11 +27,19 @@ const Viewresults = () => {
             console.log(error);
         }
     };
-    //create arry of result from Course.studentacademic.Results
-    // const result = [];
-    // Course.map((cours) => (
-    //     result.push(cours.studentacademic.Results)
-    // ))
+
+    
+
+
+
+    const setResults = () => {
+        Course.map((cours) => (
+            results.push(cours.studentacademic[0].Results)
+        ))
+    };
+    console.log(results);
+
+   
  
 
 
