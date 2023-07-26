@@ -1,42 +1,336 @@
 [
-        {
-            "name": "Semester 04",
-            "courses": [
-                {
-                    "code": "MC1010",
-                    "course": "English Language Enhancement",
-                    "credits": 3,
-                    "pre": [
-                        { "code": "PR101", "name": "Prerequisite 1" },
-                        { "code": "PR102", "name": "Prerequisite 2" },
-                        { "code": "PR103", "name": "Prerequisite 3" }
-                    ]
-                },
-                {
-                    "code": "MC1020",
-                    "course": "Mathematics",
-                    "credits": 3
-                },
-                {
-                    "code": "ID1010",
-                    "course": "Engineering Drawing",
-                    "credits": 3
-                },
-                {
-                    "code": "EC1011",
-                    "course": "Computing",
-                    "credits": 3
-                },
-                {
-                    "code": "EC1020",
-                    "course": "Applied Electricity",
-                    "credits": 3
-                },
-                {
-                    "code": "ID1021",
-                    "course": "Engineering Metrology",
-                    "credits": 3
-                }
-            ]
-        }
-    ]
+    {
+        "name": "Semester 04",
+        "courses": [
+            {
+                "code": "EC4010",
+                "course": "Digital Design",
+                "credits": 3
+            },
+            {
+                "code": "EC4040",
+                "course": "Signals and Systems",
+                "credits": 3
+            },
+            {
+                "code": "EC4050",
+                "course": "Electronic Circuits and Devices",
+                "credits": 3
+            },
+            {
+                "code": "EC4060",
+                "course": "Computer and Data Networks",
+                "credits": 3
+            },
+            {
+                "code": "EC4070",
+                "course": "Data Structures and Algorithms",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC2010",
+                        "name": "Computer Programming"
+                    }
+                ]
+            },
+            {
+                "code": "MC4010",
+                "course": "Discrete Mathematics",
+                "credits": 3
+            }
+        ]
+    },
+    {
+        "name": "Semester 05",
+        "courses": [
+            {
+                "code": "EC5010",
+                "course": "Digital Signal Processing",
+                "credits": 3
+            },
+            {
+                "code": "EC5020",
+                "course": "Analogue and Communication",
+                "credits": 3
+            },
+            {
+                "code": "EC5030",
+                "course": "Control Systems",
+                "credits": 3
+            },
+            {
+                "code": "EC5070",
+                "course": "Database Systems",
+                "credits": 3
+            },
+            {
+                "code": "EC5080",
+                "course": "Software Construction",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC2010",
+                        "name": "Computer Programming"
+                    }
+                ]
+            },
+            {
+                "code": "EC5110",
+                "course": "Computer Architecture and Organization",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC4010 ",
+                        "name": "Digital Design"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Semester 06",
+        "courses": [
+            {
+                "code": "EC6020",
+                "course": "Embedded Systems Design",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC2010",
+                        "name": "Computer Programming"
+                    }
+                ]
+            },
+            {
+                "code": "EC6060",
+                "course": "Software Engineering ",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC5070",
+                        "name": "Database Systems"
+                    },
+                    {
+                        "code": "EC5080",
+                        "name": "Software Construction"
+                    }
+                ]
+            },
+            {
+                "code": "EC6070",
+                "course": "Computer Engineering Research Project I",
+                "credits": 3
+            },
+            {
+                "code": "EC6110",
+                "course": "Operating Systems",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC2010",
+                        "name": "Computer Programming"
+                    }
+                ]
+            },
+            {
+                "code": "CE6080",
+                "course": "Robotics and Automation",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC6090",
+                        "name": "Structural Analysis"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Semester 07",
+        "courses": [
+            {
+                "code": "ID7010",
+                "course": "Project Management and Engineering Industry",
+                "credits": 3
+            },
+            {
+                "code": "EC7070",
+                "course": "Computer Engineering Research Project II",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC6070",
+                        "name": "Computer Engineering Research Project II"
+                    }
+                ]
+            },
+            {
+                "code": "EC7020",
+                "course": "Computer and Network Security",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC4060",
+                        "name": "Computer and Data Networks"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Semester 08",
+        "courses": [
+            {
+                "code": "EC8020",
+                "course": "Computer Engineering Design Proficiency",
+                "credits": 3
+            },
+            {
+                "code": "EC8070",
+                "course": "Computer Engineering Research Project III",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "EC7070",
+                        "name": "Computer Engineering Research Project II"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Technical Electives",
+        "courses": [
+            {
+                "code": "EC9040",
+                "course": "Advanced Digital Design and Synthesis",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "EC5110",
+                        "name": "Computer Architecture and Organization"
+                    },
+                    {
+                        "code": "EC4010",
+                        "name": "Digital Design"
+                    }
+                ]
+            },
+            {
+                "code": "EC9500",
+                "course": "Advanced Computer Architecture",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "EC5110",
+                        "name": "Computer Architecture and Organization"
+                    }
+                ]
+            },
+            {
+                "code": "EC9510",
+                "course": "High Performance Computing Systems",
+                "credits": 2
+            },
+            {
+                "code": "EC9520",
+                "course": "Advanced Computer and Data Networks",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "EC4060",
+                        "name": "Computer and Data Networks"
+                    }
+                ]
+            },
+            {
+                "code": "EC9530",
+                "course": "Compiler Construction",
+                "credits": 2
+            },
+            {
+                "code": "EC9540",
+                "course": "Human Computer Interaction",
+                "credits": 2
+            },
+            {
+                "code": "EC9550",
+                "course": "Intelligent Systems Design",
+                "credits": 2
+            },
+            {
+                "code": "EC9560",
+                "course": "Data Mining",
+                "credits": 2
+            },
+            {
+                "code": "EC9570",
+                "course": "Digital Image Processing",
+                "credits": 2
+            },
+            {
+                "code": "EC9580",
+                "course": "Computer Vision",
+                "credits": 2
+            },
+            {
+                "code": "EC9590",
+                "course": "Network Application Design",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "EC5080",
+                        "name": "Software Construction"
+                    }
+                ]
+            },
+            {
+                "code": "EC9600",
+                "course": "Applied Algorithms",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "EC4070",
+                        "name": "Data Structures and Algorithms"
+                    }
+                ]
+            },
+            {
+                "code": "EC9610",
+                "course": "Communication Network Design for Computer Engineering",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "EC3010",
+                        "name": "Electronics and Telecommunication"
+                    }, 
+                    {
+                        "code": "EC5020",
+                        "name": "Analogue and Communication"
+                    }
+                ]
+            },
+            {
+                "code": "EC9620",
+                "course": "Wireless and Mobile Communications for Computer Engineering",
+                "credits": 2
+            },
+            {
+                "code": "EC9630",
+                "course": "Machine Learning",
+                "credits": 2
+            },
+            {
+                "code": "EC9640",
+                "course": "Artificial Intelligence ",
+                "credits": 2
+            },
+            {
+                "code": "EC9650",
+                "course": "Bioinformatics",
+                "credits": 2
+            }
+            
+        ]
+    }
+]

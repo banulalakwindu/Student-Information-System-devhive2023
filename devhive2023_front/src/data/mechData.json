@@ -1,42 +1,276 @@
 [
-        {
-            "name": "Semester 04",
-            "courses": [
-                {
-                    "code": "MC1010",
-                    "course": "English Language Enhancement",
-                    "credits": 3,
-                    "pre": [
-                        { "code": "PR101", "name": "Prerequisite 1" },
-                        { "code": "PR102", "name": "Prerequisite 2" },
-                        { "code": "PR103", "name": "Prerequisite 3" }
-                    ]
-                },
-                {
-                    "code": "MC1020",
-                    "course": "Mathematics",
-                    "credits": 3
-                },
-                {
-                    "code": "ID1010",
-                    "course": "Engineering Drawing",
-                    "credits": 3
-                },
-                {
-                    "code": "EC1011",
-                    "course": "Computing",
-                    "credits": 3
-                },
-                {
-                    "code": "EC1020",
-                    "course": "Applied Electricity",
-                    "credits": 3
-                },
-                {
-                    "code": "ID1021",
-                    "course": "Engineering Metrology",
-                    "credits": 3
-                }
-            ]
-        }
-    ]
+    {
+        "name": "Semester 04",
+        "courses": [
+            {
+                "code": "MP4010",
+                "course": "Applied Thermodynamics",
+                "credits": 3
+            },
+            {
+                "code": "MP4020",
+                "course": "Machine Drawing",
+                "credits": 3
+            },
+            {
+                "code": "MP4030",
+                "course": "Materials Engineering and Manufacturing Technology",
+                "credits": 3
+            },
+            {
+                "code": "MP4050",
+                "course": "Solid Mechanics",
+                "credits": 3
+            },
+            {
+                "code": "MP4060",
+                "course": "Fluid Mechanics for Mechanical Engineers",
+                "credits": 3
+            }
+            
+        ]
+    },
+    {
+        "name": "Semester 05",
+        "courses": [
+            {
+                "code": "MP5010",
+                "course": "Thermal Power Generation",
+                "credits": 3
+            },
+            {
+                "code": "MP5020",
+                "course": "Dynamics of Mechanical Systems and Control",
+                "credits": 3
+            },
+            {
+                "code": "MP5030",
+                "course": "Fluid Machinery",
+                "credits": 3
+            },
+            {
+                "code": "MP5040",
+                "course": "Process Engineering ",
+                "credits": 3
+            },
+            {
+                "code": "MP5050",
+                "course": "Machine Design",
+                "credits": 3
+            },
+            {
+                "code": "MP5060",
+                "course": "Advanced Mechanics of Machines",
+                "credits": 3
+            }
+        ]
+    },
+    {
+        "name": "Semester 06",
+        "courses": [
+            {
+                "code": "MP6011",
+                "course": "Elements of Heat Transfer and Principles of Refrigeration",
+                "credits": 3
+            },
+            {
+                "code": "MP6020",
+                "course": "Advanced Machine Design",
+                "credits": 3
+            },
+            {
+                "code": "MP6030",
+                "course": "Mechatronics",
+                "credits": 3
+            },
+            {
+                "code": "MP6040",
+                "course": "Advanced Vibration Analysis",
+                "credits": 2
+            },
+        
+            {
+                "code": "MP6050",
+                "course": "Mechanical Engineering Research Project I",
+                "credits": 3
+            }
+        ]
+    },
+    {
+        "name": "Semester 07",
+        "courses": [
+            {
+                "code": "ID7010",
+                "course": "Project Management and Engineering Industry",
+                "credits": 3
+            },
+            {
+                "code": "MP7050",
+                "course": "Mechanical Engineering Research Project II",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "MP6050",
+                        "name": "Mechanical Engineering Research Project I"
+                    }
+                ]
+            },
+            {
+                "code": "MP7010",
+                "course": "Production Engineering ",
+                "credits": 3
+            }
+        
+        ]
+    },
+    {
+        "name": "Semester 08",
+        "courses": [
+            {
+                "code": "MP8010",
+                "course": "Advanced Tribology",
+                "credits": 3
+            },
+            {
+                "code": "MP8050",
+                "course": "Mechanical Engineering Research Project III",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "MP7050",
+                        "name": "Mechanical Engineering Research Project II"
+                    }
+                ]
+            }
+            
+        ]
+    },
+    {
+        "name": "Technical Electives",
+        "courses": [
+            {
+                "code": "MP9010",
+                "course": "Advanced Fluid Mechanics",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "MP4060",
+                        "name": "Fluid Mechanics for Mechanical Engineers"
+                    }
+                ]
+            },
+            {
+                "code": "MP9020",
+                "course": "Gas Dynamics",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "MP4010",
+                        "name": "Applied Thermodynamics"
+                    }, 
+                    {
+                        "code": "MP4060",
+                        "name": "Fluid Mechanics for Mechanical Engineers"
+                    }
+                ]
+            },
+            {
+                "code": "MP9030",
+                "course": "Robotics",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "MP3010",
+                        "name": "Kinematics and Dynamics"
+                    }, 
+                    {
+                        "code": "MP5020",
+                        "name": "Dynamics of Mechanical Systems and Control)"
+                    }
+                ]
+            },
+            {
+                "code": "MP9040",
+                "course": "Advanced Heat and Mass Transfer",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "MP6011",
+                        "name": "Elements of Heat Transfer and Principles of Refrigeration"
+                    }
+                ]
+            },
+            {
+                "code": "MP9050",
+                "course": "CAD/CAM",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "MP4040",
+                        "name": "Materials Engineering and Manufacturing Technology"
+                    }
+                ]
+            },
+            {
+                "code": "MP9060",
+                "course": "Introduction to Automotive Engineering",
+                "credits": 2
+            },
+            {
+                "code": "ID9010",
+                "course": "Advanced Mechanics of Materials",
+                "credits": 2,
+                "pre": [
+                    {
+                        "code": "CE3010",
+                        "name": "Mechanics of Materials"
+                    }
+                ]
+            },
+            {
+                "code": "MP9070",
+                "course": "Composite Materials",
+                "credits": 2
+            },
+            {
+                "code": "MP9080",
+                "course": "Production Planning and Control",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "MC3020",
+                        "name": "Probability and Statistics"
+                    }
+                ]
+            },
+            {
+                "code": "MP9090",
+                "course": "Industrial Engineering",
+                "credits": 3
+            },
+            {
+                "code": "MC9510",
+                "course": "Modelling in Operations Research",
+                "credits": 3,
+                "pre": [
+                    {
+                        "code": "MC1010",
+                        "name": "English Language Enhancement"
+                    },
+                    {
+                        "code": "MC2020",
+                        "name": "Linear Algebra"
+                    },
+                    {
+                        "code": "MC3010",
+                        "name": "Differential Equations and Numerical Method"
+                    },
+                    {
+                        "code": "MC3020",
+                        "name": "Probability and Statistics"
+                    }
+                ]
+            }
+        ]
+    }
+]
