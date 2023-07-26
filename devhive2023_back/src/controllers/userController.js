@@ -354,7 +354,7 @@ const register = async (req, res) => {
         raw: true,
       });
       const semesters = aligibleSemesters.map((semester) => semester.Offered_Semester);
-      return res.status(200).json({ semesters });
+      return res.status(200).json({ semesters ,currentSemester});
     } catch (error) {
       console.error('Error fetching semesters with results:', error);
       return res.status(500).json({ message: 'An error occurred. Please try again later.' });

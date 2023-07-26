@@ -76,6 +76,11 @@ a {
     border: #fff solid 1px;
 }
 
+.registered-color{
+    background-color: #d3ffde !important;
+    border: #009ab5 solid 1px !important;; 
+}
+
 .cursor {
     cursor: pointer;
 }

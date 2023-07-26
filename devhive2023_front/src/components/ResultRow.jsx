@@ -27,13 +27,13 @@ const ResultRow = ({ code, color }) => {
     // }
     return (
         <>
-        {results.map((result) => (
+        {results?.map((result) => (
           <tr key={result.id} className={`table-${color} table-test`}>
             <td>{code}</td>
-            <td>{result.Course_Name}</td>
-            <td>{result.Credit}</td>
-            <td>{result.studentacademic[0].Attempt}</td>
-            <td>{result.studentacademic[0].Results}</td>
+            <td>{result?.Course_Name}</td>
+            <td>{result?.Credit}</td>
+            <td>{result?.studentacademic[0].Attempt}</td>
+            <td>{result?.studentacademic[0].Results}</td>
           </tr>
         ))}
       </>
