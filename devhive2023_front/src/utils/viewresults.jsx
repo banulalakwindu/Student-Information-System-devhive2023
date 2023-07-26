@@ -5,6 +5,7 @@ import ResultRow from '../components/ResultRow';
 import Footer from '../components/Footer';
 import { useState, useEffect } from 'react';
 import { regCourseInSemester } from '../api/userApi';
+import calculateGPA from './gpaCalculate';
 
 const Viewresults = () => {
     const location = useLocation();
@@ -25,13 +26,31 @@ const Viewresults = () => {
             console.log(error);
         }
     };
+
+    /*
+    const setResults = () =>{
+        Course.map((cours) => (
+            results.push(cours.studentacademic[0].Results)
+        ))
+    };
+    console.log(results);
     //create arry of result from Course.studentacademic.Results
     // const result = [];
     // Course.map((cours) => (
     //     result.push(cours.studentacademic.Results)
     // ))
- 
-
+ */
+//SetResults 
+    const setResults = () => {
+        const results = Course.map((cours) => cours.studentacademic[0].Results);
+        console.log(results); // This will log the created array of Results
+        const gpaResult = calculateGPA(results);
+        console.log('GPA:',gpaResult);
+        return gpaResult;
+      };
+      
+      const myResults = setResults(); // Call the function and store the results in a variable
+      
 
 
 
@@ -93,7 +112,7 @@ const Viewresults = () => {
                         </div>
                         <div className='d-flex'>
                             <h6 style={{ width: "140px" }} className='m-0 mt-1'>GPA(Current) :</h6>
-                            <input style={{ maxWidth: "50px" }} type="text" className="form-control form-control-sm" value="2.96" readonly />
+                            <input style={{ maxWidth: "50px" }} type="text" className="form-control form-control-sm" value={myResults}  readonly />
                         </div>
                         <div></div>
                     </div>
