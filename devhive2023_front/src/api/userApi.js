@@ -41,14 +41,14 @@ export const getSemestersWithResults = async () => {
     }
   };
 
-// export const regCourseInSemester = async (semester) => {
-//     try {
-//         const response = await api.get(`/results/viwe/${semester}`);
-//         return response.data;
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }; 
+export const regCourseInSemester = async (semester) => {
+    try {
+        const response = await api.get(`/user/results/viwe/${semester}`);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+}; 
 
 export const logout = async () => {
     try {

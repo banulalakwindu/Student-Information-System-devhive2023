@@ -17,6 +17,7 @@ router.get('/results/viwe/:semester',cookieJwtAuth.cookieJwtAuth, user.regCourse
 router.post('/logout',cookieJwtAuth.cookieJwtAuth, user.logout);
 router.post('/updatePassword',cookieJwtAuth.cookieJwtAuth, user.updatePassword);
 router.get('/',cookieJwtAuth.cookieJwtAuth, user.getUser);
+// router.get('/gpa',cookieJwtAuth.cookieJwtAuth, user.getGPA);
 
 module.exports = router;
 

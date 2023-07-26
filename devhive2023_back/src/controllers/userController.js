@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { Academicstaff,Advisorhistory,Course,Coursehistoryoffered,Courseregistration,Department,Departmentcourse,Medicalsubmission,Prerequestcoursedetails,Semesterdetails,Studentacademic,Studentregistration,Studentunivasitydetails } = require('../models');
 const e = require('express');
+const {calculateGPA} = require('./gpa');
 
 //login
 const login = async (req, res) => {
@@ -124,9 +125,12 @@ const register = async (req, res) => {
               Course_Code: code,
             },
           });
+
+          const grades = results.map((result) => result.studentacademic[0].Results);
+
           res.status(200).json({
-            message: email,
-            results,
+            
+            results,grades
           });
         
       }catch(error){
@@ -147,32 +151,21 @@ const register = async (req, res) => {
       const decoded = jwt.verify(token, secretKey);
       const email = decoded.email;
       const studentRegistration = await Studentunivasitydetails.findOne({
-        attributes: ['Reg_Number'],
         where: { University_Email: email },
       });
   
       if (!studentRegistration) {
         return res.status(404).json({ message: 'Student not found' });
-      }
+      }    
+
+      const currentSemester = studentRegistration.Semester_Current; 
+      console.log(currentSemester);
+
+
   
-      const studentRegNumber = studentRegistration.Reg_Number;
+      //const semesters = semestersWithResults.map((semester) => semester.Offered_Semester);
   
-      // Fetch semesters with results for the given student registration number
-      const semestersWithResults = await Coursehistoryoffered.findAll({
-        attributes: ['Offered_Semester'],
-        include: [
-          {
-            model: Studentacademic,
-            as: 'studentacademic',
-            attributes: ['Attempt', 'Results'],
-            where: { Reg_Number: studentRegNumber },
-          },
-        ],
-      });
-  
-      const semesters = semestersWithResults.map((semester) => semester.Offered_Semester);
-  
-      return res.status(200).json({ semestersWithResults });
+      return res.status(200).json({ currentSemester });
     } catch (error) {
       console.error('Error fetching semesters with results:', error);
       return res.status(500).json({ message: 'An error occurred. Please try again later.' });
@@ -199,18 +192,32 @@ const register = async (req, res) => {
       const studentRegNumber = studentRegistration.Reg_Number;
 
       //fetch courses for the given semester
-      const courses = await Coursehistoryoffered.findAll({
+      const courseCodes = await Coursehistoryoffered.findAll({
         attributes: ['Course_Code', 'Course_Name', 'Credit',"Core_Technical"],
         include: [{
           model: Studentacademic,
           as: 'studentacademic',
-          attributes: [],
+          attributes: ['Attempt', 'Results'],
           where: { Reg_Number: studentRegNumber },
         }],
         where: { Offered_Semester: semester },
       });
+      //add Course_Code and Core_Technical in to json
+      // const courseCodes = courses.map((course) => {
+      //   return {
+      //     Course_Code: course.Course_Code,
+      //     Course_Name: course.Course_Name,
+      //     Credit: course.Credit,
+      //     Core_Technical: course.Core_Technical,
+      //     Attempt: course.studentacademic.Attempt,
+      //     Results: course.studentacademic.Results,
 
-      return res.status(200).json({ courses });
+      //   };
+      // });
+      
+
+
+      return res.status(200).json({ courseCodes });
     } catch (error) {
       console.error('Error fetching courses for the given semester:', error);
       return res.status(500).json({ message: 'An error occurred. Please try again later.' });
