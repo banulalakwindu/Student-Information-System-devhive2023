@@ -63,7 +63,8 @@ const Viewresults = () => {
             totalCredits+=credit[i];
         }
         console.log('Credit:',totalCredits);
-        return totalCredits;
+        return ((totalCredits)>0?totalCredits:0.0);
+        return ((gpaResult)>0?gpaResult:0.0);
     }
     const creditTotal = setTotalCredit();
 
