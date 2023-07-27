@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar'
 import RegRow from '../components/RegRow';
 import Footer from '../components/Footer';
-import {courseSem} from '../api/userApi';
+import {courseSem,reAttempt} from '../api/userApi';
 import { useState,useEffect } from 'react';
 
 const Registration = () => {
@@ -28,6 +28,8 @@ const Registration = () => {
       };
 
     const [courses, setCourses] = useState([]);
+    const [reAttempts, setReAttempts] = useState([]);
+    const [checkedCount, setCheckedCount] = useState(0);
 
     useEffect(() => {
         const actualSemester = getActualSemester(semester);
@@ -35,7 +37,21 @@ const Registration = () => {
             console.log(res);
             setCourses(res.courses);
         });
+        reAttempt().then((res) => {
+            console.log(res);
+            setReAttempts(res.getReAttemptcourses
+                );
+        });
     }, []);
+
+    const handleCheckboxChange = (isChecked) => {
+        // Update the count based on the checked status
+        isChecked
+          ? setCheckedCount((prevCount) => prevCount + 3)
+          : setCheckedCount((prevCount) => prevCount - 3);
+      };
+
+      console.log("Checked Count ", checkedCount);
 
     return (
         <div>
@@ -73,8 +89,13 @@ const Registration = () => {
                             </thead>
                             <tbody>
                                 {courses.map((courseCode, index) => (
-                                <RegRow key={index} code={courseCode} />
-                                ))}
+                                <RegRow key={index} code={courseCode} sem ={getActualSemester(semester)} onChange={handleCheckboxChange}/>
+                                ))}{
+                                    reAttempts.map((courseCode) => (
+                                        <RegRow key={courseCode} code={courseCode.Course_Code} sem ={7} onChange={handleCheckboxChange}/>
+                                        ))
+
+                                }
                                 {/* <RegRow code="EC6060" />
                                 <RegRow code="EC6060" />
                                 <RegRow code="EC6060" />

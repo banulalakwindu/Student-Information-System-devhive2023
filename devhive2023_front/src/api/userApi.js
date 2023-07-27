@@ -104,3 +104,12 @@ export const preRequest = async (code) => {
         console.log(error);
     }
 }
+
+export const reAttempt = async () => {
+    try {
+        const response = await api.get('/user/reattempt');
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+}

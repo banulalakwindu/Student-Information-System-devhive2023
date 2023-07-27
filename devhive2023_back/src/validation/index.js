@@ -9,5 +9,6 @@ module.exports = (validation)=>async (req,res,next)=>{
     }
     const resErr = [];
     errors.array().map((err) => resErr.push(err.msg));
+    
     return res.status(400).json({message:"validation failed",errors:resErr});
 };

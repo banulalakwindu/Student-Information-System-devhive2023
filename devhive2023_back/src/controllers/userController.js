@@ -395,8 +395,30 @@ const register = async (req, res) => {
         },
         raw: true,
       });
-
       const courses = aligiblecours.map((course) => course.Course_Code);
+
+
+      // const prereqcours = [{}];
+      // const courses = aligiblecours.map((course) => {
+      //   const courseCode = course.Course_Code;
+      //   const preReq = Prerequestcoursedetails.findAll({
+      //     attributes: [[Sequelize.fn('DISTINCT', Sequelize.col('Course_Code')), 'Course_Code'],'Prerequisite_Course_Code'],
+      //     where: {
+      //       Course_Code: courseCode,
+      //     },
+      // });
+      // prereqcours.push({
+      //   Course_Code: courseCode,
+      //   preReq,
+      // });
+      // return prereqcours;
+      // });
+
+
+
+
+      console.log(1394578395);
+      console.log(courses);
       return res.status(200).json({ courses });
     } catch (error) {
       console.error('Error fetching semesters with results:', error);
@@ -423,7 +445,7 @@ const register = async (req, res) => {
       }
 
       const course = await Course.findAll({
-        attributes: ['Course_Code', 'Course_Name', 'Credit', 'Core_Technical'],
+        attributes: ['Course_Code', 'Course_Name', 'Credit', 'Core_Technical', 'Offered_Semester'],
         include: [{
           model: Academicstaff,
           attributes: ['Full_Name'],
@@ -465,8 +487,125 @@ const register = async (req, res) => {
           Course_Code: code,
         },
       });
+      const Preresult = [];
+      await Promise.all(preReq.map(async (pre) => {
+        // get results for the preReq
+        const results = await Coursehistoryoffered.findOne({
+          attributes: ['Course_Code', 'Course_Name', 'Credit'],
+          include: [{
+            model: Studentacademic,
+            as: 'studentacademic',
+            attributes: ['Attempt', 'Results'],
+            where: {
+              Reg_Number: student.Reg_Number,
+            },
+          }],
+          where: {
+            Course_Code: pre.Prerequisite_Course_Code,
+          },
+        });
+  
+        if (results) {
+          let flag = 0;
+          const { Results } = results.studentacademic[0];
+          if (['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C'].includes(Results)) {
+            flag = 1;
+          }
+      
+          Preresult.push({
+            Course_Code: pre.Prerequisite_Course_Code,
+            Course_Name: results.Course_Name,
+            Credit: results.Credit,
+            Attempt: results.studentacademic[0].Attempt,
+            Results: Results,
+            flag: flag,
+          });
+        }
+      }));
+      console.log(Preresult);
 
-      return res.status(200).json({ preReq });
+      return res.status(200).json({ preReq ,Preresult});
+    } catch (error) {
+      console.error('Error fetching semesters with results:', error);
+      return res.status(500).json({ message: 'An error occurred. Please try again later.' });
+    }
+  };
+
+
+  const getReAttempt = async (req, res) => {
+    const token = req.headers.authorization?.split(' ')[1];
+
+    if (!token) {
+      return res.status(401).json({ message: 'Authorization token not provided.' });
+    }
+    const secretKey = 'devhive';
+    try {
+      const decoded = jwt.verify(token, secretKey);
+      const email = decoded.email;
+      const student = await Studentunivasitydetails.findOne({
+        where: { University_Email: email },
+      });
+      if (!student) {
+        return res.status(400).json({ message: 'Student not found for the given email.' });
+      }
+
+      const currentSemester = student.Semester_Current;
+      const aligibleSemesters = await Course.findAll({
+        attributes: [[Sequelize.fn('DISTINCT', Sequelize.col('Offered_Semester')), 'Offered_Semester']],
+        include: [{
+          model: Departmentcourse,
+          where: {
+            Department_ID: student.Department_ID,
+          },
+          attributes: [],
+          // as: 'course', // Use the correct alias "department" here.
+        }],
+        where: {
+          Registration_Close_Date: {
+            [Op.gt]: new Date(),
+          },
+          Offered_Semester: {
+            [Op.lte]: currentSemester,
+          },
+        },
+        raw: true,
+      });
+      const getReAttemptcourses = []; 
+      await Promise.all(aligibleSemesters.map(async (semester) => {
+        const courses = await Coursehistoryoffered.findAll({
+          attributes: ['Course_Code', 'Course_Name', 'Credit'],
+          include: [{
+            model: Studentacademic,
+            as: 'studentacademic',
+            attributes: ['Attempt', 'Results'],
+            where: {
+              Reg_Number: student.Reg_Number,
+            },
+          }],
+          where: {
+            Offered_Semester: semester.Offered_Semester,
+          },
+        });
+        if (courses) {
+          courses.map((course) => {
+            const { Attempt, Results } = course.studentacademic[0];
+            if (['E', 'C-', 'D', 'D+'].includes(Results)) {
+              getReAttemptcourses.push({
+                Course_Code: course.Course_Code,
+                Course_Name: course.Course_Name,
+                Credit: course.Credit,
+                Attempt: Attempt,
+                Results: Results,
+              });
+            }
+          });
+        }
+    }));
+
+
+
+      const semesters = aligibleSemesters.map((semester) => semester.Offered_Semester);
+      return res.status(200).json({getReAttemptcourses});
     } catch (error) {
       console.error('Error fetching semesters with results:', error);
       return res.status(500).json({ message: 'An error occurred. Please try again later.' });
@@ -499,5 +638,6 @@ const register = async (req, res) => {
     getRegOpenSemesters,
     aligibleCourses,
     courseDetails,
-    preRequest
+    preRequest,
+    getReAttempt,
   };

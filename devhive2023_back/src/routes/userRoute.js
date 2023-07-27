@@ -22,5 +22,6 @@ router.get('/register/semester',cookieJwtAuth.cookieJwtAuth, user.getRegOpenSeme
 router.get('/register/semester/:semester',cookieJwtAuth.cookieJwtAuth, user.aligibleCourses);
 router.get('/register/course/:courseCode',cookieJwtAuth.cookieJwtAuth, user.courseDetails);
 router.post('/register/preReqCourse/:code',cookieJwtAuth.cookieJwtAuth, user.preRequest);
+router.get('/reattempt',cookieJwtAuth.cookieJwtAuth, user.getReAttempt);
 module.exports = router;
 

@@ -16,7 +16,7 @@ const Results = () => {
     const fetchSemestersWithResults = async () => {
       try {
         const response = await getSemestersWithResults();
-        console.log(response.currentSemester);
+        console.log(response);
         setCurrentSemester(response.currentSemester);
       } catch (error) {
         console.log(error);

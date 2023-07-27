@@ -1,44 +1,98 @@
 import React from 'react'
 import {courseDetails,preRequest} from '../api/userApi';
 import { useState,useEffect } from 'react';
+import {courseSem} from '../api/userApi';
 
-const RegRow = ({ code }) => {
+const RegRow = ({ code,sem }) => {
     const [course, setCourse] = useState([]);
     const [preReq, setPreReq] = useState([]);
+    const [preReqCourseCodes, setPreReqCourseCodes] = useState([]);
+    const [courses, setCourses] = useState([]);
+    const hasPrerequisites = preReq && preReq.length > 0;
+    const modalId = `MyModal${code}`;
+    const [flag, setFlag] = useState(1);
+    const [isChecked, setIsChecked] = useState(false);
 
     useEffect(() => {
         courseDetails(code).then((res) => {
-            console.log(res.course);
+            // console.log(res);
             setCourse(res.course);
         });
         preRequest(code).then((res) => {
             console.log(res);
-            // setPreReq(res.preReq);
+            setPreReq(res.Preresult);
+            
         });
+       
+   
 
     }, []);
 
-    if(!course){
+    useEffect(() => {
+        // Check if any prerequisite has flag === 1
+        const hasFlag = preReq.some((cours) => cours.flag === 0);
+        setFlag(hasFlag ? 0 : 1);
+      }, [preReq]);   
+
+    const colorClass = () => {
+        const semValue = parseInt(sem);
+        const core = course[0]?.Core_Technical;
+        if(flag === 0){
+            return "table-danger";
+        }
+        if (semValue === course[0]?.Offered_Semester && core === "core") {
+          return "table-test";
+        } else if (semValue === course[0]?.Offered_Semester && core !== "core") {
+          return "table-info";
+        } else {
+          return "table-warning";
+        }
+      };
+
+      const handleCheckboxChange = (event) => {
+        const newCheckedValue = event.target.checked;
+        setIsChecked(newCheckedValue);
+        onChange(newCheckedValue);
+      };
+
+    
+    console.log("Check ", isChecked);        
+ 
+
+
+    if(!course&& !preReq){
         return <div>Loading...</div>
     }
     return (
-        <tr className='table-test'>
+        <tr className={`table-test ${colorClass()}`}>
             <td>{code}</td>
             <td>{course[0]?.Course_Name}</td>
             <td>{course[0]?.Credit}</td>
             <td>{course[0]?.academicstaff?.Full_Name}</td>
             <td><input type="text" className="form-control form-control-sm" /></td>
-            <td><a data-bs-toggle="modal" data-bs-target="#exampleModal" className='cursor'>
-                View
-            </a></td>
-            <td><input class="form-check-input mt-2" type="checkbox" value="" id="flexCheckDefault" /></td>
-            <td><div className="bg-green rounded-circle mx-auto mt-2" style={{ width: '10px', height: '10px' }}></div></td>
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered">
-                    <div class="modal-content">
+            <td >{hasPrerequisites ? (
+                    <a
+                        data-bs-toggle='modal'
+                        data-bs-target={`#${modalId}`}
+                        className={`${modalId} cursor`}
+                    >
+                        View
+                    </a>
+                ) : "-"}</td>
+            <td > <input class="form-check-input mt-2" type="checkbox" disabled={flag === 0}  id="flexCheckDefault" checked={isChecked} onChange={handleCheckboxChange}/></td>
+            <td><div className="bg-disabled rounded-circle mx-auto mt-2" style={{ width: '10px', height: '10px' }}></div></td>
+             {hasPrerequisites && (
+                <td
+                    className='modal fade'
+                    id={modalId}
+                    tabIndex='-1'
+                    aria-labelledby='exampleModalLabel'
+                    aria-hidden='true'
+                >   
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5 text-green" id="exampleModalLabel">Pre-Requests for EC6060-Software Engineering</h1>
+                            <h1 class="modal-title fs-5 text-green" id="exampleModalLabel">Pre-Requests for {code}-{course[0]?.Course_Name}</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -51,25 +105,35 @@ const RegRow = ({ code }) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th>EC4040</th>
+                                {preReq?.map((cours) => (
+                                    <tr className={cours.flag === 1?'table-test':'table-danger'}>                                       
+                                        <th>{cours.Course_Code}</th>
+                                        <td>{cours.Course_Name}</td>
+                                        <td>{cours.Results}</td>
+                                        
+                                        
+                                        {/* <th>EC4040</th>
                                         <td>Data Structure and Algorithoms</td>
-                                        <td>B+</td>
+                                        <td>B+</td> */}
                                     </tr>
-                                    <tr className='table-danger'>
+                                ))}
+                                    {/* <tr className='table-danger'>
+
                                         <th>EC4040</th>
                                         <td>Data Structure and Algorithoms</td>
                                         <td>C-</td>
-                                    </tr>
+                                    </tr> */}
                                 </tbody>
                             </table>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
                         </div>
-                    </div>
-                </div>
-            </div>
+                         </div>
+                        </div>
+                </td>
+
+            )}
         </tr>
 
 
