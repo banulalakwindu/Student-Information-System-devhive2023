@@ -3,7 +3,7 @@ import {courseDetails,preRequest} from '../api/userApi';
 import { useState,useEffect } from 'react';
 import {courseSem} from '../api/userApi';
 
-const RegRow = ({ code,sem }) => {
+const RegRow = ({ code,sem,onChange }) => {
     const [course, setCourse] = useState([]);
     const [preReq, setPreReq] = useState([]);
     const [preReqCourseCodes, setPreReqCourseCodes] = useState([]);
@@ -12,6 +12,7 @@ const RegRow = ({ code,sem }) => {
     const modalId = `MyModal${code}`;
     const [flag, setFlag] = useState(1);
     const [isChecked, setIsChecked] = useState(false);
+    const [selectedCourses, setSelectedCourses] = useState([]);
 
     useEffect(() => {
         courseDetails(code).then((res) => {
@@ -53,10 +54,32 @@ const RegRow = ({ code,sem }) => {
         const newCheckedValue = event.target.checked;
         setIsChecked(newCheckedValue);
         onChange(newCheckedValue);
+    
+        // If the checkbox is checked, add the course data to selectedCourses state
+        if (newCheckedValue) {
+          setSelectedCourses((prevSelectedCourses) => [
+            ...prevSelectedCourses,
+            {
+              Course_Code: code,
+              Course_Name: course[0]?.Course_Name,
+              Credit: course[0]?.Credit,
+              academicstaff: course[0]?.academicstaff?.Full_Name,
+              // Add other properties as needed from the 'course' state
+            },
+          ]);
+        } else {
+          // If the checkbox is unchecked, remove the course data from selectedCourses state
+          setSelectedCourses((prevSelectedCourses) =>
+            prevSelectedCourses.filter((courseData) => courseData.Course_Code !== code)
+          );
+        }
       };
+    
+
+    console.log("Selected Courses ", selectedCourses);
 
     
-    console.log("Check ", isChecked);        
+    // console.log("Check ", isChecked);        
  
 
 
