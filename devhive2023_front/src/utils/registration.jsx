@@ -52,11 +52,11 @@ const Registration = () => {
           : setCheckedCount((prevCount) => prevCount - 3);
       
         //Update coursRegistration based on the checked status
-        isChecked
-          ? setCoursRegistration((prevCoursReg) => [...prevCoursReg, courseData])
-          : setCoursRegistration((prevCoursReg) =>
-              prevCoursReg.filter((course) => course.Course_Code !== courseData.Course_Code)
-            );
+        // isChecked
+        //   ? setCoursRegistration((prevCoursReg) => [...prevCoursReg, courseData])
+        //   : setCoursRegistration((prevCoursReg) =>
+        //       prevCoursReg.filter((course) => course.Course_Code !== courseData.Course_Code)
+        //     );
       };
 
       console.log("Checked Count ", checkedCount);
