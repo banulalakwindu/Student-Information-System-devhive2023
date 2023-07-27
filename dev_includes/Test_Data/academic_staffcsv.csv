@@ -1,0 +1,8 @@
+﻿id,Staff_ID,Email,Password,Department_ID,Full_name,createdAt,updatedAt
+,COM001,kaneshwaran@eng.jfn.ac.lk,KANESHWARAN#1,1,Anathraj kaneshwaran,,
+,COM002,pratheeba@eng.jfn.ac.lk,PRATHEEBA#1,1,Pratheeba Jeyananthan,,
+,ELEC001,atpu@eng.jfn.ac.lk,ATHPTHARAJAH#1,3,Atputharajah Arulampalam,,
+,ELEC002,ahilan@eng.jfn.ac.lk,AHILAN#1,3,Ahilan Kanagasundaram,,
+,COM003,jananie@eng.jfn.ac.lk,JANANIE#1,1,Jananie Jeychandran,,
+,CIV001,sathiparan@eng.jfn.ac.lk,SATHIPARAN#1,2,Sathiparan ,,
+,CIV002,somarathna@eng.jfn.ac.lk,CHANDIMA#1,2,Chandima Somarathna,,

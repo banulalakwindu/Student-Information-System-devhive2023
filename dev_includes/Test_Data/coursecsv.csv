@@ -1,0 +1,12 @@
+﻿id,Course_code,Course_Name,Credit,Core_Technical,Coordinator_ID,Offered_Semester,Offered_Department_ID,Academic_Year_Current,Registratipon_Open_Date,    Registration_Close_Date,Semester_Start_Date,Semester_Close_Date,Open_Close,created_at,updated_at
+,EC6020,Embedded Systems Design,3,core,COM001,6,COM,2023,20/07/2023,30/07/2023,18/07/2023,30/09/2023,1,,
+,EC6110,Operating Systems,3,core,COM001,6,COM,2023,20/07/2023,30/07/2024,18/07/2023,30/09/2023,1,,
+,EC6060,Software Engineering,3,core,COM001,6,COM,2023,20/07/2023,30/07/2025,18/07/2023,30/09/2023,1,,
+,EC6070,Computer Engineering Research Project I,3,core,COM001,6,COM,2023,20/07/2023,30/07/2026,18/07/2023,30/09/2023,1,,
+,EC6090,Robotics and Automation,3,core,COM001,6,COM,2023,20/07/2023,30/07/2027,18/07/2023,30/09/2023,1,,
+,EC9630,Machine Learning,2,core,COM001,6,COM,2023,20/07/2023,30/07/2028,18/07/2023,30/09/2023,1,,
+,EC5010,Digital Signal Processing,3,core,COM001,5,COM,2023,20/07/2023,30/07/2028,18/07/2023,30/09/2023,1,,
+,EC5020,Analogue and Communication,3,core,COM001,5,COM,2023,20/07/2023,30/07/2028,18/07/2023,30/09/2023,1,,
+,EC5030,Control Systems,3,core,COM001,5,COM,2023,20/07/2023,30/07/2028,18/07/2023,30/09/2023,1,,
+,EC5070,Database Systems,3,core,COM001,5,COM,2023,20/07/2023,30/07/2028,18/07/2023,30/09/2023,1,,
+,EC5080,Software construction,3,core,COM001,5,COM,2023,20/07/2023,30/07/2028,18/07/2023,30/09/2023,1,,
