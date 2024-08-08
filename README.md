@@ -43,3 +43,10 @@ Welcome to DEVHIVE's Student Information System web app! Our web app aims to cha
 ## Installation Guide
 
 To install and run the web app locally, please follow the instructions in the [Installation Guide](./installation-guide.md).
+
+## UI Designs
+
+![Login](./dev_includes/Mockups/Login.jpeg)
+![Login](./dev_includes/Mockups/Profile.jpg)
+![Login](./dev_includes/Mockups/Home.jpg)
+![Login](./dev_includes/Mockups/Courses.jpg)
